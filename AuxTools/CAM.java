@@ -8,8 +8,6 @@ package AuxTools;
 
 import java.util.Arrays;
 
-import Main.SimulatorParam;
-
 /**
  * This file is an implementation of a Map from scratch.
  * It is named as CAM - content addressable memory, or associative memory.

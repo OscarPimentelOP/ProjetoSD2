@@ -3,12 +3,12 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package SharedRegions;
+package serverSide;
 
 import AuxTools.SharedException;
-import Entities.Passenger;
-import Entities.PassengerState;
-import Main.SimulatorParam;
+import clientSide.Passenger;
+import clientSide.PassengerState;
+import AuxTools.SimulatorParam;
 
 /**
  * This class implements the Departure Terminal Entrance shared region.

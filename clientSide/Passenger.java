@@ -3,17 +3,17 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package Entities;
+package clientSide;
 
 import AuxTools.SharedException;
-import Main.SimulatorParam;
-import SharedRegions.ArrivalLounge;
-import SharedRegions.ArrivalTerminalExit;
-import SharedRegions.ArrivalTerminalTransferQuay;
-import SharedRegions.DepartureTerminalTransferQuay;
-import SharedRegions.DepartureTerminalEntrance;
-import SharedRegions.BaggageReclaimOffice;
-import SharedRegions.BaggageCollectionPoint;
+import AuxTools.SimulatorParam;
+import serverSide.ArrivalLounge;
+import serverSide.ArrivalTerminalExit;
+import serverSide.ArrivalTerminalTransferQuay;
+import serverSide.DepartureTerminalTransferQuay;
+import serverSide.DepartureTerminalEntrance;
+import serverSide.BaggageReclaimOffice;
+import serverSide.BaggageCollectionPoint;
 
 /**
  * This file implements the Passenger entity/thread.

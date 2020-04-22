@@ -3,17 +3,17 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package SharedRegions;
+package serverSide;
 
 import AuxTools.MemStack;
 import AuxTools.SharedException;
 import AuxTools.Bag;
 import AuxTools.MemException;
-import Entities.Passenger;
-import Entities.PassengerState;
-import Entities.Porter;
-import Entities.PorterState;
-import Main.SimulatorParam;
+import clientSide.Passenger;
+import clientSide.PassengerState;
+import clientSide.Porter;
+import clientSide.PorterState;
+import AuxTools.SimulatorParam;
 
 /**
  * This class implements the Arrival Lounge shared region.

@@ -3,15 +3,15 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package SharedRegions;
+package serverSide;
 
 import AuxTools.MemStack;
 import AuxTools.SharedException;
 import AuxTools.Bag;
 import AuxTools.MemException;
-import Entities.PorterState;
-import Main.SimulatorParam;
-import Entities.Porter;
+import clientSide.PorterState;
+import AuxTools.SimulatorParam;
+import clientSide.Porter;
 
 /**
  * This class implements the Temporary Storage Area shared region.

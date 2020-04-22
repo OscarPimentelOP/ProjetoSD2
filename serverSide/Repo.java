@@ -3,18 +3,18 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package SharedRegions;
+package serverSide;
 
 import java.io.File;
 
-import Entities.PorterState;
-import Entities.PassengerState;
-import Entities.BusDriverState;
+import clientSide.PorterState;
+import clientSide.PassengerState;
+import clientSide.BusDriverState;
 
 import java.io.PrintWriter;
 import java.io.FileNotFoundException;
 
-import Main.SimulatorParam;
+import AuxTools.SimulatorParam;
 
 /**
  * This class implements the General Repository of Information shared region.

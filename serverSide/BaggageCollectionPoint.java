@@ -3,15 +3,15 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package SharedRegions;
+package serverSide;
 
 import AuxTools.CAM;
 import AuxTools.SharedException;
 import AuxTools.Bag;
-import Entities.Porter;
-import Entities.PorterState;
-import Entities.Passenger;
-import Entities.PassengerState;
+import clientSide.Porter;
+import clientSide.PorterState;
+import clientSide.Passenger;
+import clientSide.PassengerState;
 
 /**
  * This class implements the Baggage Collection Point shared region.

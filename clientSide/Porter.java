@@ -3,13 +3,13 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package Entities;
+package clientSide;
 
 import AuxTools.Bag;
 import AuxTools.SharedException;
-import SharedRegions.ArrivalLounge;
-import SharedRegions.TemporaryStorageArea;
-import SharedRegions.BaggageCollectionPoint;
+import serverSide.ArrivalLounge;
+import serverSide.TemporaryStorageArea;
+import serverSide.BaggageCollectionPoint;
 
 /**
  * This file implements the Porter entity/thread.

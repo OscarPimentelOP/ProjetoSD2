@@ -3,7 +3,7 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package Entities;
+package clientSide;
 
 public enum PorterState {
     /**

@@ -2,11 +2,11 @@
  * @author Óscar Pimentel, nºmec 80247
  * @author Rafael Maio, nºmec 84909
  */
-package Entities;
+package clientSide;
 
-import SharedRegions.ArrivalTerminalTransferQuay;
-import SharedRegions.DepartureTerminalTransferQuay;
-import SharedRegions.Repo;
+import serverSide.ArrivalTerminalTransferQuay;
+import serverSide.DepartureTerminalTransferQuay;
+import serverSide.Repo;
 
 /**
  * This file implements the BusDriver entity/thread.

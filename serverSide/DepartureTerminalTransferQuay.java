@@ -3,12 +3,12 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package SharedRegions;
+package serverSide;
 
-import Entities.BusDriver;
-import Entities.BusDriverState;
-import Entities.Passenger;
-import Entities.PassengerState;
+import clientSide.BusDriver;
+import clientSide.BusDriverState;
+import clientSide.Passenger;
+import clientSide.PassengerState;
 
 /**
  * This class implements the Departure Terminal Transfer Quay shared region.

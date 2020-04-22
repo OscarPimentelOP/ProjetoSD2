@@ -3,13 +3,13 @@
  * @author Rafael Maio, nºmec 84909
  */
 
-package SharedRegions;
+package serverSide;
 
-import Entities.Passenger;
-import Entities.PassengerState;
-import Main.SimulatorParam;
-import Entities.BusDriver;
-import Entities.BusDriverState;
+import clientSide.Passenger;
+import clientSide.PassengerState;
+import AuxTools.SimulatorParam;
+import clientSide.BusDriver;
+import clientSide.BusDriverState;
 import AuxTools.MemFIFO;
 import AuxTools.SharedException;
 import AuxTools.MemException;
