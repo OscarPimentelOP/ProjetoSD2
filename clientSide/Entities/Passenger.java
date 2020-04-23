@@ -5,8 +5,11 @@
 
 package clientSide.Entities;
 
+import AuxTools.Message;
+import AuxTools.MessageType;
 import AuxTools.SharedException;
 import AuxTools.SimulatorParam;
+import clientSide.ClientCom;
 import serverSide.sharedRegions.ArrivalLounge;
 import serverSide.sharedRegions.ArrivalTerminalExit;
 import serverSide.sharedRegions.ArrivalTerminalTransferQuay;
@@ -83,6 +86,21 @@ public class Passenger extends Thread {
      * Baggage Collection Point
      */
     private final BaggageCollectionPoint bcp;
+    
+    
+    /**
+	 *  Nome do sistema computacional onde está localizado o servidor
+	 *    @serialField serverHostName
+	 */
+	
+	 private String serverHostName = "localhost";
+	
+	/**
+	 *  Número do port de escuta do servidor
+	 *    @serialField serverPortNumb
+	 */
+	
+	 private int serverPortNumb = 4000;
 
 
     /**
@@ -210,5 +228,41 @@ public class Passenger extends Thread {
             }
 
         }
+    }
+    	
+    	public char whatShouldIDo(int flight) {
+    		char whatshouldido = ' ';
+    		ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+    		Message inMessage, outMessage;
+    		
+    		//Waits for connection
+    		while (!con.open ())                                    
+    		{ try
+    	        { sleep ((long) (10));
+    	        }
+    	        catch (InterruptedException e) {}
+    	    }
+    		
+    		//What should i do message with the fligh number
+    		outMessage = new Message (MessageType.WHATSHOULDIDO, flight);
+    		con.writeObject (outMessage);
+    		inMessage = (Message) con.readObject ();
+    		
+    		if ((inMessage.getType () != MessageType.GOHOME) && (inMessage.getType () != MessageType.GOCOLLECTABAG) && (inMessage.getType () != MessageType.TAKEABUS))
+            { System.out.println ("Thread " + getName () + ": Tipo inválido!");
+              System.out.println (inMessage.toString ());
+              System.exit (1);
+            }
+    		
+    		switch(inMessage.getType ()) {
+    		case GOHOME : whatshouldido = 'H';
+    				      break;
+    		case TAKEABUS : whatshouldido = 'T';
+    						break;
+    		case GOCOLLECTABAG : whatshouldido = 'B';
+    							 break;
+    		}
+    		con.close ();
+    		return whatshouldido;
     }
 }
