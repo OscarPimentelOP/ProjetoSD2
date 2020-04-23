@@ -11,7 +11,7 @@ package AuxTools;
  * They are identified by its Passenger ID and have the trip destination status as well.
  */
 
-public class Bag {
+public class Bag{
     /**
      * Bag's ID
      */
@@ -76,4 +76,11 @@ public class Bag {
     public char getDestination() {
         return this.destination;
     }
+    
+    @Override
+    public String toString() {
+    	return "Bag(Id = "+Integer.toString(this.id)+", destination = "+this.destination+
+    			", passenger id = "+Integer.toString(this.passegerId);
+    }
+    
 }

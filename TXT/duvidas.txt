@@ -1,0 +1,4 @@
+As funções que agora vão ser chamadas pelos clientes para criar as mensagens devem estar na main da respetiva entidade ou num novo ficheiro correspondente à
+sharedregion onde antes era chamada?
+
+As variaveis da mensagem devem ser mais especificias(ids, voo, mala...) ou mais gerais(argumento1 booleano, argumento1 inteiro, aguemento2 inteiro)

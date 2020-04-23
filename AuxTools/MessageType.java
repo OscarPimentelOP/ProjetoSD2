@@ -1,6 +1,13 @@
 package AuxTools;
 
 public enum MessageType {
+		/**
+	   * Par�metro de inicializa��o
+	   *    @serialField NO_MESSAGE
+	   */
+
+	NO_MESSAGE,
+	
 	  /**
 	   *  Mandar o porter dormir (operação pedida pelo cliente)
 	   *    @serialField GOTOSLPPORTER
@@ -86,15 +93,15 @@ public enum MessageType {
 	NOMOREBAGSTOCOLLECT,
 
 	  /**
-	   *  Passageiro chegou ao arrival lounge (operação pedida pelo cliente)
-	   *    @serialField HELLO
+	   *  Passageiro chegou ao arrival lounge, quer saber o que fazer (operação pedida pelo cliente)
+	   *    @serialField WHATSHOULDIDO
 
 	   */
 
-	HELLO,
+	WHATSHOULDIDO,
 
 	  /**
-	   *  Passageiro chegou ao fim da viagem (operação pedida pelo cliente)
+	   *  Passageiro chegou ao fim da viagem (resposta enviada pelo servidor)
 	   *    @serialField GOHOME
 
 	   */
@@ -102,7 +109,7 @@ public enum MessageType {
 	GOHOME,
 
 	  /**
-	   *  Passageiro entra na fila de espera(operação pedida pelo cliente)
+	   *  Passageiro vai apanhar um autocarro(resposta enviada pelo servidor)
 	   *    @serialField TAKEABUS
 
 	   */
@@ -144,7 +151,7 @@ public enum MessageType {
 	EMPTYBUS,
 
 	  /**
-	   *  Passageiro vai buscar uma mala (operação pedida pelo cliente)
+	   *  Passageiro vai buscar uma mala (resposta enviada pelo servidor)
 	   *    @serialField GOCOLLECTABAG
 
 	   */
