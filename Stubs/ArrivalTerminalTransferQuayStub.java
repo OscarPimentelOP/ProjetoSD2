@@ -21,8 +21,8 @@ public class ArrivalTerminalTransferQuayStub {
     private int serverPort;
     
     public ArrivalTerminalTransferQuayStub(){
-        this.serverHostName = SimulatorParam.arrivalTerminalTransferQuayAreaHostName;
-        this.serverPort = SimulatorParam.arrivalTerminalTransferQuayAreaPort;
+        this.serverHostName = SimulatorParam.arrivalTerminalTransferQuayHostName;
+        this.serverPort = SimulatorParam.arrivalTerminalTransferQuayPort;
     }
     
     public void takeABus() {

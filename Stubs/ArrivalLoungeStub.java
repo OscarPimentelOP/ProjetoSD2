@@ -22,8 +22,8 @@ public class ArrivalLoungeStub {
     private int serverPort;
     
     public ArrivalLoungeStub(){
-        this.serverHostName = SimulatorParam.arrivalLoungeAreaHostName;
-        this.serverPort = SimulatorParam.arrivalLoungeAreaPort;
+        this.serverHostName = SimulatorParam.arrivalLoungeHostName;
+        this.serverPort = SimulatorParam.arrivalLoungePort;
     }
     
     public char whatShouldIDo(int flight) {

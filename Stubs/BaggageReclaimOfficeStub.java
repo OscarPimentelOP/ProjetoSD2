@@ -20,8 +20,8 @@ public class BaggageReclaimOfficeStub {
     private int serverPort;
     
     public BaggageReclaimOfficeStub(){
-        this.serverHostName = SimulatorParam.baggageReclaimOfficeAreaHostName;
-        this.serverPort = SimulatorParam.baggageReclaimOfficeAreaPort;
+        this.serverHostName = SimulatorParam.baggageReclaimOfficeHostName;
+        this.serverPort = SimulatorParam.baggageReclaimOfficePort;
     }
 	public void reportMissingBags(int numMissingBags) {
 		ClientCom con = new ClientCom (serverHostName, serverPort);

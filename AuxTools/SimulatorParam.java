@@ -149,13 +149,13 @@ public class SimulatorParam {
     * Departure terminal exit host name
 	* @serial departureTerminalExitHostName
     */
-    public static final String  departureTerminalExitHostName = " ";
+    public static final String  departureTerminalEntranceHostName = " ";
 
     /**
     * Departure terminal exit port number
 	* @serial departureTerminalExitPort
     */
-    public static final int departureTerminalExitPort = 4000 ;
+    public static final int departureTerminalEntrancePort = 4000 ;
 
     /**
     * Departure terminal transfer quay host name

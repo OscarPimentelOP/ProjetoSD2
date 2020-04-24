@@ -20,8 +20,8 @@ public class ArrivalTerminalExitStub {
     private int serverPort;
     
     public ArrivalTerminalExitStub(){
-        this.serverHostName = SimulatorParam.arrivalTerminalExitAreaHostName;
-        this.serverPort = SimulatorParam.arrivalTerminalExitAreaPort;
+        this.serverHostName = SimulatorParam.arrivalTerminalExitHostName;
+        this.serverPort = SimulatorParam.arrivalTerminalExitPort;
     }
     
     public void goHome(int flight) {
@@ -37,7 +37,7 @@ public class ArrivalTerminalExitStub {
 	    }
 		
 		//What should i do message with the fligh number
-		outMessage = new Message (MessageType.GOHOME, flight);
+		outMessage = new Message (MessageType.GOINGHOME, flight);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		

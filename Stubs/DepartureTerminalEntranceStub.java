@@ -20,8 +20,8 @@ public class DepartureTerminalEntranceStub {
     private int serverPort;
     
     public DepartureTerminalEntranceStub(){
-        this.serverHostName = SimulatorParam.departureTerminalEntranceAreaHostName;
-        this.serverPort = SimulatorParam.departureTerminalEntranceAreaPort;
+        this.serverHostName = SimulatorParam.departureTerminalEntranceHostName;
+        this.serverPort = SimulatorParam.departureTerminalEntrancePort;
     }
 	
 	public void prepareNextLeg(int flight) {
