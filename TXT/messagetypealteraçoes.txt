@@ -1,0 +1,67 @@
+/**
+*  Porter pretende saber se continua a descansar ou se pode ir trabalhar (operaÃ§Ã£o pedida pelo cliente)
+*    @serialField TAKEAREST
+
+*/
+
+TAKEAREST,
+
+/**
+*  Porter continua a trabalhar (resposta enviada pelo servidor)
+*    @serialField KEEPWORKINGPORTER
+
+*/
+
+KEEPWORKINGPORTER
+
+/**
+*  Bus driver continua a trabalhar (resposta enviada pelo servidor)
+*    @serialField KEEPWORKINGBUSDRIVER
+
+*/
+
+KEEPWORKINGBUSDRIVER
+
+
+/**
+*  Não há mais malas para o porter buscar no plane hold (resposta enviada pelo servidor)
+*    @serialField NOMOREBAGSATPLANEHOLD
+
+*/
+
+NOMOREBAGSATPLANEHOLD
+
+
+/**
+*  Passageiro vai para casa (operaÃ§Ã£o pedida pelo cliente)
+*    @serialField GOINGHOME
+
+*/
+
+GOINGHOME
+
+
+/**
+*  Passageiro vai apanhar o autocarro (operaÃ§Ã£o pedida pelo cliente)
+*    @serialField TAKINGABUS
+
+*/
+
+TAKINGABUS
+
+
+/**
+*  Passageiro pede para entrar no autocarro (operaÃ§Ã£o pedida pelo cliente)
+*    @serialField ENTERINGTHEBUS
+
+*/
+
+ENTERINGTHEBUS
+
+/**
+*  Bus driver quer saber se chegou ao fim do dia (operaÃ§Ã£o pedida pelo cliente)
+*    @serialField HASDAYSWORKENDED
+
+*/
+
+HASDAYSWORKENDED
