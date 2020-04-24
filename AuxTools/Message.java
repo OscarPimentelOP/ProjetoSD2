@@ -13,7 +13,7 @@ public class Message implements Serializable{
    //Tipos de mensagens
    private MessageType msgType = MessageType.NO_MESSAGE;
    
-   //Identificação do prof
+   //Identificaï¿½ï¿½o do prof
    //private int passengerId;
    
    //Numero do voo

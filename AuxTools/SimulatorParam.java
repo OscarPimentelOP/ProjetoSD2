@@ -82,17 +82,106 @@ public class SimulatorParam {
     public static final String fileName = "log" + new Date().toString().replace(' ', '_').replace(':', '_') + ".txt";
 
     
+
+   
+
+    /**
+    * Arrival lounge host name
+	* @serial arrivalLoungeHostName
+    */
+    public static final String  arrivalLoungeHostName = " ";
+
+    /**
+    * Arrival lounge port number
+	* @serial arrivalLoungePort
+    */
+    public static final int arrivalLoungePort = 4000 ;
+
+    /**
+    * Arrival terminal exit host name
+	* @serial arrivalTerminalExitHostName
+    */
+    public static final String  arrivalTerminalExitHostName = " ";
+
+    /**
+    * Arrival terminal exit port number
+	* @serial arrivalTerminalExitPort
+    */
+    public static final int arrivalTerminalExitPort = 4000 ;
+
+    /**
+    * Arrival terminal transfer quay host name
+	* @serial arrivalTerminalTransferQuayHostName
+    */
+    public static final String  arrivalTerminalTransferQuayHostName = " ";
+
+    /**
+    * Arrival terminal transfer quay port number
+	* @serial arrivalTerminalTransferQuayPort
+    */
+    public static final int arrivalTerminalTransferQuayPort = 4000 ;
+
+    /**
+    * Baggage collection point host name
+	* @serial baggageCollectionPointHostName
+    */
+    public static final String  baggageCollectionPointHostName = " ";
+
+    /**
+    * Baggage collection point port number
+	* @serial baggageCollectionPointPort
+    */
+    public static final int baggageCollectionPointPort = 4000 ;
+
+    /**
+    * Baggage reclaim office host name
+	* @serial baggageReclaimOfficeHostName
+    */
+    public static final String  baggageReclaimOfficeHostName = " ";
+
+    /**
+    * Baggage reclaim office port number
+	* @serial baggageReclaimOfficePort
+    */
+    public static final int baggageReclaimOfficePort = 4000 ;
+
+    /**
+    * Departure terminal exit host name
+	* @serial departureTerminalExitHostName
+    */
+    public static final String  departureTerminalExitHostName = " ";
+
+    /**
+    * Departure terminal exit port number
+	* @serial departureTerminalExitPort
+    */
+    public static final int departureTerminalExitPort = 4000 ;
+
+    /**
+    * Departure terminal transfer quay host name
+	* @serial departureTerminalTransferQuayHostName
+    */
+    public static final String  departureTerminalTransferQuayHostName = " ";
+
+    /**
+    * Departure terminal tranfer quay
+	* @serial departureTerminalTransferQuayPort
+    */
+    public static final int departureTerminalTransferQuayPort = 4000 ;
+    
+     /**
+    * Temporary storage area host name
+	* @serial temporaryStorageAreaHostName
+    */
+    public static final String  temporaryStorageAreaHostName = " ";
+
     /**
     * Temporary storage area port number
 	* @serial temporaryStorageAreaPort
     */
     public static final int temporaryStorageAreaPort = 4000 ;
-    
-    /**
-    * Temporary storage area host name
-	* @serial temporaryStorageAreaHostName
-    */
-    public static final String  temporaryStorageAreaHostName = " ";
+
+
 
 
 }
