@@ -81,4 +81,18 @@ public class SimulatorParam {
      */
     public static final String fileName = "log" + new Date().toString().replace(' ', '_').replace(':', '_') + ".txt";
 
+    
+    /**
+    * Temporary storage area port number
+	* @serial temporaryStorageAreaPort
+    */
+    public static final int temporaryStorageAreaPort = 4000 ;
+    
+    /**
+    * Temporary storage area host name
+	* @serial temporaryStorageAreaHostName
+    */
+    public static final String  temporaryStorageAreaHostName = " ";
+
+
 }
