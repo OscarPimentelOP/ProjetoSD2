@@ -1,6 +1,6 @@
 package clientSide.main;
 
-import Stubs.*;
+import clientSide.Stubs.*;
 import clientSide.*;
 import AuxTools.*;
 import clientSide.Entities.*;
