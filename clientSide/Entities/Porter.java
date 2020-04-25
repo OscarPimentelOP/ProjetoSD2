@@ -7,9 +7,9 @@ package clientSide.Entities;
 
 import AuxTools.Bag;
 import AuxTools.SharedException;
-import serverSide.sharedRegions.ArrivalLounge;
-import serverSide.sharedRegions.TemporaryStorageArea;
-import serverSide.sharedRegions.BaggageCollectionPoint;
+import clientSide.Stubs.ArrivalLoungeStub;
+import clientSide.Stubs.BaggageCollectionPointStub;
+import clientSide.Stubs.TemporaryStorageAreaStub;
 
 /**
  * This file implements the Porter entity/thread.
@@ -42,17 +42,17 @@ public class Porter extends Thread {
     /**
      * Arrival Lounge
      */
-    private final ArrivalLounge al;
+    private final ArrivalLoungeStub al;
 
     /**
      * Temporary Storage Area
      */
-    private final TemporaryStorageArea tsa;
+    private final TemporaryStorageAreaStub tsa;
 
     /**
      * Baggage Collection Point
      */
-    private final BaggageCollectionPoint bcp;
+    private final BaggageCollectionPointStub bcp;
 
 
     /**
@@ -63,7 +63,7 @@ public class Porter extends Thread {
      * @param tsa -> temporary storage area
      * @param bcp -> baggage collection point
      */
-    public Porter(PorterState s, ArrivalLounge al, TemporaryStorageArea tsa, BaggageCollectionPoint bcp) {
+    public Porter(PorterState s, ArrivalLoungeStub al, TemporaryStorageAreaStub tsa, BaggageCollectionPointStub bcp) {
         this.state = s;
         this.al = al;
         this.tsa = tsa;
@@ -104,20 +104,10 @@ public class Porter extends Thread {
                 if (bag == null) {
                     planeHoldEmpty = true;            // bag = null -> plane's hold empty
                 } else if (bag.getDestination() == 'T') {     //the bag is on transit
-                    try {
-                        tsa.carryItToAppropriateStore(bag);
-                    } catch (SharedException e) {
-
-                    }
+                    tsa.carryItToAppropriateStore(bag);
 
                 } else {
-                    try {
-                        bcp.carryItToAppropriateStore(bag);   //bag has as its final destination that airport      
-                    } catch (SharedException e) {
-
-                    }
-
-
+                	bcp.carryItToAppropriateStore(bag);   //bag has as its final destination that airport      
                 }
             }
             al.noMoreBagsToCollect();

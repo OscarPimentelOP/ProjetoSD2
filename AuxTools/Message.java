@@ -2,6 +2,8 @@ package AuxTools;
 
 import java.io.Serializable;
 
+import clientSide.Entities.BusDriverState;
+
 public class Message implements Serializable{
 	/**
    *  Chave de serialização
@@ -25,9 +27,16 @@ public class Message implements Serializable{
    //Malas reportadas
    private int reportedBags = -1;
    
+   private BusDriverState bds;
+   
    public Message (MessageType type)
    {
       msgType = type;
+   }
+   
+   public Message(MessageType type, BusDriverState bds) {
+	   msgType = type;
+	   this.bds = bds;
    }
    
    public Message (MessageType type, int f)
@@ -65,6 +74,10 @@ public class Message implements Serializable{
    
    public Bag bags() {
 	   return bag;
+   }
+   
+   public BusDriverState getBusDriverState() {
+	   return this.bds;
    }
    
    @Override

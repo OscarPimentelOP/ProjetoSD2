@@ -1,8 +1,9 @@
 package clientSide.main;
 
 
-import Stubs.ArrivalTerminalTransferQuayStub;
-import Stubs.DepartureTerminalTransferQuayStub;
+import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
+import clientSide.Stubs.DepartureTerminalTransferQuayStub;
+import clientSide.Stubs.RepoStub;
 import clientSide.Entities.BusDriver;
 import clientSide.Entities.BusDriverState;
 
@@ -11,6 +12,7 @@ public class mainBusDriver {
 		//Instantiate shared region stubs
 		ArrivalTerminalTransferQuayStub attq = new ArrivalTerminalTransferQuayStub();
 		DepartureTerminalTransferQuayStub dttq = new DepartureTerminalTransferQuayStub();
+		RepoStub repo = new RepoStub();
 		
 		//Instantiate porter
 		BusDriver busdriver = new BusDriver(BusDriverState.PARKING_AT_THE_ARRIVAL_TERMINAL,

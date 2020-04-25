@@ -181,7 +181,17 @@ public class SimulatorParam {
     */
     public static final int temporaryStorageAreaPort = 4000 ;
 
+    /**
+     * Repository host name
+ 	* @serial repoHostName
+     */
+     public static final String  repoHostName = " ";
 
+     /**
+     * Repository port number
+ 	* @serial repoPort
+     */
+     public static final int repoPort = 4000 ;
 
 
 }

@@ -28,6 +28,7 @@ public class ArrivalLoungeInterface {
           					  break;
 		 case TAKEAREST : break;
 		 case TRYTOCOLLECTABAG : break;
+		 case NOMOREBAGSTOCOLLECT : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
@@ -64,6 +65,9 @@ public class ArrivalLoungeInterface {
 									 outMessage = new Message(MessageType.BAGTOCOLLECT, bag);
 								 }
 								 break;
+		 case NOMOREBAGSTOCOLLECT : al.noMoreBagsToCollect();
+		 							outMessage = new Message(MessageType.ACK);
+		 							break;
 		 }
 		 
 		 return (outMessage);

@@ -4,9 +4,9 @@
  */
 package clientSide.Entities;
 
-import serverSide.sharedRegions.ArrivalTerminalTransferQuay;
-import serverSide.sharedRegions.DepartureTerminalTransferQuay;
-import serverSide.sharedRegions.Repo;
+import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
+import clientSide.Stubs.DepartureTerminalTransferQuayStub;
+import clientSide.Stubs.RepoStub;
 
 /**
  * This file implements the BusDriver entity/thread.
@@ -28,13 +28,13 @@ public class BusDriver extends Thread {
     /**
      * Shared regions
      */
-    private final ArrivalTerminalTransferQuay attq;
-    private final DepartureTerminalTransferQuay dttq;
+    private final ArrivalTerminalTransferQuayStub attq;
+    private final DepartureTerminalTransferQuayStub dttq;
 
     /**
      * Repository
      */
-    private final Repo repo;
+    private final RepoStub repo;
 
 
     /**
@@ -45,7 +45,7 @@ public class BusDriver extends Thread {
      * @param dttq -> departure terminal transfer quay
      * @param repo -> repository
      */
-    public BusDriver(BusDriverState s, ArrivalTerminalTransferQuay attq, DepartureTerminalTransferQuay dttq, Repo repo) {
+    public BusDriver(BusDriverState s, ArrivalTerminalTransferQuayStub attq, DepartureTerminalTransferQuayStub dttq, RepoStub repo) {
         this.state = s;
         this.attq = attq;
         this.dttq = dttq;

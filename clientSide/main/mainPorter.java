@@ -1,10 +1,10 @@
 package clientSide.main;
 
-import Stubs.ArrivalLoungeStub;
-import Stubs.TemporaryStorageAreaStub;
+import clientSide.Stubs.ArrivalLoungeStub;
+import clientSide.Stubs.TemporaryStorageAreaStub;
 import clientSide.Entities.Porter;
 import clientSide.Entities.PorterState;
-import Stubs.BaggageCollectionPointStub;
+import clientSide.Stubs.BaggageCollectionPointStub;
 
 public class mainPorter {
 	public static void main(String args[]) {
