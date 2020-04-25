@@ -28,16 +28,25 @@ public class TemporaryStorageAreaStub {
 
 
     public void carryItToAppropriateStore(Bag bag){
-        Porter p = (Porter) Thread.currentThread();
-
-        Message m = new Message(MessageType.CARRYBAGTOTEMPSTORE, bag);
-
         ClientCom cc = new ClientCom(serverHostName,serverPort);
-        cc.open(); 
-        cc.writeObject(m);
+        Porter p = (Porter) Thread.currentThread();
+        Message inmsg, outmsg; 
 
-        m=(Message) cc.readObject();
+        outmsg = new Message(MessageType.CARRYBAGTOTEMPSTORE, bag);
+        cc.writeObject(outmsg);
+        inmsg = (Message) cc.readObject ();
 
+      
+        
+
+        if ((inmsg.getType () != MessageType.ACK))
+        { System.out.println ("Thread " + p.getName () + ": Invalid type!");
+          System.out.println (inmsg.toString ());
+          System.exit (1);
+        }
+
+
+        cc.close();
         
     }
 
