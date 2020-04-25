@@ -33,8 +33,13 @@ public class ArrivalTerminalTransferQuayInterface {
 		 case TAKINGABUS : attq.takeABus();
 						   outMessage = new Message(MessageType.ACK);
 						   break;
-		 case ENTERINGTHEBUS : attq.enterTheBus();
-						   outMessage = new Message(MessageType.ACK);
+		 case ENTERINGTHEBUS : try {
+								attq.enterTheBus();
+								outMessage = new Message(MessageType.ACK);
+							} catch (SharedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						   break;
 		 case HASDAYSWORKENDED : char a = attq.hasDaysWorkEnded();
 		 						 if(a == 'E') {

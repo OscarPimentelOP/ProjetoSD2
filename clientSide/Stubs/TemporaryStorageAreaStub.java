@@ -1,7 +1,8 @@
-package Stubs;
+package clientSide.Stubs;
 
 import AuxTools.*;
 import clientSide.*;
+import clientSide.Entities.*;
 
 /**
  * This stub class represents the Temporary Storage Area, needed in the client side,

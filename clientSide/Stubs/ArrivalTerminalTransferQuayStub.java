@@ -1,4 +1,4 @@
-package Stubs;
+package clientSide.Stubs;
 
 import AuxTools.Message;
 import AuxTools.MessageType;
@@ -94,13 +94,13 @@ public class ArrivalTerminalTransferQuayStub {
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
-		if ((inMessage.getType () != MessageType.ACK))
+		if ((inMessage.getType () == MessageType.ENDBUSDRIVER && inMessage.getType () == MessageType.KEEPWORKINGBUSDRIVER))
         { System.out.println ("Thread " + b.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
 		
-		if(inMessage.getType () == MessageType.ENDPORTER) {
+		if(inMessage.getType () == MessageType.ENDBUSDRIVER) {
 			hasdaysworkended = 'E';
 		}
 		else {

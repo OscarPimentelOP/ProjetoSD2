@@ -1,298 +1,100 @@
 package AuxTools;
 
 public enum MessageType {
-		/**
-	   * Par‚metro de inicializaÁ„o
-	   *    @serialField NO_MESSAGE
-	   */
+	/**
+	  * Initialization parameter
+	  *    @serialField NO_MESSAGE
+	  */
 
 	NO_MESSAGE,
 	
-	  /**
-	   *  Mandar o porter dormir (opera√ß√£o pedida pelo cliente)
-	   *    @serialField GOTOSLPPORTER
-	   */
-
-	GOTOSLPPORTER,
-
-	  /**
-	   *  Mandar o busdriver dormir (opera√ß√£o pedida pelo cliente)
-	   *    @serialField GOTOSLPBUSDRIVER
-	   */
-
-	GOTOSLPBUSDRIVER,
-
-	  /**
-	   *  Alertar o thread porters do fim de opera√ß√µes (opera√ß√£o pedida pelo cliente)
-	   *    @serialField ENDOPPORTER
-	   */
-
-	ENDOPPORTER,
-
-	  /**
-	   *  Alertar o thread bus driver do fim de opera√ß√µes (opera√ß√£o pedida pelo cliente)
-	   *    @serialField ENDOPBUSDIRIVER
-	   */
-
-	ENDOPBUSDIRIVER,
-
-
-
-	  /**
-	   *  Ultimo passageiro acorda o porter (opera√ß√£o pedida pelo cliente)
-	   *    @serialField WAKEUPPORTER
-	   */
-
-	WAKEUPPORTER,
-
-
-	  /**
-	   *  Primeiro passageiro acorda o busdriver (opera√ß√£o pedida pelo cliente)
-	   *    @serialField WAKEUPBUSDRIVER
-	   */
-
-	WAKEUPBUSDRIVER,
-
-	  /**
-	   *  Enviar a identifica√ß√£o do cliente (resposta enviada pelo servidor)
-	   *    @serialField CUSTID
-	   */
-
-	CUSTID,
-
-	  /**
-	   *  Porter tries to collect a bag (opera√ß√£o pedida pelo cliente)
-	   *    @serialField TRYTOCOLLECTABAG
-	   */
-
-	TRYTOCOLLECTABAG,
-
-
-	  /**
-	   *  Porter carrega a mala para a temp store (opera√ß√£o pedida pelo cliente)
-	   *    @serialField CARRYBAGTOTEMPSTORE
-	   */
-
-	CARRYBAGTOTEMPSTORE,
-
-	  /**
-	   *  Porter carrega a mala para a baggage collection (opera√ß√£o pedida pelo cliente)
-	   *    @serialField CARRYBAGTOBAGCOLLECTION
-
-	   */
-
-	CARRYBAGTOBAGCOLLECTION,
-
-
-	  /**
-	   *  Porter avisa que n„o h· mais malas a recolher (opera√ß√£o pedida pelo cliente)
-	   *    @serialField NOMOREBAGSTOCOLLECT
-
-	   */
-
-	NOMOREBAGSTOCOLLECT,
-
-	  /**
-	   *  Passageiro chegou ao arrival lounge, quer saber o que fazer (opera√ß√£o pedida pelo cliente)
-	   *    @serialField WHATSHOULDIDO
-
-	   */
-
+	//O passageiro quer saber o que fazer(solicitaÁ„o)
 	WHATSHOULDIDO,
-
-	  /**
-	   *  Passageiro chegou ao fim da viagem (resposta enviada pelo servidor)
-	   *    @serialField GOHOME
-
-	   */
-
-	GOHOME,
-
-	  /**
-	   *  Passageiro vai apanhar um autocarro(resposta enviada pelo servidor)
-	   *    @serialField TAKEABUS
-
-	   */
-
-	TAKEABUS,
-
-	  /**
-	   *  Passageiro tenta entrar no autocarro(opera√ß√£o pedida pelo cliente)
-	   *    @serialField ENTERTHEBUS
-
-	   */
-
-	ENTERTHEBUS,
-
-
-	  /**
-	   *  Passageiro tenta sair do autocarro(opera√ß√£o pedida pelo cliente)
-	   *    @serialField LEAVETHEBUS
-
-	   */
-
-	LEAVETHEBUS,
-
-
-	  /**
-	   *  Passageiro chegou ao departure terminal (opera√ß√£o pedida pelo cliente)
-	   *    @serialField PREPARENEXTLEG
-
-	   */
-
-	PREPARENEXTLEG,
-
-	  /**
-	   *  Ultimo passageiro sai do autorcarro (opera√ß√£o pedida pelo cliente)
-	   *    @serialField EMPTYBUS
-
-	   */
-
-	EMPTYBUS,
-
-	  /**
-	   *  Passageiro vai buscar uma mala (resposta enviada pelo servidor)
-	   *    @serialField GOCOLLECTABAG
-
-	   */
-
-	GOCOLLECTABAG,
-
-	  /**
-	   *  Passageiro vai reportar malas em falta (opera√ß√£o pedida pelo cliente)
-	   *    @serialField REPORTBAG
-
-	   */
-
-	REPORTBAG,
-
-	  /**
-	   *  Bus driver anuncia que os passageiros podem entrar (opera√ß√£o pedida pelo cliente)
-	   *    @serialField  ANNOUNCEBUS
-
-	   */
-
-	ANNOUNCEBUS,
-
-
-	  /**
-	   *  Bus driver estacionou o autocarro no arrival terminal transfer quay (opera√ß√£o pedida pelo cliente)
-	   *    @serialField PARKATARRIVAL
-
-	   */
-
-	PARKATARRIVAL,
-
-	  /**
-	   *  Bus driver estacionou o autocarro no departure terminal transfer quay (opera√ß√£o pedida pelo cliente)
-	   *    @serialField PARKATDEPARTURE
-
-	   */
 	
+	//O passageiro vai para casa (reposta)
+	GOHOME,
+	
+	//O passageiro vai buscar uma mala(respota)
+	GOCOLLECTABAG,
+	
+	//O passageiro tem que ir apanhar o autocarro(resposta)
+	TAKEABUS,
+	
+	//Porter quer saber se chegou ao final do dia (solicitaÁ„o do cliente)
+	TAKEAREST, 
+
+	//Porter chegou ao final do dia (Resposta do servidor)
+	ENDPORTER,
+	
+	//Porter continua a trabalhar (resposta)
+	KEEPWORKINGPORTER,
+	
+	//Porter vai tentar buscar uma mala (solicitaÁ„o)
+	TRYTOCOLLECTABAG,
+	
+	//N„o h· mais malas no por„o (resposta)
+	NOMOREBAGSATPLANEHOLD,
+	
+	//A mala existe (resposta)
+	BAGTOCOLLECT,
+	
+	//O porter avisa que ja n„o h· mais a recolher(solicitaÁ„o)
+	NOMOREBAGSTOCOLLECT,
+	
+	//A mensagem foi recebida com sucesso
+	ACK,
+	
+	//O passageiro quer ir para casa(solicitaÁ„o)
+	GOINGHOME,
+	
+	//O passageiro quer apanhar um autocarro(solicitaÁ„o)
+	TAKINGABUS,
+	
+	//O passageiro quer entrar no autocarro(solicitaÁ„o)
+	ENTERINGTHEBUS,
+	
+	//O bus driver quer se continua a trabalhar (solicitaÁ„o)
+	HASDAYSWORKENDED,
+	
+	//O bus driver chegou ao final do dia (resposta)
+	ENDBUSDRIVER,
+	
+	//O bus driver continua a trabalhar (resposta)
+	KEEPWORKINGBUSDRIVER,
+	
+	//O bus driver anuncia que podem entrar (solicitaÁ„o)
+	ANNOUNCEBUS,
+	
+	//O bus driver avisa que chegou ao terminal (solicitaÁ„o)
+	PARKATARRIVAL,
+	
+	//O porter carrega a mala para o baggage collection point(solicitaÁ„o)
+	CARRYBAGTOBAGPOINT,
+	
+	//O passageiro vai buscar uma mala ao convoy belt (solicitaÁ„o)
+	GOINGCOLLECTABAG,
+	
+	//O passageiro tira a mala do convoy belt(resposta)
+	BAGOK,
+	
+	//O passageiro n„o encontra a mala no convoy belt (resposta)
+	BAGNOTOK,
+	
+	//O passageiro vai reportar uma mala (solicitaÁ„o)
+	REPORTBAG,
+	
+	//O passageiro vai preparar a proxima viagem (SolicitaÁ„o)
+	PREPARINGNEXTLEG,
+	
+	//O passageiro quer sair do autocarro(solicitaÁ„o)
+	LEAVETHEBUS,
+	
+	//O bus driver estaciona no departure terminal transfer quay (SolicitaÁ„o)
 	PARKATDEPARTURE,
 	
-	  /**
-	   *  Set porter state (opera√ß√£o pedida pelo cliente)
-	   *    @serialField SETPORTERSTATE
-
-	   */
-
-	SETPORTERSTATE,
-
-	  /**
-	   *  Set passanger state (opera√ß√£o pedida pelo cliente)
-	   *    @serialField SETPORTERSTATE
-
-	   */
-
-	SETPASSANGERSTATE,
-
-	  /**
-	   *  Set bus driver state (opera√ß√£o pedida pelo cliente)
-	   *    @serialField SETPORTERSTATE
-
-	   */
-
+	//O bus driver muda de estado (solicitaÁ„o)
 	SETBUSDRIVERSTATE,
-
-	  /**
-	   *  Opera√ß√£o realizada com sucesso (resposta enviada pelo servidor)
-	   *    @serialField ACK
-	   */
 	
-	ACK,
-
-
-	  /**
-	   *  Termina√ß√£o do ciclo de vida do porter (resposta enviada pelo servidor)
-	   *    @serialField ENDPORTER
-	   */
-
-	ENDPORTER,
-
-	  /**
-	   *  Termina√ß√£o do ciclo de vida do bus driver (resposta enviada pelo servidor)
-	   *    @serialField ENDBUSDRIVER
-	   */
-
-	ENDBUSDRIVER,
-
-
-	  /**
-	   *  Mala a ser recolhida pelo porter (resposta enviada pelo servidor)
-	   *    @serialField BAGTOCOLLECT
-	   */
-
-	BAGTOCOLLECT,
-
-	  /**
-	   *  O autocarro est· cheio (resposta enviada pelo servidor)
-	   *    @serialField BUSFULL
-	   */
-
-	BUSFULL,
-
-	  /**
-	   *  O autocarro n„o est· estacionado (resposta enviada pelo servidor)
-	   *    @serialField NOTPARKED
-	   */
-
-	NOTPARKED,
-
-	  /**
-	   *  Permiss„o para entrar no autocarro (resposta enviada pelo servidor)
-	   *    @serialField ENTERINBUS
-	   */
-
-	ENTERINBUS,
-
-	  /**
-	   *  Permiss„o para sair do autocarro (resposta enviada pelo servidor)
-	   *    @serialField GETOUTOFBUS
-	   */
-
-	GETOUTOFBUS,
-
-
-	  /**
-	   *  A mala est· no comboy belt (resposta enviada pelo servidor)
-	   *    @serialField BAGOK
-	   */
-
-	BAGOK,
-
-
-	  /**
-	   *  A mala n„o est· no comboy belt (resposta enviada pelo servidor)
-	   *    @serialField BAGNOTOK
-	   */
-
-	BAGNOTOK,
-
-	  /**
-	   *  Tapete rolante sem mais malas  (resposta enviada pelo servidor)
-	   *    @serialField CONVOYBELTEMPTY
-	   */
-
-	CONVOYBELTEMPTY
+	//O porter carrega a mala para a temporary storage area (solicitaÁ„o)
+	CARRYBAGTOTEMPSTORE
 }

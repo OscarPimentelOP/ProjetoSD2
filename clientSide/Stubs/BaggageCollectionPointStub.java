@@ -1,6 +1,7 @@
-package Stubs;
+package clientSide.Stubs;
 
 import AuxTools.*;
+import clientSide.Entities.*;
 import clientSide.*;
 
 
@@ -37,7 +38,7 @@ public class BaggageCollectionPointStub {
 	        catch (InterruptedException e) {}
 	    }
 
-        outmsg = new Message(MessageType.CARRYBAGTOTEMPSTORE, bag);
+        outmsg = new Message(MessageType.CARRYBAGTOBAGPOINT, bag);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
 

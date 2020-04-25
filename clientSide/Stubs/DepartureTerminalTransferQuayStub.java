@@ -1,6 +1,7 @@
-package Stubs;
+package clientSide.Stubs;
 
 import AuxTools.*;
+import clientSide.Entities.*;
 import clientSide.*;
 
 

@@ -1,4 +1,4 @@
-package Stubs;
+package clientSide.Stubs;
 
 import AuxTools.Bag;
 import AuxTools.Message;

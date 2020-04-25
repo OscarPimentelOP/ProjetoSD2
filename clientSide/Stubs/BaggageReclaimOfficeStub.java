@@ -1,4 +1,4 @@
-package Stubs;
+package clientSide.Stubs;
 
 import AuxTools.Message;
 import AuxTools.MessageType;
