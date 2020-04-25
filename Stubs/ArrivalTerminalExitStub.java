@@ -36,7 +36,7 @@ public class ArrivalTerminalExitStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Passenger going home message, with the flight number
 		outMessage = new Message (MessageType.GOINGHOME, flight);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();

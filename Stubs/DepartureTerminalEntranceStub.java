@@ -36,7 +36,7 @@ public class DepartureTerminalEntranceStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Preparing next leg message, with the flight number
 		outMessage = new Message (MessageType.PREPARINGNEXTLEG, flight);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();

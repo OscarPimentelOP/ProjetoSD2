@@ -37,7 +37,7 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Taking a bus message
 		outMessage = new Message (MessageType.TAKINGABUS);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
@@ -63,7 +63,7 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Entering the bus
 		outMessage = new Message (MessageType.ENTERINGTHEBUS);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
@@ -89,7 +89,7 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Has days work ended message
 		outMessage = new Message (MessageType.HASDAYSWORKENDED);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
@@ -122,7 +122,7 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Announcing the bus message
 		outMessage = new Message (MessageType.ANNOUNCEBUS);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
@@ -147,7 +147,7 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Parking the bus on the arrival terminal message
 		outMessage = new Message (MessageType.PARKATARRIVAL);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();

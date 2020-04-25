@@ -69,7 +69,7 @@ HASDAYSWORKENDED
 
 /**
 *  Passageiro prepara a proxima viagem (operaÃ§Ã£o pedida pelo cliente)
-*    @serialField PREPARINGNEXTLEG
+*    @serialField PREPARINGNEXTLEG	
 
 */
 

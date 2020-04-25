@@ -35,7 +35,7 @@ public class BaggageReclaimOfficeStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Reporting a missing a bag message, with the number of missing bags
 		outMessage = new Message (MessageType.REPORTBAG, numMissingBags);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();

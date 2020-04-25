@@ -17,7 +17,16 @@ public class ArrivalTerminalTransferQuayInterface {
 	public Message processAndReply (Message inMessage) throws MessageException{
 		 Message outMessage = null;                           // response message
 		 
-		 //VALIDAR MENSAGENS!!
+		 //Validate messages
+		 switch (inMessage.getType ()) {
+		 case TAKINGABUS : break;
+		 case ENTERINGTHEBUS : break;
+		 case HASDAYSWORKENDED : break;
+		 case ANNOUNCEBUS : break;
+		 case PARKATARRIVAL : break;
+		 default : throw new MessageException ("Message type invalid : ", inMessage);
+		 }
+		 
 		 
 		 //Process messages
 		 switch (inMessage.getType ()) {

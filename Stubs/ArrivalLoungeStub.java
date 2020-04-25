@@ -75,7 +75,7 @@ public class ArrivalLoungeStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Take a rest message
 		outMessage = new Message (MessageType.TAKEAREST);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
@@ -109,7 +109,7 @@ public class ArrivalLoungeStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//What should i do message with the fligh number
+		//Try to collect a bag message
 		outMessage = new Message (MessageType.TRYTOCOLLECTABAG);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
