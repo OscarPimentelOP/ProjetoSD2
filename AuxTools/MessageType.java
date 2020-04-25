@@ -2,7 +2,7 @@ package AuxTools;
 
 public enum MessageType {
 		/**
-	   * Parâmetro de inicialização
+	   * Parï¿½metro de inicializaï¿½ï¿½o
 	   *    @serialField NO_MESSAGE
 	   */
 
@@ -85,7 +85,7 @@ public enum MessageType {
 
 
 	  /**
-	   *  Porter avisa que não há mais malas a recolher (operaÃ§Ã£o pedida pelo cliente)
+	   *  Porter avisa que nï¿½o hï¿½ mais malas a recolher (operaÃ§Ã£o pedida pelo cliente)
 	   *    @serialField NOMOREBAGSTOCOLLECT
 
 	   */
@@ -157,6 +157,14 @@ public enum MessageType {
 	   */
 
 	GOCOLLECTABAG,
+
+	/**
+	   *  Passageiro vai buscar uma mala (operaÃ§Ã£o requerida pelo cliente)
+	   *    @serialField GOCOLLECTABAG
+
+	   */
+
+	  GOINGCOLLECTABAG,
 
 	  /**
 	   *  Passageiro vai reportar malas em falta (operaÃ§Ã£o pedida pelo cliente)
@@ -246,28 +254,28 @@ public enum MessageType {
 	BAGTOCOLLECT,
 
 	  /**
-	   *  O autocarro está cheio (resposta enviada pelo servidor)
+	   *  O autocarro estï¿½ cheio (resposta enviada pelo servidor)
 	   *    @serialField BUSFULL
 	   */
 
 	BUSFULL,
 
 	  /**
-	   *  O autocarro não está estacionado (resposta enviada pelo servidor)
+	   *  O autocarro nï¿½o estï¿½ estacionado (resposta enviada pelo servidor)
 	   *    @serialField NOTPARKED
 	   */
 
 	NOTPARKED,
 
 	  /**
-	   *  Permissão para entrar no autocarro (resposta enviada pelo servidor)
+	   *  Permissï¿½o para entrar no autocarro (resposta enviada pelo servidor)
 	   *    @serialField ENTERINBUS
 	   */
 
 	ENTERINBUS,
 
 	  /**
-	   *  Permissão para sair do autocarro (resposta enviada pelo servidor)
+	   *  Permissï¿½o para sair do autocarro (resposta enviada pelo servidor)
 	   *    @serialField GETOUTOFBUS
 	   */
 
@@ -275,7 +283,7 @@ public enum MessageType {
 
 
 	  /**
-	   *  A mala está no comboy belt (resposta enviada pelo servidor)
+	   *  A mala estï¿½ no comboy belt (resposta enviada pelo servidor)
 	   *    @serialField BAGOK
 	   */
 
@@ -283,7 +291,7 @@ public enum MessageType {
 
 
 	  /**
-	   *  A mala não está no comboy belt (resposta enviada pelo servidor)
+	   *  A mala nï¿½o estï¿½ no comboy belt (resposta enviada pelo servidor)
 	   *    @serialField BAGNOTOK
 	   */
 
