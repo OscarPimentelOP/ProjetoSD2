@@ -10,13 +10,13 @@ import AuxTools.MessageType;
 import AuxTools.SharedException;
 import AuxTools.SimulatorParam;
 import clientSide.ClientCom;
-import serverSide.sharedRegions.ArrivalLounge;
-import serverSide.sharedRegions.ArrivalTerminalExit;
-import serverSide.sharedRegions.ArrivalTerminalTransferQuay;
-import serverSide.sharedRegions.DepartureTerminalTransferQuay;
-import serverSide.sharedRegions.DepartureTerminalEntrance;
-import serverSide.sharedRegions.BaggageReclaimOffice;
-import serverSide.sharedRegions.BaggageCollectionPoint;
+import clientSide.Stubs.ArrivalLoungeStub;
+import clientSide.Stubs.ArrivalTerminalExitStub;
+import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
+import clientSide.Stubs.DepartureTerminalTransferQuayStub;
+import clientSide.Stubs.DepartureTerminalEntranceStub;
+import clientSide.Stubs.BaggageReclaimOfficeStub;
+import clientSide.Stubs.BaggageCollectionPointStub;
 
 /**
  * This file implements the Passenger entity/thread.
@@ -55,37 +55,37 @@ public class Passenger extends Thread {
     /**
      * Arrival Lounge
      */
-    private final ArrivalLounge al;
+    private final ArrivalLoungeStub al;
 
     /**
      * Arrival Terminal Exit
      */
-    private final ArrivalTerminalExit ate;
+    private final ArrivalTerminalExitStub ate;
 
     /**
      * Arrival Terminal Transfer Quay
      */
-    private final ArrivalTerminalTransferQuay attq;
+    private final ArrivalTerminalTransferQuayStub attq;
 
     /**
      * Departure Terminal Transfer Quay
      */
-    private final DepartureTerminalTransferQuay dttq;
+    private final DepartureTerminalTransferQuayStub dttq;
 
     /**
      * Departure Terminal Entrance
      */
-    private final DepartureTerminalEntrance dte;
+    private final DepartureTerminalEntranceStub dte;
 
     /**
      * Baggage Reclaim Office
      */
-    private final BaggageReclaimOffice bro;
+    private final BaggageReclaimOfficeStub bro;
 
     /**
      * Baggage Collection Point
      */
-    private final BaggageCollectionPoint bcp;
+    private final BaggageCollectionPointStub bcp;
     
     
     /**
@@ -118,8 +118,8 @@ public class Passenger extends Thread {
      * @param bro  -> baggage reclaim office
      * @param bcp  -> baggage collection point
      */
-    public Passenger(PassengerState s, int id, int[] nb, char[] ts, ArrivalLounge al, ArrivalTerminalExit ate, ArrivalTerminalTransferQuay attq,
-                     DepartureTerminalTransferQuay dttq, DepartureTerminalEntrance dte, BaggageReclaimOffice bro, BaggageCollectionPoint bcp) {
+    public Passenger(PassengerState s, int id, int[] nb, char[] ts, ArrivalLoungeStub al, ArrivalTerminalExitStub ate, ArrivalTerminalTransferQuayStub attq,
+                     DepartureTerminalTransferQuayStub dttq, DepartureTerminalEntranceStub dte, BaggageReclaimOfficeStub bro, BaggageCollectionPointStub bcp) {
         this.state = s;
         this.identifier = id;
         this.numBags = nb;
@@ -191,42 +191,35 @@ public class Passenger extends Thread {
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
+            char a = al.whatShouldIDo(flight);
 
-            try {
-                char a = al.whatShouldIDo(flight);
+            switch (a) {
+                case 'H':
+                    ate.goHome(flight);        //Reached final destiny, has no bag to collect, goes home
+                    break;
 
-                switch (a) {
-                    case 'H':
-                        ate.goHome(flight);        //Reached final destiny, has no bag to collect, goes home
-                        break;
-
-                    case 'T':
-                        attq.takeABus();          //Take a bus and prepares the next leg
-                        attq.enterTheBus();
-                        dttq.leaveTheBus();
-                        dte.prepareNextLeg(flight);
-                        break;
+                case 'T':
+                    attq.takeABus();          //Take a bus and prepares the next leg
+                    attq.enterTheBus();
+                    dttq.leaveTheBus();
+                    dte.prepareNextLeg(flight);
+                    break;
 
 
-                    case 'B':                           //Has bags to collect
-                        int numOfCollectedBags = 0;
-                        while (numOfCollectedBags != numBags[flight]) {
-                            if (bcp.goCollectABag()) {            //Collect a bag
-                                numOfCollectedBags += 1;
+                case 'B':                           //Has bags to collect
+                    int numOfCollectedBags = 0;
+                    while (numOfCollectedBags != numBags[flight]) {
+                        if (bcp.goCollectABag()) {            //Collect a bag
+                            numOfCollectedBags += 1;
 
-                            } else {
-                                bro.reportMissingBags(numBags[flight] - numOfCollectedBags);    //or reports missing bags
-                                break;
-                            }
+                        } else {
+                            bro.reportMissingBags(numBags[flight] - numOfCollectedBags);    //or reports missing bags
+                            break;
                         }
-                        ate.goHome(flight);                    //Goes Home
-                        break;
-                }
-
-            } catch (SharedException e) {
-
+                    }
+                    ate.goHome(flight);                    //Goes Home
+                    break;
             }
-
         }
     }
 }
