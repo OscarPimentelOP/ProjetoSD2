@@ -15,7 +15,14 @@ public class BaggageCollectionPointInterface {
         Message outMessage = null; 
         boolean res;                          // response message
         
-        //VALIDAR MENSAGENS!!
+        //Validate messages
+	    switch (inMessage.getType ()) {
+			case CARRYBAGTOTEMPSTORE : if (inMessage.bags()==null)
+											throw new MessageException ("Bag cannot be null!", inMessage);
+									   break;
+			case GOINGCOLLECTABAG : break;
+			default : throw new MessageException ("Message type invalid : ", inMessage);
+		}
         
         //Process messages
         switch (inMessage.getType ()) {

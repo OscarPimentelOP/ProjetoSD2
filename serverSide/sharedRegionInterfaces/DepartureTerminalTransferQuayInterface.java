@@ -14,7 +14,12 @@ public class DepartureTerminalTransferQuayInterface {
         
         Message outMessage = null;                           // response message
         
-        //VALIDAR MENSAGENS!!
+        //Validate messages
+		switch (inMessage.getType ()) {
+		case LEAVETHEBUS : break;
+		case PARKATDEPARTURE : break;
+		default : throw new MessageException ("Message type invalid : ", inMessage);
+		}
         
         //Process messages
         switch (inMessage.getType ()) {

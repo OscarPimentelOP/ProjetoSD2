@@ -15,7 +15,13 @@ public class TemporaryStorageAreaInterface {
         
         Message outMessage = null;                           // response message
         
-        //VALIDAR MENSAGENS!!
+        //Validate messages
+      	switch (inMessage.getType ()) {
+      	case CARRYBAGTOTEMPSTORE : if (inMessage.bags()==null)
+      									throw new MessageException ("Bag cannot be null!", inMessage);
+      							   break;
+      	default : throw new MessageException ("Message type invalid : ", inMessage);
+      	}
         
         //Process messages
         switch (inMessage.getType ()) {
