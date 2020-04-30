@@ -85,7 +85,7 @@ public class ArrivalTerminalTransferQuayProxy extends Thread {
 	      { cl = (Class<serverSide.Proxys.ArrivalTerminalTransferQuayProxy>) Class.forName ("serverSide.Proxy.ArrivalTerminalTransferQuayProxy");
 	      }
 	      catch (ClassNotFoundException e)
-	      { System.out.println ("Proxy data type not found!");
+	      { System.out.println ("Proxy attq data type not found!");
 	        e.printStackTrace ();
 	        System.exit (1);
 	      }

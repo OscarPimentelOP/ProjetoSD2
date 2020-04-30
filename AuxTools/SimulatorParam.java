@@ -89,7 +89,7 @@ public class SimulatorParam {
     * Arrival lounge host name
 	* @serial arrivalLoungeHostName
     */
-    public static final String  arrivalLoungeHostName = " ";
+    public static final String  arrivalLoungeHostName = "localhost";
 
     /**
     * Arrival lounge port number
@@ -101,7 +101,7 @@ public class SimulatorParam {
     * Arrival terminal exit host name
 	* @serial arrivalTerminalExitHostName
     */
-    public static final String  arrivalTerminalExitHostName = " ";
+    public static final String  arrivalTerminalExitHostName = "localhost";
 
     /**
     * Arrival terminal exit port number
@@ -113,7 +113,7 @@ public class SimulatorParam {
     * Arrival terminal transfer quay host name
 	* @serial arrivalTerminalTransferQuayHostName
     */
-    public static final String  arrivalTerminalTransferQuayHostName = " ";
+    public static final String  arrivalTerminalTransferQuayHostName = "localhost";
 
     /**
     * Arrival terminal transfer quay port number
@@ -125,7 +125,7 @@ public class SimulatorParam {
     * Baggage collection point host name
 	* @serial baggageCollectionPointHostName
     */
-    public static final String  baggageCollectionPointHostName = " ";
+    public static final String  baggageCollectionPointHostName = "localhost";
 
     /**
     * Baggage collection point port number
@@ -137,7 +137,7 @@ public class SimulatorParam {
     * Baggage reclaim office host name
 	* @serial baggageReclaimOfficeHostName
     */
-    public static final String  baggageReclaimOfficeHostName = " ";
+    public static final String  baggageReclaimOfficeHostName = "localhost";
 
     /**
     * Baggage reclaim office port number
@@ -149,7 +149,7 @@ public class SimulatorParam {
     * Departure terminal exit host name
 	* @serial departureTerminalExitHostName
     */
-    public static final String  departureTerminalEntranceHostName = " ";
+    public static final String  departureTerminalEntranceHostName = "localhost";
 
     /**
     * Departure terminal exit port number
@@ -161,7 +161,7 @@ public class SimulatorParam {
     * Departure terminal transfer quay host name
 	* @serial departureTerminalTransferQuayHostName
     */
-    public static final String  departureTerminalTransferQuayHostName = " ";
+    public static final String  departureTerminalTransferQuayHostName = "localhost";
 
     /**
     * Departure terminal tranfer quay
@@ -173,7 +173,7 @@ public class SimulatorParam {
     * Temporary storage area host name
 	* @serial temporaryStorageAreaHostName
     */
-    public static final String  temporaryStorageAreaHostName = " ";
+    public static final String  temporaryStorageAreaHostName = "localhost";
 
     /**
     * Temporary storage area port number
@@ -185,13 +185,25 @@ public class SimulatorParam {
      * Repository host name
  	* @serial repoHostName
      */
-     public static final String  repoHostName = " ";
+     public static final String  repoHostName = "localhost";
 
      /**
      * Repository port number
  	* @serial repoPort
      */
      public static final int repoPort = 4000 ;
+     
+     /**
+      * Main Passenger host name
+  	* @serial mainPassengerName
+      */
+      public static final String  mainPassengerName = "localhost";
+
+      /**
+      * Main Passenger port number
+  	* @serial mainPassengerPort
+      */
+      public static final int mainPassengerPort = 4000 ;
 
 
 }

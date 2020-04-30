@@ -96,5 +96,11 @@ public enum MessageType {
 	SETBUSDRIVERSTATE,
 	
 	//O porter carrega a mala para a temporary storage area (solicitação)
-	CARRYBAGTOTEMPSTORE
+	CARRYBAGTOTEMPSTORE,
+	
+	//Envio de parametros para a main do passenger com as malas e tripstates (solicitação)
+	SENDPARAMS,
+	
+	//Parametros recebidos (resposta)
+	SENDPARAMSACK
 }

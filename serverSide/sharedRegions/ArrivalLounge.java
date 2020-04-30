@@ -86,19 +86,22 @@ public class ArrivalLounge {
      * @param bcp                -> baggage collection point
      * @param repo               -> repository of information
      */
-    public ArrivalLounge(MemStack<Bag> sBags[], int[] numOfBagsPerFlight, char[][] tripState, BaggageCollectionPoint bcp, Repo repo) {
-        this.sBags = sBags;
+    public ArrivalLounge(BaggageCollectionPoint bcp, Repo repo) {
         this.repo = repo;
         this.flight = 0;
         this.passengersFinalDest = 0;
         this.passengersTransit = 0;
-        this.passengersTripState = tripState;
         this.bcp = bcp;
         this.endOfOperations = false;
         this.cntPassengers = 0;
-        this.numOfBagsPerFlight = numOfBagsPerFlight;
     }
 
+    public void setPlaneHold(MemStack<Bag> sBags[], int[] numOfBagsPerFlight, char[][] tripState) {
+    	 this.sBags = sBags;
+    	 this.numOfBagsPerFlight = numOfBagsPerFlight;
+         this.passengersTripState = tripState;
+    }
+    
     //PORTER FUNCTIONS
 
 

@@ -29,9 +29,22 @@ public class Message implements Serializable{
    
    private BusDriverState bds;
    
+   private char[][] tripState;
+   
+   private int[] numOfBagsPerFlight;
+   
+   private MemStack<Bag> sBags[];
+   
    public Message (MessageType type)
    {
       msgType = type;
+   }
+   
+   public Message(MessageType type, MemStack<Bag> sBags[], int[] numOfBagsPerFlight, char[][] tripState) {
+	   msgType = type;
+	   this.tripState = tripState;
+	   this.sBags = sBags;
+	   this.numOfBagsPerFlight = numOfBagsPerFlight;
    }
    
    public Message(MessageType type, BusDriverState bds) {
@@ -49,6 +62,8 @@ public class Message implements Serializable{
     	  flight=f;
       }
    }
+   
+   
    
    public Message (MessageType type, Bag bag)
    {
@@ -78,6 +93,18 @@ public class Message implements Serializable{
    
    public BusDriverState getBusDriverState() {
 	   return this.bds;
+   }
+   
+   public char[][] getTripState(){
+	   return this.tripState;
+   }
+   
+   public MemStack<Bag>[] getSBags(){
+	   return this.sBags;
+   }
+   
+   public int[] getNumOfBagsPerFlight() {
+	   return this.numOfBagsPerFlight;
    }
    
    @Override

@@ -86,7 +86,7 @@ public class ArrivalLoungeProxy extends Thread {
 	      { cl = (Class<serverSide.Proxys.ArrivalLoungeProxy>) Class.forName ("serverSide.Proxy.ArrivalLoungeProxy");
 	      }
 	      catch (ClassNotFoundException e)
-	      { System.out.println ("Proxy data type not found!");
+	      { System.out.println ("Proxy al data type not found!");
 	        e.printStackTrace ();
 	        System.exit (1);
 	      }

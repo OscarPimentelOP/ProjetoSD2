@@ -85,7 +85,7 @@ public class BaggageReclaimOfficeProxy extends Thread {
 	      { cl = (Class<serverSide.Proxys.BaggageReclaimOfficeProxy>) Class.forName ("serverSide.Proxy.BaggageReclaimOfficeProxy");
 	      }
 	      catch (ClassNotFoundException e)
-	      { System.out.println ("Proxy data type not found!");
+	      { System.out.println ("Proxy bro data type not found!");
 	        e.printStackTrace ();
 	        System.exit (1);
 	      }

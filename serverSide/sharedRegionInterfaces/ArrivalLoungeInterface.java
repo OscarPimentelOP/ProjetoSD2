@@ -29,11 +29,15 @@ public class ArrivalLoungeInterface {
 		 case TAKEAREST : break;
 		 case TRYTOCOLLECTABAG : break;
 		 case NOMOREBAGSTOCOLLECT : break;
+		 case SENDPARAMS : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
 		 //Process messages
 		 switch (inMessage.getType ()) {
+		 case SENDPARAMS : al.setPlaneHold(inMessage.getSBags(), inMessage.getNumOfBagsPerFlight(), inMessage.getTripState());
+		 				   outMessage = new Message(MessageType.SENDPARAMSACK);
+		 				   break;
 		 case WHATSHOULDIDO:try {
 						char a = al.whatShouldIDo(inMessage.getFlight()); 
 						switch(a) {

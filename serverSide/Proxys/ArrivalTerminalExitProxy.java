@@ -85,7 +85,7 @@ public class ArrivalTerminalExitProxy extends Thread{
 	      { cl = (Class<serverSide.Proxys.ArrivalTerminalExitProxy>) Class.forName ("serverSide.Proxy.ArrivalTerminalExitProxy");
 	      }
 	      catch (ClassNotFoundException e)
-	      { System.out.println ("Proxy data type not found!");
+	      { System.out.println ("Proxy ate data type not found!");
 	        e.printStackTrace ();
 	        System.exit (1);
 	      }

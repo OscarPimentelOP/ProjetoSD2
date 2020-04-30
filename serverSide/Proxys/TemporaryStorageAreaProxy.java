@@ -85,7 +85,7 @@ public class TemporaryStorageAreaProxy extends Thread {
 	      { cl = (Class<serverSide.Proxys.TemporaryStorageAreaProxy>) Class.forName ("serverSide.Proxy.TemporaryStorageAreaProxy");
 	      }
 	      catch (ClassNotFoundException e)
-	      { System.out.println ("Proxy data type not found!");
+	      { System.out.println ("Proxy tsa data type not found!");
 	        e.printStackTrace ();
 	        System.exit (1);
 	      }

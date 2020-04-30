@@ -85,7 +85,7 @@ public class BaggageCollectionPointProxy extends Thread {
 	      { cl = (Class<serverSide.Proxys.BaggageCollectionPointProxy>) Class.forName ("serverSide.Proxy.BaggageCollectionPointProxy");
 	      }
 	      catch (ClassNotFoundException e)
-	      { System.out.println ("Proxy data type not found!");
+	      { System.out.println ("Proxy bcp data type not found!");
 	        e.printStackTrace ();
 	        System.exit (1);
 	      }
