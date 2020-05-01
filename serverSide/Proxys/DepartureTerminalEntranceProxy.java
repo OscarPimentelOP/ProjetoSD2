@@ -82,7 +82,7 @@ public class DepartureTerminalEntranceProxy extends Thread{
 	      int proxyId;                                         // identificador da instanciação
 
 	      try
-	      { cl = (Class<serverSide.Proxys.DepartureTerminalEntranceProxy>) Class.forName ("serverSide.Proxy.DepartureTerminalEntranceProxy");
+	      { cl = (Class<serverSide.Proxys.DepartureTerminalEntranceProxy>) Class.forName ("serverSide.Proxys.DepartureTerminalEntranceProxy");
 	      }
 	      catch (ClassNotFoundException e)
 	      { System.out.println ("Proxy dte data type not found!");

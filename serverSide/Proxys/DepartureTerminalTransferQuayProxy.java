@@ -82,7 +82,7 @@ public class DepartureTerminalTransferQuayProxy extends Thread {
 	      int proxyId;                                         // identificador da instanciação
 
 	      try
-	      { cl = (Class<serverSide.Proxys.DepartureTerminalTransferQuayProxy>) Class.forName ("serverSide.Proxy.DepartureTerminalTransferQuayProxy");
+	      { cl = (Class<serverSide.Proxys.DepartureTerminalTransferQuayProxy>) Class.forName ("serverSide.Proxys.DepartureTerminalTransferQuayProxy");
 	      }
 	      catch (ClassNotFoundException e)
 	      { System.out.println ("Proxy dttq data type not found!");

@@ -101,17 +101,17 @@ public class mainSharedRegions {
 	     /* Process requests */
 
 	      while (true)
-	      { sconi = scon.accept ();                           
-	        repoProxy = new RepoProxy (sconi, repoInter);    
+	      { sconi = scon.accept ();
+	      	repoProxy = new RepoProxy (sconi, repoInter);    
 	        repoProxy.start ();
-	        alProxy = new ArrivalLoungeProxy(sconi,alInter);
+	      	alProxy = new ArrivalLoungeProxy(sconi,alInter);
 	        alProxy.start();
-	        ateProxy = new ArrivalTerminalExitProxy(sconi,ateInter);
-	        ateProxy.start();
 	        attqProxy = new ArrivalTerminalTransferQuayProxy(sconi,attqInter);
 	        attqProxy.start();
 	        bcpProxy = new BaggageCollectionPointProxy(sconi,bcpInter);
 	        bcpProxy.start();
+	        ateProxy = new ArrivalTerminalExitProxy(sconi,ateInter);
+	        ateProxy.start();
 	        broProxy = new BaggageReclaimOfficeProxy(sconi,broInter);
 	        broProxy.start();
 	        dteProxy = new DepartureTerminalEntranceProxy(sconi,dteInter);

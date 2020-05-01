@@ -82,7 +82,7 @@ public class TemporaryStorageAreaProxy extends Thread {
 	      int proxyId;                                         // identificador da instanciação
 
 	      try
-	      { cl = (Class<serverSide.Proxys.TemporaryStorageAreaProxy>) Class.forName ("serverSide.Proxy.TemporaryStorageAreaProxy");
+	      { cl = (Class<serverSide.Proxys.TemporaryStorageAreaProxy>) Class.forName ("serverSide.Proxys.TemporaryStorageAreaProxy");
 	      }
 	      catch (ClassNotFoundException e)
 	      { System.out.println ("Proxy tsa data type not found!");

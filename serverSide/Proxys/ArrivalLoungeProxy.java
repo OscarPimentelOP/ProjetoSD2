@@ -83,7 +83,7 @@ public class ArrivalLoungeProxy extends Thread {
 	      int proxyId;                                         // identificador da instanciação
 
 	      try
-	      { cl = (Class<serverSide.Proxys.ArrivalLoungeProxy>) Class.forName ("serverSide.Proxy.ArrivalLoungeProxy");
+	      { cl = (Class<serverSide.Proxys.ArrivalLoungeProxy>) Class.forName ("serverSide.Proxys.ArrivalLoungeProxy");
 	      }
 	      catch (ClassNotFoundException e)
 	      { System.out.println ("Proxy al data type not found!");

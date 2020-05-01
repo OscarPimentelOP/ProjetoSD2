@@ -82,7 +82,7 @@ public class RepoProxy extends Thread {
 	      int proxyId;                                         // identificador da instanciação
 
 	      try
-	      { cl = (Class<serverSide.Proxys.RepoProxy>) Class.forName ("serverSide.Proxy.RepoProxy");
+	      { cl = (Class<serverSide.Proxys.RepoProxy>) Class.forName ("serverSide.Proxys.RepoProxy");
 	      }
 	      catch (ClassNotFoundException e)
 	      { System.out.println ("Proxy repo data type not found!");
