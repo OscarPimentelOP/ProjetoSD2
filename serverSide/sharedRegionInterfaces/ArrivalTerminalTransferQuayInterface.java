@@ -24,6 +24,10 @@ public class ArrivalTerminalTransferQuayInterface {
 		 case HASDAYSWORKENDED : break;
 		 case ANNOUNCEBUS : break;
 		 case PARKATARRIVAL : break;
+		 case SETENDOFWORKBUSDRIVER: break;
+		 case READFROMBUS : break;
+	 	 case DECCNTPASSENGERSINBUS: break;
+		 case GETCNTPASSENGERSINBUS: break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 

@@ -23,6 +23,11 @@ public class ArrivalTerminalExitInterface {
 		 case GOINGHOME : if ((inMessage.getFlight() < 0) || (inMessage.getFlight() > SimulatorParam.NUM_FLIGHTS))
 							throw new MessageException ("Number of flights invalid!", inMessage);
 						  break;
+		 case INCCNTPASSENGERSEND : break;
+		 case GETCNTPASSENGERSEND : break;
+		 case DECCNTPASSENGERSEND : break;
+		 case WAKEUPALLA : break;
+		 case SETTIMETOWAKEUPTOFALSEA : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 

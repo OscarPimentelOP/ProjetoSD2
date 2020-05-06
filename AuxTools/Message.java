@@ -62,6 +62,12 @@ private int finalDest;
 private int passengersOnTheQueue;
 
 private int passengerOnTheBus;
+
+private int numOfBagsInConveyBelt;
+
+private int missingBagsTotal;
+
+private int numOfBagsAtStoreroom;
    
    public Message (MessageType type)
    {
@@ -102,6 +108,18 @@ private int passengerOnTheBus;
       }
       else if(msgType==MessageType.SETTINGPASSANGERFINALDESTINATION) {
     	  this.finalDest = f;
+      }
+      else if(type == MessageType.SETTINGNUMOFBAGSINTHECB) {
+    	  this.numOfBagsInConveyBelt = f;
+      }
+      else if(type == MessageType.SETTINGNUMOFBAGSCOLLECTED) {
+    	  this.id = f;
+      }
+      else if(type == MessageType.SETTINGLOSTBAGS) {
+    	  this.missingBagsTotal = f;
+      }
+      else if(type == MessageType.SETTINGNUMBAGSTEMPAREA) {
+    	  this.numOfBagsAtStoreroom = f;
       }
       else {
     	  flight=f;
@@ -245,5 +263,17 @@ private int passengerOnTheBus;
 	
 	public int getPassangersOnTheBus() {
 		return this.passengerOnTheBus;
+	}
+	
+	public int getNumOfBagsInConveyBelt() {
+		return this.numOfBagsInConveyBelt;
+	}
+	
+	public int getMissingBagsTotal() {
+		return this.missingBagsTotal;
+	}
+	
+	public int getNumOfBagsInTheTempArea() {
+		return this.numOfBagsAtStoreroom;
 	}
 }

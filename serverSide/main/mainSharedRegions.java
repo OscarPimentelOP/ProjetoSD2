@@ -67,7 +67,8 @@ public class mainSharedRegions {
 	      } catch (FileNotFoundException e) {
 	    	  // TODO Auto-generated catch block
 	    	  e.printStackTrace();
-	      }                   
+	      }       
+	      /*
 	      BaggageCollectionPoint bcp = new BaggageCollectionPoint(repo);
 	      BaggageReclaimOffice bro = new BaggageReclaimOffice(repo);
 	      TemporaryStorageArea tsa = new TemporaryStorageArea(repo);
@@ -91,9 +92,9 @@ public class mainSharedRegions {
 	      
 	     
 
-
+		*/
 	     /* Process requests */
-
+	      /*
 	      while (true)
 	      { sconi = scon.accept ();
 	      	repoProxy = new RepoProxy (sconi, repoInter);    
@@ -115,5 +116,7 @@ public class mainSharedRegions {
 	        tsaProxy = new TemporaryStorageAreaProxy(sconi,tsaInter);
 	        tsaProxy.start();
 	      }
+	      
+	      */
 	   }
 }

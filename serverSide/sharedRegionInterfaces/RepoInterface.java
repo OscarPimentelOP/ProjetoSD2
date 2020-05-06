@@ -3,6 +3,7 @@ package serverSide.sharedRegionInterfaces;
 import AuxTools.Message;
 import AuxTools.MessageException;
 import AuxTools.MessageType;
+import AuxTools.SimulatorParam;
 import serverSide.sharedRegions.Repo;
 
 public class RepoInterface {
@@ -19,6 +20,27 @@ public class RepoInterface {
 		 //Validate messages
 		 switch (inMessage.getType ()) {
 		 case SETBUSDRIVERSTATE : break;
+		 case SETPORTERSTATE : break;
+		 case DECNUMBAGSATPLANEHOLD : break;
+		 case SETTINGFLIGHTNUMBER : if ((inMessage.getFlight() < 0) || (inMessage.getFlight() > SimulatorParam.NUM_FLIGHTS))
+								   		 throw new MessageException ("Number of flights invalid!", inMessage);
+								    break;
+		 case SETTINGNUMOFBAGSATPLANEHOLD : if ((inMessage.getNumOfBagsInteger() < 0) || (inMessage.getNumOfBagsInteger() > SimulatorParam.MAX_NUM_OF_BAGS))
+										   		 throw new MessageException ("Number of bags invalid!", inMessage);
+											if ((inMessage.getFlight() < 0) || (inMessage.getFlight() > SimulatorParam.NUM_FLIGHTS))
+												throw new MessageException ("Number of flights invalid!", inMessage);
+										    break;
+		 //TERMINAR DAQUI PARA A FRENTE
+		 case SETTINGPASSANGERSONTRANSIT : break;
+		 case SETTINGPASSANGERDEST : break;
+		 case SETNUMOFBAGSATTHEBEGINNING : break;
+		 case SETTINGPASSENGERSTATE : break;
+		 case SETTINGPASSANGERFINALDESTINATION : break;
+		 case SETTINGPASSANGERSONTHEQUEUE : break;
+		 case SETTINGPASSANGERSONTHEBUS : break;
+		 case SETTINGNUMOFBAGSINTHECB : break;
+		 case SETTINGNUMOFBAGSCOLLECTED : break;
+		 case SETTINGNUMBAGSTEMPAREA : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
@@ -73,15 +95,15 @@ public class RepoInterface {
 		outMessage = new Message(MessageType.ACK);
 		break;
 
-		case SETTINGNUMOFBAGSINTHECB : repo.setNumOfBagsInTheConvoyBelt(inMessage.getNumOfBagsInTheConvoyBelt());
+		case SETTINGNUMOFBAGSINTHECB : repo.setNumOfBagsInTheConvoyBelt(inMessage.getNumOfBagsInConveyBelt());
 		outMessage = new Message(MessageType.ACK);
 		break;
 
-		case SETTINGNUMOFBAGSCOLLECTED : repo.setNumOfBagsCollected(inMessage.getNumOfBagsCollected());
+		case SETTINGNUMOFBAGSCOLLECTED : repo.setNumOfBagsCollected(inMessage.getPassengerID());
 		outMessage = new Message(MessageType.ACK);
 		break;
 
-		case SETTINGLOSTBAGS : repo.setLostBags(inMessage.getLostBags());
+		case SETTINGLOSTBAGS : repo.setLostBags(inMessage.getMissingBagsTotal());
 		outMessage = new Message(MessageType.ACK);
 		break;
 

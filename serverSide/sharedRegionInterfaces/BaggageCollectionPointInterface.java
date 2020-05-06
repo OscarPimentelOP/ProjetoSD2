@@ -21,6 +21,7 @@ public class BaggageCollectionPointInterface {
 											throw new MessageException ("Bag cannot be null!", inMessage);
 									   break;
 			case GOINGCOLLECTABAG : break;
+			case SETMOREBAGS: break;
 			default : throw new MessageException ("Message type invalid : ", inMessage);
 		}
         

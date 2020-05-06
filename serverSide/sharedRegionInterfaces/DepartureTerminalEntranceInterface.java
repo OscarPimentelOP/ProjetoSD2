@@ -23,6 +23,8 @@ public class DepartureTerminalEntranceInterface {
 		 case PREPARINGNEXTLEG : if ((inMessage.getFlight() < 0) || (inMessage.getFlight() > SimulatorParam.NUM_FLIGHTS))
 									throw new MessageException ("Number of flights invalid!", inMessage);
 						  		 break;
+		 case WAKEUPALLD : break;
+		 case SETTIMETOWAKEUPTOFALSED : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 

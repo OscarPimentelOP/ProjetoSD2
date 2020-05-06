@@ -30,6 +30,7 @@ public class ArrivalLoungeInterface {
 		 case TRYTOCOLLECTABAG : break;
 		 case NOMOREBAGSTOCOLLECT : break;
 		 case SENDPARAMS : break;
+		 case SETENDOFWORKPORTER : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
