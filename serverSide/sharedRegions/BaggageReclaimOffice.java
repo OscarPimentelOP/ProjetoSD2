@@ -8,6 +8,7 @@ package serverSide.sharedRegions;
 import AuxTools.SharedException;
 import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
+import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;
 
 /**
@@ -26,14 +27,14 @@ public class BaggageReclaimOffice {
     /**
      * The repository, to store the program status
      */
-    private Repo repo;
+    private RepoStub repo;
 
     /**
      * Baggage ReclaimOffice's instantiation
      *
      * @param repo -> repository of information
      */
-    public BaggageReclaimOffice(Repo repo) {
+    public BaggageReclaimOffice(RepoStub repo) {
         this.repo = repo;
     }
 

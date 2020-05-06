@@ -10,6 +10,7 @@ import AuxTools.SharedException;
 import AuxTools.Bag;
 import clientSide.Entities.Porter;
 import clientSide.Entities.PorterState;
+import clientSide.Stubs.RepoStub;
 import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
 
@@ -34,7 +35,7 @@ public class BaggageCollectionPoint {
     /**
      * The repository, to store the program status
      */
-    private Repo repo;
+    private RepoStub repo;
 
     /**
      * Informs if there are bags at the plane's hold
@@ -46,7 +47,7 @@ public class BaggageCollectionPoint {
      *
      * @param repo -> repository of information
      */
-    public BaggageCollectionPoint(Repo repo) {
+    public BaggageCollectionPoint(RepoStub repo) {
         this.repo = repo;
         this.numOfBagsInConveyBelt = 0;
         this.convoyBelt = new CAM<Integer, Bag[]>();
