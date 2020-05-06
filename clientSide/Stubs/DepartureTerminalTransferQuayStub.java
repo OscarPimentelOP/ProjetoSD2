@@ -25,8 +25,8 @@ public class DepartureTerminalTransferQuayStub {
 
     public DepartureTerminalTransferQuayStub(){
 
-        this.serverHostName = SimulatorParam.temporaryStorageAreaHostName;
-        this.serverPort = SimulatorParam.temporaryStorageAreaPort;
+        this.serverHostName = SimulatorParam.departureTerminalTransferQuayHostName;
+        this.serverPort = SimulatorParam.departureTerminalTransferQuayPort;
     }
 
 
