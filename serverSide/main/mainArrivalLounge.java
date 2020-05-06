@@ -5,7 +5,6 @@ import clientSide.Stubs.BaggageCollectionPointStub;
 import clientSide.Stubs.RepoStub;
 import serverSide.ServerCom;
 import serverSide.Proxys.ArrivalLoungeProxy;
-import serverSide.Proxys.RepoProxy;
 import serverSide.sharedRegionInterfaces.ArrivalLoungeInterface;
 import serverSide.sharedRegions.ArrivalLounge;
 

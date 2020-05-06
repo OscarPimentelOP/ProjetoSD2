@@ -102,5 +102,50 @@ public enum MessageType {
 	SENDPARAMS,
 	
 	//Parametros recebidos (resposta)
-	SENDPARAMSACK
+	SENDPARAMSACK,
+	
+	//Mensagem do al para o bcp para informar que não há mais malas (solicitação)
+	SETMOREBAGS,
+	
+	//Passageiro acorda os passageiros do departure (solicitação)
+	WAKEUPALLD,
+	 
+	//Passageiro dá set do time to wake up no departure (solicitação)
+	SETTIMETOWAKEUPTOFALSED,
+	
+	//Passageiro dá set no fim do dia do porter (solicitação)
+	SETENDOFWORKPORTER,
+	
+	//Passageiro dá set no fim do dia do bus driver (solicitação)
+	SETENDOFWORKBUSDRIVER,
+	
+	//Incrementar o numero de passageiros que chegaram ao final (solicitação)
+	INCCNTPASSENGERSEND,
+	
+	//Pedido para receber o numero de passageiros que chegaram ao final (solicitação)
+	GETCNTPASSENGERSEND,
+	
+	//Envio do numero de passageiros que chegaram ao final (resposta)
+	SENDCNTPASSENGERSEND,
+	
+	//decrementar o numero de passageiros que chegaram ao final (solicitação)
+	DECCNTPASSENGERSEND,
+	
+	//Passageiro acorda os passageiros do arrival (solicitação)
+	WAKEUPALLA,
+	 
+	//Passageiro dá set do time to wake up no arrival (solicitação)
+	SETTIMETOWAKEUPTOFALSEA,
+	
+	//Passageiro sai do autocarro (solicitação)
+	READFROMBUS,
+	
+	//decrementar o numero de passageiros no autocarro (solicitação)
+	DECCNTPASSENGERSINBUS,
+	
+	//Pedido para receber o numero de passageiros no autocarro (solicitação)
+	GETCNTPASSENGERSINBUS,
+	
+	//Envio do numero de passageiros que chegaram no autocarro (resposta)
+	SENDCNTPASSENGERSINBUS,
 }

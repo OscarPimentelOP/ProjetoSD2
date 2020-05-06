@@ -154,4 +154,29 @@ public class ArrivalLoungeStub {
         }
 		con.close();
     }
+    
+    public synchronized void setEndOfWork() {
+    	ClientCom con = new ClientCom (serverHostName, serverPort);
+		Message inMessage, outMessage;
+		Passenger p = (Passenger) Thread.currentThread();
+		//Waits for connection
+		while (!con.open ())                                    
+		{ try
+	        { p.sleep ((long) (10));
+	        }
+	        catch (InterruptedException e) {}
+	    }
+		
+		//Taking a bus message
+		outMessage = new Message (MessageType.SETENDOFWORKPORTER);
+		con.writeObject (outMessage);
+		inMessage = (Message) con.readObject ();
+		
+		if ((inMessage.getType () != MessageType.ACK))
+        { System.out.println ("Thread " + p.getName () + ": Invalid type!");
+          System.out.println (inMessage.toString ());
+          System.exit (1);
+        }
+		con.close();
+    }
 }

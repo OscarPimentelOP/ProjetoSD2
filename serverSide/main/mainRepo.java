@@ -10,7 +10,7 @@ import serverSide.sharedRegions.Repo;
 
 public class mainRepo {
     public static void main(String[] args) {
-        final int portNumb = SimulatorParam.repoPort;
+        final int portNumb = SimulatorParam.mainRepoPort;
 
         ServerCom scon, sconi;
         RepoProxy repoProxy;
@@ -18,7 +18,7 @@ public class mainRepo {
         scon = new ServerCom(portNumb);
         scon.start();
 
-        Repo repo;
+        Repo repo = null;
         try {
             repo = new Repo();
         } catch (FileNotFoundException e) {

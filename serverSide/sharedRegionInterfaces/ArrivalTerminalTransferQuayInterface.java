@@ -50,11 +50,23 @@ public class ArrivalTerminalTransferQuayInterface {
 		 						 }
 		 						 break;
 		 case ANNOUNCEBUS : attq.announcingBusBoarding();
-							   outMessage = new Message(MessageType.ACK);
-							   break;
-		 case PARKATARRIVAL : attq.parkTheBus();
 							outMessage = new Message(MessageType.ACK);
-						    break;
+							break;
+		 case PARKATARRIVAL : attq.parkTheBus();
+							  outMessage = new Message(MessageType.ACK);
+						      break;
+		 case SETENDOFWORKBUSDRIVER: attq.setEndOfWord();
+									 outMessage = new Message(MessageType.ACK);
+									 break;
+		 case READFROMBUS : attq.readFromBus();
+							outMessage = new Message(MessageType.ACK);
+							break;
+		 case DECCNTPASSENGERSINBUS: attq.decCntPassengersInBus();
+									 outMessage = new Message(MessageType.ACK);
+									 break;
+		 case GETCNTPASSENGERSINBUS: int cnt = attq.getCntPassengersInBus();
+									 outMessage = new Message(MessageType.SENDCNTPASSENGERSINBUS, cnt);
+									 break;
 		 }
 		 return (outMessage);
 	}

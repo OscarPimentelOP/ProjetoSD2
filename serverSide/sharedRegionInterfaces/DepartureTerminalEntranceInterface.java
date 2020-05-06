@@ -37,6 +37,12 @@ public class DepartureTerminalEntranceInterface {
 						   // TODO Auto-generated catch block
 						   e.printStackTrace();
 					   }
+		 case WAKEUPALLD : dte.wakeUpAll();
+						   outMessage = new Message(MessageType.ACK);
+					       break;
+		 case SETTIMETOWAKEUPTOFALSED : dte.setTimeToWakeUpToFalse();
+										outMessage = new Message(MessageType.ACK);
+									    break;
 		 }
 		 return (outMessage);
 	}

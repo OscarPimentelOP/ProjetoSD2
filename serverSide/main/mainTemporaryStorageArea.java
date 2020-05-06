@@ -12,7 +12,7 @@ public class mainTemporaryStorageArea {
 		final int portNumb = SimulatorParam.mainTemporaryStorageAreaPort;
 		
 		ServerCom scon, sconi;                              
-	    TemporaryStorageAreaProxy alProxy;
+	    TemporaryStorageAreaProxy tsaProxy;
 	    
 	    scon = new ServerCom (portNumb);                    
 	    scon.start ();
@@ -25,8 +25,8 @@ public class mainTemporaryStorageArea {
 	    
 	    while (true)
 	    { sconi = scon.accept ();
-	    	alProxy = new TemporaryStorageAreaProxy(sconi, tsaInter);    
-	    	alProxy.start ();
+	    	tsaProxy = new TemporaryStorageAreaProxy(sconi, tsaInter);    
+	    	tsaProxy.start ();
 	    }
 	}
     

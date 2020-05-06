@@ -1,14 +1,10 @@
 package serverSide.main;
 
 import AuxTools.SimulatorParam;
-import clientSide.Stubs.BaggageCollectionPointStub;
 import clientSide.Stubs.RepoStub;
 import serverSide.ServerCom;
-import serverSide.Proxys.ArrivalLoungeProxy;
 import serverSide.Proxys.ArrivalTerminalTransferQuayProxy;
-import serverSide.sharedRegionInterfaces.ArrivalLoungeInterface;
 import serverSide.sharedRegionInterfaces.ArrivalTerminalTransferQuayInterface;
-import serverSide.sharedRegions.ArrivalLounge;
 import serverSide.sharedRegions.ArrivalTerminalTransferQuay;
 
 public class mainArrivalTerminalTransferQuay {

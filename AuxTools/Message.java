@@ -35,9 +35,20 @@ public class Message implements Serializable{
    
    private MemStack<Bag> sBags[];
    
+   private boolean moreBags;
+   
+   private int cntPassengerEnd;
+   
+   private int cntPassengersInBus;
+   
    public Message (MessageType type)
    {
       msgType = type;
+   }
+   
+   public Message(MessageType type, boolean moreBags) {
+	   msgType=type;
+	   this.moreBags = moreBags;
    }
    
    public Message(MessageType type, MemStack<Bag> sBags[], int[] numOfBagsPerFlight, char[][] tripState) {
@@ -57,6 +68,12 @@ public class Message implements Serializable{
       msgType = type;
       if(msgType==MessageType.REPORTBAG) {
     	  reportedBags = f;
+      }
+      else if(msgType==MessageType.SENDCNTPASSENGERSEND) {
+    	  this.cntPassengerEnd = f;
+      }
+      else if(msgType==MessageType.SENDCNTPASSENGERSINBUS) {
+    	  this.cntPassengersInBus = f;
       }
       else {
     	  flight=f;
@@ -105,6 +122,18 @@ public class Message implements Serializable{
    
    public int[] getNumOfBagsPerFlight() {
 	   return this.numOfBagsPerFlight;
+   }
+   
+   public boolean getMoreBags() {
+	   return this.moreBags;
+   }
+   
+   public int getCntPassengersEnd() {
+	   return this.cntPassengerEnd;
+   }
+   
+   public int getCntPassengersInBus() {
+	   return this.cntPassengersInBus;
    }
    
    @Override

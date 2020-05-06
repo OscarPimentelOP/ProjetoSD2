@@ -39,7 +39,7 @@ public class DepartureTerminalTransferQuay {
     /**
      * Arrival terminal transfer quay shared region
      */
-    private ArrivalTerminalTransferQuay attq;
+    private ArrivalTerminalTransferQuayStub attq;
 
     /**
      * Departure terminal transfer quay's instantiation
@@ -134,7 +134,7 @@ public class DepartureTerminalTransferQuay {
      * Sets the arrival terminal transfer quay shared region
      */
     public synchronized void setArrivalTerminalTransferQuay(ArrivalTerminalTransferQuayStub attqStub) {
-        this.attq = attq;
+        this.attq = attqStub;
     }
 
     /**

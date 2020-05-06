@@ -4,14 +4,10 @@ import AuxTools.SimulatorParam;
 import clientSide.Stubs.ArrivalLoungeStub;
 import clientSide.Stubs.ArrivalTerminalExitStub;
 import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
-import clientSide.Stubs.DepartureTerminalEntranceStub;
 import clientSide.Stubs.RepoStub;
 import serverSide.ServerCom;
-import serverSide.Proxys.ArrivalTerminalExitProxy;
 import serverSide.Proxys.DepartureTerminalEntranceProxy;
-import serverSide.sharedRegionInterfaces.ArrivalTerminalExitInterface;
 import serverSide.sharedRegionInterfaces.DepartureTerminalEntranceInterface;
-import serverSide.sharedRegions.ArrivalTerminalExit;
 import serverSide.sharedRegions.DepartureTerminalEntrance;
 
 public class mainDepartureTerminalEntrance {

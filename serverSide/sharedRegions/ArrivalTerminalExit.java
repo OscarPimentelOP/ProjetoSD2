@@ -106,7 +106,7 @@ public class ArrivalTerminalExit {
             dte.setTimeToWakeUpToFalse();
             if (flight + 1 == SimulatorParam.NUM_FLIGHTS) {
                 al.setEndOfWork();
-                attq.setEndOfWord();
+                attq.setEndOfWork();
             }
         }
         //Waiting for porter and bus driver to fall asleep before changing the passenger state to NO_STATE

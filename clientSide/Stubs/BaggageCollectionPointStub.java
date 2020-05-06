@@ -83,8 +83,33 @@ public class BaggageCollectionPointStub {
         cc.close();
 
         return hasBag;
-        
     }
+    
+    public void setMoreBags(boolean moreBags) {
+    	ClientCom cc = new ClientCom(serverHostName,serverPort);
+        Porter p = (Porter) Thread.currentThread();
+        Message inmsg, outmsg; 
+        boolean hasBag;
 
+        while (!cc.open ())                                    
+		{ try
+	        { p.sleep ((long) (10));
+	        }
+	        catch (InterruptedException e) {}
+	    }
+
+        outmsg = new Message(MessageType.SETMOREBAGS, moreBags);
+        cc.writeObject(outmsg);
+        inmsg = (Message) cc.readObject ();
+
+
+        if ((inmsg.getType () != MessageType.ACK)) 
+        { System.out.println ("Thread " + p.getName () + ": Invalid type!");
+          System.out.println (inmsg.toString ());
+          System.exit (1);
+        }
+
+        cc.close();
+    }
 
 }

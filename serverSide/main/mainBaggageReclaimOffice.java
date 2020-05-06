@@ -3,11 +3,8 @@ package serverSide.main;
 import AuxTools.SimulatorParam;
 import clientSide.Stubs.RepoStub;
 import serverSide.ServerCom;
-import serverSide.Proxys.BaggageCollectionPointProxy;
 import serverSide.Proxys.BaggageReclaimOfficeProxy;
-import serverSide.sharedRegionInterfaces.BaggageCollectionPointInterface;
 import serverSide.sharedRegionInterfaces.BaggageReclaimOfficeInterface;
-import serverSide.sharedRegions.BaggageCollectionPoint;
 import serverSide.sharedRegions.BaggageReclaimOffice;
 
 public class mainBaggageReclaimOffice {

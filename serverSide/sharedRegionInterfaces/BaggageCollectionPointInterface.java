@@ -44,7 +44,9 @@ public class BaggageCollectionPointInterface {
                 //TODO: handle exception
             }   
             break; 
-
+            case SETMOREBAGS: bcp.setMoreBags(inMessage.getMoreBags());
+            				  outMessage = new Message(MessageType.ACK); 
+            				  break;
         }
         return outMessage;
     }        

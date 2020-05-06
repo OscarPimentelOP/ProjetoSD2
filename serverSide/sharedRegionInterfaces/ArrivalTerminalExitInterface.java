@@ -37,6 +37,21 @@ public class ArrivalTerminalExitInterface {
 						   // TODO Auto-generated catch block
 						   e.printStackTrace();
 					   }
+		 case INCCNTPASSENGERSEND : ate.incCntPassengersEnd();
+		 							outMessage = new Message(MessageType.ACK);
+		 							break;
+		 case GETCNTPASSENGERSEND : int cnt = ate.getCntPassengersEnd();
+									outMessage = new Message(MessageType.SENDCNTPASSENGERSEND, cnt);
+									break;
+		 case DECCNTPASSENGERSEND : ate.decCntPassengersEnd();
+		 							outMessage = new Message(MessageType.ACK);
+		 							break;
+		 case WAKEUPALLA : ate.wakeUpAll();
+						   outMessage = new Message(MessageType.ACK);
+					       break;
+		case SETTIMETOWAKEUPTOFALSEA : ate.setTimeToWakeUpToFalse();
+									   outMessage = new Message(MessageType.ACK);
+									   break;
 		 }
 		 return (outMessage);
 	}

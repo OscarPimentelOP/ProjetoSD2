@@ -72,7 +72,11 @@ public class ArrivalLoungeInterface {
 		 case NOMOREBAGSTOCOLLECT : al.noMoreBagsToCollect();
 		 							outMessage = new Message(MessageType.ACK);
 		 							break;
+		 case SETENDOFWORKPORTER: al.setEndOfWork();
+								  outMessage = new Message(MessageType.ACK);
+								  break;
 		 }
+		 
 		 
 		 return (outMessage);
 	 }

@@ -1,14 +1,10 @@
 package serverSide.main;
 
 import AuxTools.SimulatorParam;
-import clientSide.Stubs.BaggageCollectionPointStub;
 import clientSide.Stubs.RepoStub;
 import serverSide.ServerCom;
-import serverSide.Proxys.ArrivalLoungeProxy;
 import serverSide.Proxys.BaggageCollectionPointProxy;
-import serverSide.sharedRegionInterfaces.ArrivalLoungeInterface;
 import serverSide.sharedRegionInterfaces.BaggageCollectionPointInterface;
-import serverSide.sharedRegions.ArrivalLounge;
 import serverSide.sharedRegions.BaggageCollectionPoint;
 
 public class mainBaggageCollectionPoint {
