@@ -10,7 +10,7 @@ import serverSide.sharedRegions.DepartureTerminalTransferQuay;
 
 public class mainDepartureTerminalTransferQuay {
     public static void main (String [] args){
-		final int portNumb = SimulatorParam.mainTemporaryStorageAreaPort;
+		final int portNumb = SimulatorParam.mainDepartureTerminalTransferQuayPort;
 		
 		ServerCom scon, sconi;                              
 	    DepartureTerminalTransferQuayProxy dttqProxy;

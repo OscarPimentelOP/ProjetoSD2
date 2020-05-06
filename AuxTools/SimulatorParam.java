@@ -107,7 +107,7 @@ public class SimulatorParam {
     * Arrival terminal exit port number
 	* @serial arrivalTerminalExitPort
     */
-    public static final int arrivalTerminalExitPort = 4000 ;
+    public static final int arrivalTerminalExitPort = 4001 ;
 
     /**
     * Arrival terminal transfer quay host name
@@ -119,7 +119,7 @@ public class SimulatorParam {
     * Arrival terminal transfer quay port number
 	* @serial arrivalTerminalTransferQuayPort
     */
-    public static final int arrivalTerminalTransferQuayPort = 4000 ;
+    public static final int arrivalTerminalTransferQuayPort = 4002 ;
 
     /**
     * Baggage collection point host name
@@ -131,7 +131,7 @@ public class SimulatorParam {
     * Baggage collection point port number
 	* @serial baggageCollectionPointPort
     */
-    public static final int baggageCollectionPointPort = 4000 ;
+    public static final int baggageCollectionPointPort = 4003 ;
 
     /**
     * Baggage reclaim office host name
@@ -143,7 +143,7 @@ public class SimulatorParam {
     * Baggage reclaim office port number
 	* @serial baggageReclaimOfficePort
     */
-    public static final int baggageReclaimOfficePort = 4000 ;
+    public static final int baggageReclaimOfficePort = 4004 ;
 
     /**
     * Departure terminal exit host name
@@ -155,7 +155,7 @@ public class SimulatorParam {
     * Departure terminal exit port number
 	* @serial departureTerminalExitPort
     */
-    public static final int departureTerminalEntrancePort = 4000 ;
+    public static final int departureTerminalEntrancePort = 4005 ;
 
     /**
     * Departure terminal transfer quay host name
@@ -167,7 +167,7 @@ public class SimulatorParam {
     * Departure terminal tranfer quay
 	* @serial departureTerminalTransferQuayPort
     */
-    public static final int departureTerminalTransferQuayPort = 4000 ;
+    public static final int departureTerminalTransferQuayPort = 4006 ;
     
      /**
     * Temporary storage area host name
@@ -179,7 +179,7 @@ public class SimulatorParam {
     * Temporary storage area port number
 	* @serial temporaryStorageAreaPort
     */
-    public static final int temporaryStorageAreaPort = 4000 ;
+    public static final int temporaryStorageAreaPort = 4009 ;
 
     /**
      * Repository host name
@@ -191,7 +191,7 @@ public class SimulatorParam {
      * Repository port number
  	* @serial repoPort
      */
-     public static final int repoPort = 4000 ;
+     public static final int repoPort = 4008 ;
      
      /**
       * Main Passenger host name
@@ -215,48 +215,48 @@ public class SimulatorParam {
         * Main Arrival Terminal Exit port number
     	* @serial mainArrivalTerminalExitPort
         */
-       public static final int mainArrivalTerminalExitPort = 4000 ;
+       public static final int mainArrivalTerminalExitPort = 4001 ;
         
        /**
         * Main Arrival Terminal Transfer Quay port number
     	* @serial mainArrivalTerminalTransferQuayPort
         */
-       public static final int mainArrivalTerminalTransferQuayPort = 4000 ; 
+       public static final int mainArrivalTerminalTransferQuayPort = 4002 ; 
 
 
        /**
         * Main Baggage Collection Point port number
     	* @serial mainBaggageCollectionPointPort
         */
-       public static final int mainBaggageCollectionPointPort = 4000 ;
+       public static final int mainBaggageCollectionPointPort = 4003 ;
        
        /**
         * Main Baggage Reclaim Office port number
     	* @serial mainBaggageReclaimOfficePort
         */
-       public static final int mainBaggageReclaimOfficePort = 4000 ;
+       public static final int mainBaggageReclaimOfficePort = 4004 ;
        
        /**
         * Main Departure Terminal Entrance port number
     	* @serial mainDepartureTerminalEntrancePort
         */
-       public static final int mainDepartureTerminalEntrancePort = 4000 ;
+       public static final int mainDepartureTerminalEntrancePort = 4005 ;
        
        /**
         * Main Departure Terminal Transfer Quay port number
     	* @serial mainDepartureTerminalTransferQuayPort
         */
-       public static final int mainDepartureTerminalTransferQuayPort = 4000 ;
+       public static final int mainDepartureTerminalTransferQuayPort = 4006 ;
        
        /**
         * Main Repository port number
     	* @serial mainRepoPort
         */
-       public static final int mainRepoPort = 4000 ;
+       public static final int mainRepoPort = 4008 ;
        
        /**
         * Main Temporary Storage Area port number
     	* @serial mainTemporaryStorageAreaPort
         */
-       public static final int mainTemporaryStorageAreaPort = 4000 ;
+       public static final int mainTemporaryStorageAreaPort = 4009 ;
 }
