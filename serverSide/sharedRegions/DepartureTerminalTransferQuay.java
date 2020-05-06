@@ -9,6 +9,8 @@ import clientSide.Entities.BusDriver;
 import clientSide.Entities.BusDriverState;
 import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
+import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
+import clientSide.Stubs.RepoStub;
 
 /**
  * This class implements the Departure Terminal Transfer Quay shared region.
@@ -32,7 +34,7 @@ public class DepartureTerminalTransferQuay {
     /**
      * The repository, to store the program status
      */
-    private Repo repo;
+    private RepoStub repo;
 
     /**
      * Arrival terminal transfer quay shared region
@@ -44,7 +46,7 @@ public class DepartureTerminalTransferQuay {
      *
      * @param repo -> repository of information
      */
-    public DepartureTerminalTransferQuay(Repo repo) {
+    public DepartureTerminalTransferQuay(RepoStub repo) {
         this.repo = repo;
         this.parked = false;
         this.cntPassengersOut = 0;
@@ -131,7 +133,7 @@ public class DepartureTerminalTransferQuay {
     /**
      * Sets the arrival terminal transfer quay shared region
      */
-    public synchronized void setArrivalTerminalTransferQuay(ArrivalTerminalTransferQuay attq) {
+    public synchronized void setArrivalTerminalTransferQuay(ArrivalTerminalTransferQuayStub attqStub) {
         this.attq = attq;
     }
 

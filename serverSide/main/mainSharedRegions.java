@@ -78,7 +78,7 @@ public class mainSharedRegions {
 	      ArrivalTerminalExit ate = new ArrivalTerminalExit(al, attq, repo);
 	      dte.setArrivalExit(ate);
 	      ate.setDepartureEntrance(dte);
-	      dttq.setArrivalTerminalTransferQuay(attq);
+	      
 	      RepoInterface repoInter = new RepoInterface (repo); 
 	      ArrivalLoungeInterface alInter = new ArrivalLoungeInterface(al);
 	      BaggageCollectionPointInterface bcpInter = new BaggageCollectionPointInterface(bcp);

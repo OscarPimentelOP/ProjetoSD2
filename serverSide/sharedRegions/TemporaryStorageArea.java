@@ -10,6 +10,7 @@ import AuxTools.SharedException;
 import AuxTools.Bag;
 import AuxTools.MemException;
 import clientSide.Entities.PorterState;
+import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;
 import clientSide.Entities.Porter;
 
@@ -29,7 +30,7 @@ public class TemporaryStorageArea {
     /**
      * The repository, to store the program status
      */
-    private Repo repo;
+    private RepoStub repo;
 
     /**
      * Number of bags at the storeroom
@@ -41,7 +42,7 @@ public class TemporaryStorageArea {
      *
      * @param repo -> repository of information
      */
-    public TemporaryStorageArea(Repo repo) {
+    public TemporaryStorageArea(RepoStub repo) {
         this.repo = repo;
         this.numOfBagsAtStoreroom = 0;
         Bag[] bags = new Bag[SimulatorParam.NUM_PASSANGERS * SimulatorParam.MAX_NUM_OF_BAGS];
