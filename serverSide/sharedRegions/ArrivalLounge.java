@@ -13,6 +13,8 @@ import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
 import clientSide.Entities.Porter;
 import clientSide.Entities.PorterState;
+import clientSide.Stubs.BaggageCollectionPointStub;
+import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;
 
 /**
@@ -45,7 +47,7 @@ public class ArrivalLounge {
     /**
      * The repository, to store the program status
      */
-    private Repo repo;
+    private RepoStub repo;
 
     /**
      * Number of flight
@@ -65,7 +67,7 @@ public class ArrivalLounge {
     /**
      * Baggage collection point shared region
      */
-    private BaggageCollectionPoint bcp;
+    private BaggageCollectionPointStub bcp;
 
     /**
      * Trip states for each passenger
@@ -86,7 +88,7 @@ public class ArrivalLounge {
      * @param bcp                -> baggage collection point
      * @param repo               -> repository of information
      */
-    public ArrivalLounge(BaggageCollectionPoint bcp, Repo repo) {
+    public ArrivalLounge(BaggageCollectionPointStub bcp, RepoStub repo) {
         this.repo = repo;
         this.flight = 0;
         this.passengersFinalDest = 0;
