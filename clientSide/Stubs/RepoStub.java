@@ -92,7 +92,7 @@ public class RepoStub {
 	    }
 		
 		//Taking a bus message
-		outMessage = new Message (MessageType.DECNUMBAGSATPLANEHOLD, p);
+		outMessage = new Message (MessageType.DECNUMBAGSATPLANEHOLD);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
@@ -129,7 +129,7 @@ public class RepoStub {
 		con.close();
 	}
 
-	public void setNumOfBagsAtPlaneHold(int flight, int[] numOfBagsPerFlight){
+	public void setNumOfBagsAtPlaneHold(int flight, int numOfBagsPerFlight){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -142,7 +142,7 @@ public class RepoStub {
 	    }
 		
 		//Passenger going home message, with the flight number
-		outMessage = new Message (MessageType.SETTINGNUMOFBAGSATPLANEHOLD, flight);
+		outMessage = new Message (MessageType.SETTINGNUMOFBAGSATPLANEHOLD, flight, numOfBagsPerFlight);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
@@ -280,7 +280,7 @@ public class RepoStub {
 		con.close();
 	}
 
-	public void setPassengersOnTheQueue(int passengersInQueue, int id){
+	public void setPassengersOnTheQueue(int passengersOnTheQueue, int id){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -293,7 +293,7 @@ public class RepoStub {
 	    }
 		
 		//Passenger going home message, with the flight number
-		outMessage = new Message (MessageType.SETTINGPASSANGERSONTHEQUEUE, passengersInQueue, id);
+		outMessage = new Message (MessageType.SETTINGPASSANGERSONTHEQUEUE, passengersOnTheQueue, id);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		

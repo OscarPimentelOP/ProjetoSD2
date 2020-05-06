@@ -3,6 +3,8 @@ package AuxTools;
 import java.io.Serializable;
 
 import clientSide.Entities.BusDriverState;
+import clientSide.Entities.PassengerState;
+import clientSide.Entities.PorterState;
 
 public class Message implements Serializable{
 	/**
@@ -41,6 +43,26 @@ public class Message implements Serializable{
    
    private int cntPassengersInBus;
    
+   private PorterState ps;
+   
+   private int numOfBagsInteger;
+   
+   private int passengersInTransit;
+
+   private int id;
+
+private int numBagsAtBeggining;
+
+private String destType;
+
+private PassengerState pgs;
+
+private int finalDest;
+
+private int passengersOnTheQueue;
+
+private int passengerOnTheBus;
+   
    public Message (MessageType type)
    {
       msgType = type;
@@ -75,12 +97,16 @@ public class Message implements Serializable{
       else if(msgType==MessageType.SENDCNTPASSENGERSINBUS) {
     	  this.cntPassengersInBus = f;
       }
+      else if(msgType==MessageType.SETTINGPASSANGERSONTRANSIT) {
+    	  this.passengersInTransit = f;
+      }
+      else if(msgType==MessageType.SETTINGPASSANGERFINALDESTINATION) {
+    	  this.finalDest = f;
+      }
       else {
     	  flight=f;
       }
    }
-   
-   
    
    public Message (MessageType type, Bag bag)
    {
@@ -89,8 +115,44 @@ public class Message implements Serializable{
    }
    
    
-   public MessageType getType ()
-   {
+   public Message(MessageType type, PorterState ps) {
+	   msgType = type;
+	   this.ps = ps;
+   }
+
+   public Message(MessageType type, int f1, int f2) {
+	   msgType = type;
+	   if(type == MessageType.SETTINGNUMOFBAGSATPLANEHOLD) {
+		   this.flight = f1;
+		   this.numOfBagsInteger = f2;
+	   }
+	   else if(type == MessageType.SETNUMOFBAGSATTHEBEGINNING) {
+		   this.id = f1;
+		   this.numBagsAtBeggining = f2;
+	   }
+	   else if(type == MessageType.SETTINGPASSANGERSONTHEQUEUE) {
+		   this.passengersOnTheQueue = f1;
+		   this.id = f2;
+	   }
+	   else if(type == MessageType.SETTINGPASSANGERSONTHEBUS) {
+		   this.passengerOnTheBus = f1;
+		   this.id = f2;
+	   }
+   }
+	
+	public Message(MessageType type, int id, String destType) {
+		msgType = type;
+		this.id = id;
+		this.destType = destType;
+	}
+
+	public Message(MessageType type, int id, PassengerState ps) {
+		msgType = type;
+		this.id = id;
+		this.pgs = ps;
+	}
+
+	public MessageType getType (){
       return (msgType);
    }
    
@@ -110,6 +172,10 @@ public class Message implements Serializable{
    
    public BusDriverState getBusDriverState() {
 	   return this.bds;
+   }
+   
+   public PorterState getPorterState() {
+	   return this.ps;
    }
    
    public char[][] getTripState(){
@@ -136,6 +202,10 @@ public class Message implements Serializable{
 	   return this.cntPassengersInBus;
    }
    
+   public int getNumOfBagsInteger() {
+	   return this.numOfBagsInteger;
+   }
+   
    @Override
    public String toString ()
    {
@@ -144,4 +214,36 @@ public class Message implements Serializable{
               "\nId ReportedBags = " + Integer.toString(this.reportedBags) +
               "\nNome Bag = " + bag.toString());
    }
+
+	public int getPassengersInTransit() {
+		return this.passengersInTransit;
+	}
+	
+	public int getPassengerID() {
+		return this.id;
+	}
+	
+	public int getNumBagsAtBeggining(){
+		return this.numBagsAtBeggining;
+	}
+	
+	public String getDestType() {
+		return this.destType;
+	}
+	
+	public PassengerState getPassengerState() {
+		return this.pgs;
+	}
+	
+	public int getPassengersFinalDest() {
+		return this.finalDest;
+	}
+	
+	public int getPassengersOnTheQueue() {
+		return this.passengersOnTheQueue;
+	}
+	
+	public int getPassangersOnTheBus() {
+		return this.passengerOnTheBus;
+	}
 }

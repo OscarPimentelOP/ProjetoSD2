@@ -53,7 +53,7 @@ public class RepoInterface {
 		outMessage = new Message(MessageType.ACK);
 		break;
 
-		case SETNUMOFBAGSATTHEBEGINNING : repo.setNumOfBagsAtTheBegining(inMessage.getPassengerID(), inMessage.getNumberOfBags());
+		case SETNUMOFBAGSATTHEBEGINNING : repo.setNumOfBagsAtTheBegining(inMessage.getPassengerID(), inMessage.getNumBagsAtBeggining());
 		outMessage = new Message(MessageType.ACK);
 		break;	
 
@@ -65,11 +65,11 @@ public class RepoInterface {
 		outMessage = new Message(MessageType.ACK);
 		break;
 
-		case SETTINGPASSANGERSONTHEQUEUE : repo.setPassengersOnTheQueue(inMessage.getPassengersOnTheQueue());
+		case SETTINGPASSANGERSONTHEQUEUE : repo.setPassengersOnTheQueue(inMessage.getPassengersOnTheQueue(), inMessage.getPassengerID());
 		outMessage = new Message(MessageType.ACK);
 		break;
 
-		case SETTINGPASSANGERSONTHEBUS : repo.setPassangersOnTheBus(inMessage.getPassangersOnTheBus());
+		case SETTINGPASSANGERSONTHEBUS : repo.setPassangersOnTheBus(inMessage.getPassangersOnTheBus(), inMessage.getPassengerID());
 		outMessage = new Message(MessageType.ACK);
 		break;
 
@@ -81,7 +81,7 @@ public class RepoInterface {
 		outMessage = new Message(MessageType.ACK);
 		break;
 
-		case SETTINGLOSTBAG : repo.setLostBags(inMessage.getLostBags());
+		case SETTINGLOSTBAGS : repo.setLostBags(inMessage.getLostBags());
 		outMessage = new Message(MessageType.ACK);
 		break;
 
