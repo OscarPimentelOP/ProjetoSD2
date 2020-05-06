@@ -204,6 +204,59 @@ public class SimulatorParam {
   	* @serial mainPassengerPort
       */
       public static final int mainPassengerPort = 4000 ;
+      
+      /**
+       * Main Arrival Lounge port number
+   	* @serial mainArrivalLoungePort
+       */
+       public static final int mainArrivalLoungePort = 4000 ;
+       
+       /**
+        * Main Arrival Terminal Exit port number
+    	* @serial mainArrivalTerminalExitPort
+        */
+       public static final int mainArrivalTerminalExitPort = 4000 ;
+        
+       /**
+        * Main Arrival Terminal Transfer Quay port number
+    	* @serial mainArrivalTerminalTransferQuayPort
+        */
+       public static final int mainArrivalTerminalTransferQuayPort = 4000 ; 
 
 
+       /**
+        * Main Baggage Collection Point port number
+    	* @serial mainBaggageCollectionPointPort
+        */
+       public static final int mainBaggageCollectionPointPort = 4000 ;
+       
+       /**
+        * Main Baggage Reclaim Office port number
+    	* @serial mainBaggageReclaimOfficePort
+        */
+       public static final int mainBaggageReclaimOfficePort = 4000 ;
+       
+       /**
+        * Main Departure Terminal Entrance port number
+    	* @serial mainDepartureTerminalEntrancePort
+        */
+       public static final int mainDepartureTerminalEntrancePort = 4000 ;
+       
+       /**
+        * Main Departure Terminal Transfer Quay port number
+    	* @serial mainDepartureTerminalTransferQuayPort
+        */
+       public static final int mainDepartureTerminalTransferQuayPort = 4000 ;
+       
+       /**
+        * Main Repository port number
+    	* @serial mainRepoPort
+        */
+       public static final int mainRepoPort = 4000 ;
+       
+       /**
+        * Main Temporary Storage Area port number
+    	* @serial mainTemporaryStorageAreaPort
+        */
+       public static final int mainTemporaryStorageAreaPort = 4000 ;
 }

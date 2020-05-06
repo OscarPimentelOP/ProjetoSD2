@@ -7,6 +7,7 @@ package serverSide.sharedRegions;
 
 import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
+import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;
 import clientSide.Entities.BusDriver;
 import clientSide.Entities.BusDriverState;
@@ -61,7 +62,7 @@ public class ArrivalTerminalTransferQuay {
     /**
      * The repository, to store the program status
      */
-    private Repo repo;
+    private RepoStub repo;
 
 
     /**
@@ -74,7 +75,7 @@ public class ArrivalTerminalTransferQuay {
      *
      * @param repo -> repository of information
      */
-    public ArrivalTerminalTransferQuay(Repo repo) {
+    public ArrivalTerminalTransferQuay(RepoStub repo) {
         this.repo = repo;
         this.busDriveSleep = true;
         this.cntPassengersInBus = 0;

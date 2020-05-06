@@ -8,6 +8,10 @@ package serverSide.sharedRegions;
 import AuxTools.SharedException;
 import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
+import clientSide.Stubs.ArrivalLoungeStub;
+import clientSide.Stubs.ArrivalTerminalExitStub;
+import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
+import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;
 
 /**
@@ -20,22 +24,22 @@ public class DepartureTerminalEntrance {
     /**
      * The repository, to store the program status
      */
-    private Repo repo;
+    private RepoStub repo;
 
     /**
      * Arrival terminal transfer quay shared region
      */
-    private ArrivalTerminalTransferQuay attq;
+    private ArrivalTerminalTransferQuayStub attq;
 
     /**
      * Arrival terminal exit shared region
      */
-    private ArrivalTerminalExit ate;
+    private ArrivalTerminalExitStub ate;
 
     /**
      * Arrival lounge shared region
      */
-    private ArrivalLounge al;
+    private ArrivalLoungeStub al;
 
     /**
      * ???
@@ -49,7 +53,7 @@ public class DepartureTerminalEntrance {
      * @param attq -> arrival terminal transfer quay
      * @param repo -> repository of information
      */
-    public DepartureTerminalEntrance(ArrivalLounge al, ArrivalTerminalTransferQuay attq, Repo repo) {
+    public DepartureTerminalEntrance(ArrivalLoungeStub al, ArrivalTerminalTransferQuayStub attq, RepoStub repo) {
         this.repo = repo;
         this.al = al;
         this.attq = attq;
@@ -117,7 +121,7 @@ public class DepartureTerminalEntrance {
      *
      * @param ate -> the arrival terminal to set
      */
-    public synchronized void setArrivalExit(ArrivalTerminalExit ate) {
+    public synchronized void setArrivalExit(ArrivalTerminalExitStub ate) {
         this.ate = ate;
     }
 
