@@ -25,7 +25,7 @@ public class DepartureTerminalTransferQuayInterface {
         switch (inMessage.getType ()) {
             case LEAVETHEBUS: 
             try {
-                dttq.leaveTheBus();
+                dttq.leaveTheBus(inMessage.getPassengerID());
                 outMessage = new Message(MessageType.ACK); 
             } catch (Exception e) {
                 //TODO: handle exception

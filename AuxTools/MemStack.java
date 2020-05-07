@@ -4,6 +4,8 @@
 
 package AuxTools;
 
+import java.io.Serializable;
+
 /**
  * Parametric stack derived from a parametric memory.
  * Errors are reported.
@@ -11,8 +13,12 @@ package AuxTools;
  * @param <R> data type of stored objects
  */
 
-public class MemStack<R> extends MemObject<R> {
+public class MemStack<R> extends MemObject<R> implements Serializable{
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Pointer to the first empty location.
      */
 

@@ -51,13 +51,13 @@ public class ArrivalTerminalTransferQuay {
     /**
      * Queue with the passengers waiting for the bus
      */
-    private MemFIFO<Passenger> waitingForBus;
+    private MemFIFO<Thread> waitingForBus;
 
 
     /**
      * Queue with the passengers in the bus
      */
-    protected MemFIFO<Passenger> inTheBus;
+    protected MemFIFO<Thread> inTheBus;
 
     /**
      * The repository, to store the program status
@@ -83,12 +83,12 @@ public class ArrivalTerminalTransferQuay {
         this.endOfOperations = false;
         this.announced = false;
         try {
-            waitingForBus = new MemFIFO<Passenger>(new Passenger[SimulatorParam.NUM_PASSANGERS]);
+            waitingForBus = new MemFIFO<Thread>(new Thread[SimulatorParam.NUM_PASSANGERS]);
         } catch (MemException e) {
         }
 
         try {
-            inTheBus = new MemFIFO<Passenger>(new Passenger[SimulatorParam.BUS_CAPACITY]);
+            inTheBus = new MemFIFO<Thread>(new Thread[SimulatorParam.BUS_CAPACITY]);
         } catch (MemException e) {
         }
     }
@@ -99,13 +99,10 @@ public class ArrivalTerminalTransferQuay {
      * The passenger takes a bus and it gets
      * into the queue with the passengers waiting for the bus
      */
-    public synchronized void takeABus() {
-        Passenger m = (Passenger) Thread.currentThread();
-        m.setPassengerState(PassengerState.AT_THE_ARRIVAL_TRANSFER_TERMINAL);
-        int id = m.getIdentifier();
+    public synchronized void takeABus(int id) {
         repo.setPassengerState(id, PassengerState.AT_THE_ARRIVAL_TRANSFER_TERMINAL);
         try {
-            this.waitingForBus.write(m);
+            this.waitingForBus.write((Thread)Thread.currentThread());
             repo.setPassengersOnTheQueue(cntPassengersInQueue, id);
             try {
                 if (cntPassengersInQueue > SimulatorParam.NUM_PASSANGERS)                         /* check for proper parameter range */
@@ -133,9 +130,7 @@ public class ArrivalTerminalTransferQuay {
      *
      * @throws SharedException if the number of passengers in queue is negative or if it is higher than the queue's capacity
      */
-    public synchronized void enterTheBus() throws SharedException {
-        Passenger p = (Passenger) Thread.currentThread();
-        int id = p.getIdentifier();
+    public synchronized void enterTheBus(int id) throws SharedException {
         while (!announced || this.getCntPassengersInBus() == SimulatorParam.BUS_CAPACITY) {
             try {
                 wait();
@@ -153,7 +148,7 @@ public class ArrivalTerminalTransferQuay {
                 System.out.println("Error in carryItToAppropriateStore()" + e.getMessage());
                 System.exit(1);
             }
-            this.inTheBus.write(p);
+            this.inTheBus.write((Thread) Thread.currentThread());
             repo.setPassengersOnTheQueue(this.cntPassengersInQueue, -1);
             repo.setPassangersOnTheBus(this.getCntPassengersInBus(), id);
             try {
@@ -174,7 +169,6 @@ public class ArrivalTerminalTransferQuay {
         else if (this.getCntPassengersInBus() == SimulatorParam.BUS_CAPACITY) {
             notifyAll();
         }
-        p.setPassengerState(PassengerState.TERMINAL_TRANSFER);
         repo.setPassengerState(id, PassengerState.TERMINAL_TRANSFER);
 
     }
@@ -232,8 +226,6 @@ public class ArrivalTerminalTransferQuay {
      * The bus driver parks the bus at the arrival terminal
      */
     public synchronized void parkTheBus() {
-        BusDriver b = (BusDriver) Thread.currentThread();
-        b.setBusDriverState(BusDriverState.PARKING_AT_THE_ARRIVAL_TERMINAL);
         repo.setBusDriverState(BusDriverState.PARKING_AT_THE_ARRIVAL_TERMINAL);
     }
 

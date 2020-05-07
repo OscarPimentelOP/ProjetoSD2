@@ -17,7 +17,7 @@ public class BaggageCollectionPointInterface {
         
         //Validate messages
 	    switch (inMessage.getType ()) {
-			case CARRYBAGTOTEMPSTORE : if (inMessage.bags()==null)
+			case CARRYBAGTOBAGPOINT : if (inMessage.bags()==null)
 											throw new MessageException ("Bag cannot be null!", inMessage);
 									   break;
 			case GOINGCOLLECTABAG : break;
@@ -27,7 +27,7 @@ public class BaggageCollectionPointInterface {
         
         //Process messages
         switch (inMessage.getType ()) {
-            case CARRYBAGTOTEMPSTORE: 
+            case CARRYBAGTOBAGPOINT: 
             try {
                 bcp.carryItToAppropriateStore(inMessage.bags());
                 outMessage = new Message(MessageType.ACK); 
@@ -39,7 +39,7 @@ public class BaggageCollectionPointInterface {
 
             case GOINGCOLLECTABAG:
             try {
-                res = bcp.goCollectABag();
+                res = bcp.goCollectABag(inMessage.getPassengerID());
                 outMessage = res ? new Message(MessageType.BAGOK) : new Message(MessageType.BAGNOTOK);
             } catch (Exception e) {
                 //TODO: handle exception

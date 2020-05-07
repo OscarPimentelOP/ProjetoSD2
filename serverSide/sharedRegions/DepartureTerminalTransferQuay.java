@@ -60,8 +60,7 @@ public class DepartureTerminalTransferQuay {
      * and when the bus driver parks, that unblocks the passengers
      * and they leave.
      */
-    public synchronized void leaveTheBus() {
-        Passenger p = (Passenger) Thread.currentThread();
+    public synchronized void leaveTheBus(int id) {
         while (!this.getParked()) {
             try {
                 wait();
@@ -78,8 +77,6 @@ public class DepartureTerminalTransferQuay {
             parked = false;
             notifyAll();
         }
-        p.setPassengerState(PassengerState.AT_THE_DEPARTURE_TRANSFER_TERMINAL);
-        int id = p.getIdentifier();
         repo.setPassengerState(id, PassengerState.AT_THE_DEPARTURE_TRANSFER_TERMINAL);
     }
 
@@ -92,8 +89,6 @@ public class DepartureTerminalTransferQuay {
      * and adjusts the number of passengers out of bus.
      */
     public synchronized void parkTheBusAndLetPassOff() {
-        BusDriver b = (BusDriver) Thread.currentThread();
-        b.setBusDriverState(BusDriverState.PARKING_AT_THE_DEPARTURE_TERMINAL);
         repo.setBusDriverState(BusDriverState.PARKING_AT_THE_DEPARTURE_TERMINAL);
         parked = true;
         notifyAll();

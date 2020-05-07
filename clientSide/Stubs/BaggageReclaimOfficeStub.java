@@ -23,7 +23,7 @@ public class BaggageReclaimOfficeStub {
         this.serverHostName = SimulatorParam.baggageReclaimOfficeHostName;
         this.serverPort = SimulatorParam.baggageReclaimOfficePort;
     }
-	public void reportMissingBags(int numMissingBags) {
+	public void reportMissingBags(int numMissingBags, int id) {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -36,7 +36,7 @@ public class BaggageReclaimOfficeStub {
 	    }
 		
 		//Reporting a missing a bag message, with the number of missing bags
-		outMessage = new Message (MessageType.REPORTBAG, numMissingBags);
+		outMessage = new Message (MessageType.REPORTBAG, numMissingBags, id);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		

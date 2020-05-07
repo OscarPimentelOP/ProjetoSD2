@@ -8,14 +8,14 @@ import clientSide.Entities.PorterState;
 
 public class Message implements Serializable{
 	/**
-   *  Chave de serialização
-   *    @serialField serialVersionUID
-   */
+	 *  Chave de serialização
+	 *    @serialField serialVersionUID
+	 */
 
-   private static final long serialVersionUID = 1001L;
+	private static final long serialVersionUID = 1001L;
    
-   //Tipos de mensagens
-   private MessageType msgType = MessageType.NO_MESSAGE;
+	//Tipos de mensagens
+	private MessageType msgType = MessageType.NO_MESSAGE;
    
    //Identifica��o do prof
    //private int passengerId;
@@ -51,24 +51,26 @@ public class Message implements Serializable{
 
    private int id;
 
-private int numBagsAtBeggining;
-
-private String destType;
-
-private PassengerState pgs;
-
-private int finalDest;
-
-private int passengersOnTheQueue;
-
-private int passengerOnTheBus;
-
-private int numOfBagsInConveyBelt;
-
-private int missingBagsTotal;
-
-private int numOfBagsAtStoreroom;
-   
+	private int numBagsAtBeggining;
+	
+	private String destType;
+	
+	private PassengerState pgs;
+	
+	private int finalDest;
+	
+	private int passengersOnTheQueue;
+	
+	private int passengerOnTheBus;
+	
+	private int numOfBagsInConveyBelt;
+	
+	private int missingBagsTotal;
+	
+	private int numOfBagsAtStoreroom;
+	
+	private char indTripState;
+	   
    public Message (MessageType type)
    {
       msgType = type;
@@ -94,10 +96,7 @@ private int numOfBagsAtStoreroom;
    public Message (MessageType type, int f)
    {
       msgType = type;
-      if(msgType==MessageType.REPORTBAG) {
-    	  reportedBags = f;
-      }
-      else if(msgType==MessageType.SENDCNTPASSENGERSEND) {
+      if(msgType==MessageType.SENDCNTPASSENGERSEND) {
     	  this.cntPassengerEnd = f;
       }
       else if(msgType==MessageType.SENDCNTPASSENGERSINBUS) {
@@ -121,9 +120,24 @@ private int numOfBagsAtStoreroom;
       else if(type == MessageType.SETTINGNUMBAGSTEMPAREA) {
     	  this.numOfBagsAtStoreroom = f;
       }
-      else {
-    	  flight=f;
+      else if(type == MessageType.ENTERINGTHEBUS || type == MessageType.TAKINGABUS ||
+    		  type == MessageType.LEAVETHEBUS) {
+    	  this.id = f;
       }
+      else if(type == MessageType.GOINGCOLLECTABAG) {
+    	  this.id = f;
+      }
+      else if(type == MessageType.SETTINGFLIGHTNUMBER) {
+    	  this.flight = f;
+      }
+   }
+   
+   public Message(MessageType type, int f, int id, char t, int b) {
+	   msgType = type;
+	   this.flight = f;
+	   this.id = id;
+	   this.indTripState = t;
+	   this.numOfBagsInteger = b;
    }
    
    public Message (MessageType type, Bag bag)
@@ -154,6 +168,14 @@ private int numOfBagsAtStoreroom;
 	   }
 	   else if(type == MessageType.SETTINGPASSANGERSONTHEBUS) {
 		   this.passengerOnTheBus = f1;
+		   this.id = f2;
+	   }
+	   else if(type == MessageType.GOINGHOME || type == MessageType.PREPARINGNEXTLEG) {
+		   this.flight = f1;
+		   this.id = f2;
+	   }
+	   else if(msgType==MessageType.REPORTBAG) {
+		   reportedBags = f1;
 		   this.id = f2;
 	   }
    }
@@ -223,15 +245,6 @@ private int numOfBagsAtStoreroom;
    public int getNumOfBagsInteger() {
 	   return this.numOfBagsInteger;
    }
-   
-   @Override
-   public String toString ()
-   {
-      return ("Type = " + msgType +
-    		  "\nId Flight = " + Integer.toString(this.flight) +
-              "\nId ReportedBags = " + Integer.toString(this.reportedBags) +
-              "\nNome Bag = " + bag.toString());
-   }
 
 	public int getPassengersInTransit() {
 		return this.passengersInTransit;
@@ -276,4 +289,14 @@ private int numOfBagsAtStoreroom;
 	public int getNumOfBagsInTheTempArea() {
 		return this.numOfBagsAtStoreroom;
 	}
+	
+	public char getIndividualTripState() {
+		return this.indTripState;
+	}
+	
+	@Override
+   public String toString ()
+   {
+      return ("aa");
+   }
 }

@@ -40,7 +40,7 @@ public class ArrivalLoungeInterface {
 		 				   outMessage = new Message(MessageType.SENDPARAMSACK);
 		 				   break;
 		 case WHATSHOULDIDO:try {
-						char a = al.whatShouldIDo(inMessage.getFlight()); 
+						char a = al.whatShouldIDo(inMessage.getFlight(), inMessage.getPassengerID(), inMessage.getIndividualTripState(), inMessage.getNumOfBagsInteger()); 
 						switch(a) {
 						case 'H' : outMessage = new Message(MessageType.GOHOME);
 								   break;

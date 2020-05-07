@@ -26,7 +26,7 @@ public class ArrivalTerminalTransferQuayStub {
         this.serverPort = SimulatorParam.arrivalTerminalTransferQuayPort;
     }
     
-    public void takeABus() {
+    public void takeABus(int id) {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -39,7 +39,7 @@ public class ArrivalTerminalTransferQuayStub {
 	    }
 		
 		//Taking a bus message
-		outMessage = new Message (MessageType.TAKINGABUS);
+		outMessage = new Message (MessageType.TAKINGABUS, id);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
@@ -52,7 +52,7 @@ public class ArrivalTerminalTransferQuayStub {
     }
     
     
-    public void enterTheBus() {
+    public void enterTheBus(int id) {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -65,7 +65,7 @@ public class ArrivalTerminalTransferQuayStub {
 	    }
 		
 		//Entering the bus
-		outMessage = new Message (MessageType.ENTERINGTHEBUS);
+		outMessage = new Message (MessageType.ENTERINGTHEBUS, id);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
@@ -164,7 +164,7 @@ public class ArrivalTerminalTransferQuayStub {
     public void setEndOfWork() {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -189,7 +189,7 @@ public class ArrivalTerminalTransferQuayStub {
     public void readFromBus() {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -214,7 +214,7 @@ public class ArrivalTerminalTransferQuayStub {
     public void decCntPassengersInBus() {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -239,7 +239,7 @@ public class ArrivalTerminalTransferQuayStub {
     public int getCntPassengersInBus() {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try

@@ -24,7 +24,7 @@ public class ArrivalTerminalExitStub {
         this.serverPort = SimulatorParam.arrivalTerminalExitPort;
     }
     
-    public void goHome(int flight) {
+    public void goHome(int flight, int id) {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -37,7 +37,7 @@ public class ArrivalTerminalExitStub {
 	    }
 		
 		//Passenger going home message, with the flight number
-		outMessage = new Message (MessageType.GOINGHOME, flight);
+		outMessage = new Message (MessageType.GOINGHOME, flight, id);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
@@ -52,7 +52,7 @@ public class ArrivalTerminalExitStub {
     public void incCntPassengersEnd() {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -77,7 +77,7 @@ public class ArrivalTerminalExitStub {
     public int getCntPassengersEnd() {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -104,7 +104,7 @@ public class ArrivalTerminalExitStub {
     public void decCntPassengersEnd() {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -129,7 +129,7 @@ public class ArrivalTerminalExitStub {
     public void wakeUpAll() {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -154,7 +154,7 @@ public class ArrivalTerminalExitStub {
 	public void setTimeToWakeUpToFalse() {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try

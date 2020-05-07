@@ -32,7 +32,7 @@ public class RepoStub {
     public void setBusDriverState(BusDriverState bsd) {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		BusDriver b = (BusDriver) Thread.currentThread();
+		Thread b = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -57,7 +57,7 @@ public class RepoStub {
 	public void setPorterState(PorterState ps){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Porter p = (Porter) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -82,7 +82,7 @@ public class RepoStub {
 	public void decNumOfBagsAtPlaneHold(){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -107,7 +107,7 @@ public class RepoStub {
 	public void setFlightNumber(int flight){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -132,7 +132,7 @@ public class RepoStub {
 	public void setNumOfBagsAtPlaneHold(int flight, int numOfBagsPerFlight){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -158,7 +158,7 @@ public class RepoStub {
 	public void setPassengersTransit(int pt){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -183,7 +183,7 @@ public class RepoStub {
 	public void setPassengerDestination(int id, String destType){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -208,7 +208,7 @@ public class RepoStub {
 	public void setNumOfBagsAtTheBegining(int id, int nb){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -233,7 +233,7 @@ public class RepoStub {
 	public void setPassengerState(int id, PassengerState ps){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -258,7 +258,7 @@ public class RepoStub {
 	public void setPassengersFinalDest(int fd){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -283,7 +283,7 @@ public class RepoStub {
 	public void setPassengersOnTheQueue(int passengersOnTheQueue, int id){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -308,7 +308,7 @@ public class RepoStub {
 	public void setPassangersOnTheBus(int passengersInBus, int id){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -333,7 +333,7 @@ public class RepoStub {
 	public void setNumOfBagsInTheConvoyBelt(int numOfBagsInConveyBelt){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Porter p = (Porter) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -358,7 +358,7 @@ public class RepoStub {
 	public void setNumOfBagsCollected(int id){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -383,7 +383,7 @@ public class RepoStub {
 	public void setLostBags(int missingBagsTotal){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -408,7 +408,7 @@ public class RepoStub {
 	public void setNumOfBagsInTheTempArea(int numOfBagsAtStoreroom){
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Porter p = (Porter) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try

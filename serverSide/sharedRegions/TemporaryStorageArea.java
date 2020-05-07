@@ -70,8 +70,6 @@ public class TemporaryStorageArea {
             System.out.println("carryItToAppropriateStore()" + e.getMessage());
             System.exit(1);
         }
-        Porter p = (Porter) Thread.currentThread();
-        p.setPorterState(PorterState.AT_THE_STOREROOM);
         repo.setPorterState(PorterState.AT_THE_STOREROOM);
         try {
             bagStorage.write(bag);

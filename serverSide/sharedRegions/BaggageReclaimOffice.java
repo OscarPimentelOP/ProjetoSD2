@@ -47,7 +47,7 @@ public class BaggageReclaimOffice {
      * @param numMissingBags -> number of missing bags from a passenger
      * @throws SharedException if the number of missing bags declared by the passenger is negative or higher than the amount of bags declared on the Params file.
      */
-    public synchronized void reportMissingBags(int numMissingBags) throws SharedException {
+    public synchronized void reportMissingBags(int numMissingBags, int id) throws SharedException {
         try {
             if (numMissingBags < 0 || numMissingBags > SimulatorParam.MAX_NUM_OF_BAGS)                         /* check for proper parameter range */
                 throw new SharedException("Flight cannot exceed the defined parameter for number of flights: " + numMissingBags + ".");
@@ -56,10 +56,6 @@ public class BaggageReclaimOffice {
             System.out.println("Error on reportMissingBags()" + e.getMessage());
             System.exit(1);
         }
-
-        Passenger p = (Passenger) Thread.currentThread();
-        p.setPassengerState(PassengerState.AT_THE_BAGGAGE_RECLAIM_OFFICE);
-        int id = p.getIdentifier();
         repo.setPassengerState(id, PassengerState.AT_THE_BAGGAGE_RECLAIM_OFFICE);
         totalNumOfMissingBags += numMissingBags;
         this.repo.setLostBags(totalNumOfMissingBags);

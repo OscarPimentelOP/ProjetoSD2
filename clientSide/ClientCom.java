@@ -223,7 +223,7 @@ public class ClientCom
    public void writeObject (Object toServer)
    {
       try
-      { out.writeObject (toServer);
+      {out.writeObject (toServer);
       }
       catch (InvalidClassException e)
       {System.out.println (Thread.currentThread ().getName () +

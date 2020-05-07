@@ -74,7 +74,7 @@ public class ArrivalTerminalExit {
      * @param flight -> the flight number
      * @throws SharedException if the flight number is higher than the number of flights parameter defined in the parameters file.
      */
-    public synchronized void goHome(int flight) throws SharedException {
+    public synchronized void goHome(int flight,int id) throws SharedException {
         try {
             if (flight + 1 > SimulatorParam.NUM_FLIGHTS)                         /* check for proper parameter range */
                 throw new SharedException("Flight cannot exceed the defined parameter for number of flights: " + flight + ".");
@@ -83,10 +83,6 @@ public class ArrivalTerminalExit {
             System.out.println("Error on goHome()" + e.getMessage());
             System.exit(1);
         }
-
-        Passenger m = (Passenger) Thread.currentThread();
-        m.setPassengerState(PassengerState.EXITING_THE_ARRIVAL_TERMINAL);
-        int id = m.getIdentifier();
         repo.setPassengerState(id, PassengerState.EXITING_THE_ARRIVAL_TERMINAL);
         incCntPassengersEnd();
         if (getCntPassengersEnd() == SimulatorParam.NUM_PASSANGERS) {
@@ -115,7 +111,6 @@ public class ArrivalTerminalExit {
         } catch (InterruptedException e) {
             System.out.println(e);
         }
-        m.setPassengerState(PassengerState.NO_STATE);
         repo.setPassengerState(id, PassengerState.NO_STATE);
     }
 

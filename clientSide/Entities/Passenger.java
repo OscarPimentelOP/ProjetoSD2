@@ -191,33 +191,33 @@ public class Passenger extends Thread {
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
-            char a = al.whatShouldIDo(flight);
+            char a = al.whatShouldIDo(flight, identifier, getTripState(flight), getNumBags(flight));
 
             switch (a) {
                 case 'H':
-                    ate.goHome(flight);        //Reached final destiny, has no bag to collect, goes home
+                    ate.goHome(flight, identifier);        //Reached final destiny, has no bag to collect, goes home
                     break;
 
                 case 'T':
-                    attq.takeABus();          //Take a bus and prepares the next leg
-                    attq.enterTheBus();
-                    dttq.leaveTheBus();
-                    dte.prepareNextLeg(flight);
+                    attq.takeABus(identifier);          //Take a bus and prepares the next leg
+                    attq.enterTheBus(identifier);
+                    dttq.leaveTheBus(identifier);
+                    dte.prepareNextLeg(flight, identifier);
                     break;
 
 
                 case 'B':                           //Has bags to collect
                     int numOfCollectedBags = 0;
                     while (numOfCollectedBags != numBags[flight]) {
-                        if (bcp.goCollectABag()) {            //Collect a bag
+                        if (bcp.goCollectABag(identifier)) {            //Collect a bag
                             numOfCollectedBags += 1;
 
                         } else {
-                            bro.reportMissingBags(numBags[flight] - numOfCollectedBags);    //or reports missing bags
+                            bro.reportMissingBags(numBags[flight] - numOfCollectedBags, identifier);    //or reports missing bags
                             break;
                         }
                     }
-                    ate.goHome(flight);                    //Goes Home
+                    ate.goHome(flight, identifier);                    //Goes Home
                     break;
             }
         }

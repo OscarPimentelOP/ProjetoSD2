@@ -144,7 +144,7 @@ public class mainPassenger {
         }
         con.close ();
         
-        for(int i = 0; i < SimulatorParam.NUM_FLIGHTS; i++){
+        for(int i = 0; i < SimulatorParam.NUM_PASSANGERS; i++){
             passengers[i] = new Passenger(PassengerState.AT_THE_DISEMBARKING_ZONE, i, numBags[i],
             		tripState[i], al, ate, attq, dttq, dte, bro, bcp);
 

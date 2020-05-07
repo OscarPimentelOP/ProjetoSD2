@@ -29,7 +29,7 @@ public class BaggageReclaimOfficeInterface {
 		 //Process messages
 		 switch (inMessage.getType ()) {
 		 case REPORTBAG : try {
-					   		bco.reportMissingBags(inMessage.getReportedBags());
+					   		bco.reportMissingBags(inMessage.getReportedBags(), inMessage.getPassengerID());
 					   		outMessage = new Message(MessageType.ACK);
 							break;
 					   		

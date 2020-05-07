@@ -31,7 +31,7 @@ public class DepartureTerminalEntranceInterface {
 		 //Process messages
 		 switch (inMessage.getType ()) {
 		 case PREPARINGNEXTLEG : try {
-					   		dte.prepareNextLeg(inMessage.getFlight());
+					   		dte.prepareNextLeg(inMessage.getFlight(), inMessage.getPassengerID());
 					   		outMessage = new Message(MessageType.ACK);
 							break;
 					   		

@@ -32,23 +32,25 @@ public class TemporaryStorageAreaStub {
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         Porter p = (Porter) Thread.currentThread();
         Message inmsg, outmsg; 
-
+        
+        while (!cc.open ())                                    
+		{ try
+	        { p.sleep ((long) (10));
+	        }
+	        catch (InterruptedException e) {}
+	    }
+        
         outmsg = new Message(MessageType.CARRYBAGTOTEMPSTORE, bag);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
-
-      
-        
 
         if ((inmsg.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inmsg.toString ());
           System.exit (1);
         }
-
-
-        cc.close();
         
+        cc.close();
     }
 
 

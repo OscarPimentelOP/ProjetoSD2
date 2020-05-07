@@ -26,7 +26,7 @@ public class ArrivalLoungeStub {
         this.serverPort = SimulatorParam.arrivalLoungePort;
     }
     
-    public char whatShouldIDo(int flight) {
+    public char whatShouldIDo(int flight, int id, char tripState, int numBags) {
 		char whatshouldido = ' ';
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
@@ -40,7 +40,7 @@ public class ArrivalLoungeStub {
 	    }
 		
 		//What should i do message with the fligh number
-		outMessage = new Message (MessageType.WHATSHOULDIDO, flight);
+		outMessage = new Message (MessageType.WHATSHOULDIDO, flight, id, tripState, numBags);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
@@ -158,7 +158,7 @@ public class ArrivalLoungeStub {
     public synchronized void setEndOfWork() {
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try

@@ -34,11 +34,11 @@ public class ArrivalTerminalTransferQuayInterface {
 		 
 		 //Process messages
 		 switch (inMessage.getType ()) {
-		 case TAKINGABUS : attq.takeABus();
+		 case TAKINGABUS : attq.takeABus(inMessage.getPassengerID());
 						   outMessage = new Message(MessageType.ACK);
 						   break;
 		 case ENTERINGTHEBUS : try {
-								attq.enterTheBus();
+								attq.enterTheBus(inMessage.getPassengerID());
 								outMessage = new Message(MessageType.ACK);
 							} catch (SharedException e) {
 								// TODO Auto-generated catch block

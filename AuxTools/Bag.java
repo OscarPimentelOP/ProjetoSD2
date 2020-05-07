@@ -5,14 +5,21 @@
 
 package AuxTools;
 
+import java.io.Serializable;
+
 /**
  * This file implements the Bag object.
  * A bag is a piece of luggage that each passenger may possess.
  * They are identified by its Passenger ID and have the trip destination status as well.
  */
 
-public class Bag{
+public class Bag implements Serializable{
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Bag's ID
      */
     int id;

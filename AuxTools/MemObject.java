@@ -4,6 +4,8 @@
 
 package AuxTools;
 
+import java.io.Serializable;
+
 /**
  * Parametric memory.
  * Non-instantiatable data type. It must be derived.
@@ -12,8 +14,12 @@ package AuxTools;
  * @param <R> data type of stored objects
  */
 
-public abstract class MemObject<R> {
+public abstract class MemObject<R> implements Serializable{
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Internal storage area.
      */
 

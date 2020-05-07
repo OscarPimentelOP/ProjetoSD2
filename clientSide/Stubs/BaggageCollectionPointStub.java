@@ -21,8 +21,8 @@ public class BaggageCollectionPointStub {
 
 
     public BaggageCollectionPointStub(){
-        this.serverHostName = SimulatorParam.temporaryStorageAreaHostName;
-        this.serverPort = SimulatorParam.temporaryStorageAreaPort;
+        this.serverHostName = SimulatorParam.baggageCollectionPointHostName;
+        this.serverPort = SimulatorParam.baggageCollectionPointPort;
 
     }
 
@@ -55,7 +55,7 @@ public class BaggageCollectionPointStub {
     }
 
 
-    public boolean goCollectABag(){
+    public boolean goCollectABag(int id){
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         Passenger p = (Passenger) Thread.currentThread();
         Message inmsg, outmsg; 
@@ -68,7 +68,7 @@ public class BaggageCollectionPointStub {
 	        catch (InterruptedException e) {}
 	    }
 
-        outmsg = new Message(MessageType.GOINGCOLLECTABAG);
+        outmsg = new Message(MessageType.GOINGCOLLECTABAG, id);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
 
@@ -87,13 +87,13 @@ public class BaggageCollectionPointStub {
     
     public void setMoreBags(boolean moreBags) {
     	ClientCom cc = new ClientCom(serverHostName,serverPort);
-        Porter p = (Porter) Thread.currentThread();
+        Thread t = Thread.currentThread();
         Message inmsg, outmsg; 
         boolean hasBag;
 
         while (!cc.open ())                                    
 		{ try
-	        { p.sleep ((long) (10));
+	        { t.sleep ((long) (10));
 	        }
 	        catch (InterruptedException e) {}
 	    }
@@ -104,7 +104,7 @@ public class BaggageCollectionPointStub {
 
 
         if ((inmsg.getType () != MessageType.ACK)) 
-        { System.out.println ("Thread " + p.getName () + ": Invalid type!");
+        { System.out.println ("Thread " + t.getName () + ": Invalid type!");
           System.out.println (inmsg.toString ());
           System.exit (1);
         }

@@ -34,7 +34,7 @@ public class ArrivalTerminalExitInterface {
 		 //Process messages
 		 switch (inMessage.getType ()) {
 		 case GOINGHOME : try {
-					   		ate.goHome(inMessage.getFlight());
+					   		ate.goHome(inMessage.getFlight(), inMessage.getPassengerID());
 					   		outMessage = new Message(MessageType.ACK);
 							break;
 					   		

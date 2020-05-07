@@ -20,7 +20,8 @@ public class TemporaryStorageAreaInterface {
       	case CARRYBAGTOTEMPSTORE : if (inMessage.bags()==null)
       									throw new MessageException ("Bag cannot be null!", inMessage);
       							   break;
-      	default : throw new MessageException ("Message type invalid : ", inMessage);
+      	default : 
+      				throw new MessageException ("Message type invalid OLA : ", inMessage);
       	}
         
         //Process messages

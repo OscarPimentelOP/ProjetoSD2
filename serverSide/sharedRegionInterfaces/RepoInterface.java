@@ -25,7 +25,7 @@ public class RepoInterface {
 		 case SETTINGFLIGHTNUMBER : if ((inMessage.getFlight() < 0) || (inMessage.getFlight() > SimulatorParam.NUM_FLIGHTS))
 								   		 throw new MessageException ("Number of flights invalid!", inMessage);
 								    break;
-		 case SETTINGNUMOFBAGSATPLANEHOLD : if ((inMessage.getNumOfBagsInteger() < 0) || (inMessage.getNumOfBagsInteger() > SimulatorParam.MAX_NUM_OF_BAGS))
+		 case SETTINGNUMOFBAGSATPLANEHOLD : if ((inMessage.getNumOfBagsInteger() < 0) || (inMessage.getNumOfBagsInteger() > (SimulatorParam.MAX_NUM_OF_BAGS*SimulatorParam.NUM_PASSANGERS)))
 										   		 throw new MessageException ("Number of bags invalid!", inMessage);
 											if ((inMessage.getFlight() < 0) || (inMessage.getFlight() > SimulatorParam.NUM_FLIGHTS))
 												throw new MessageException ("Number of flights invalid!", inMessage);
@@ -40,6 +40,7 @@ public class RepoInterface {
 		 case SETTINGPASSANGERSONTHEBUS : break;
 		 case SETTINGNUMOFBAGSINTHECB : break;
 		 case SETTINGNUMOFBAGSCOLLECTED : break;
+		 case SETTINGLOSTBAGS : break;
 		 case SETTINGNUMBAGSTEMPAREA : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }

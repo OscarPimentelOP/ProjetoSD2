@@ -76,8 +76,6 @@ public class BaggageCollectionPoint {
         if (!this.moreBagsAtPlaneHold) {
             this.moreBagsAtPlaneHold = true;
         }
-        Porter p = (Porter) Thread.currentThread();
-        p.setPorterState(PorterState.AT_THE_LUGGAGE_BELT_CONVEYOR);
         repo.setPorterState(PorterState.AT_THE_LUGGAGE_BELT_CONVEYOR);
 
         int passengerId = bag.getPassegerId();
@@ -108,10 +106,7 @@ public class BaggageCollectionPoint {
      * All passengers are blocked until the bag x unlocks individually the respective passenger.
      * The bag from passenger X needs to be in the conveyor belt.
      */
-    public synchronized boolean goCollectABag() {
-        Passenger p = (Passenger) Thread.currentThread();
-        p.setPassengerState(PassengerState.AT_THE_LUGGAGE_COLLECTION_POINT);
-        int id = p.getIdentifier();
+    public synchronized boolean goCollectABag(int id) {
         repo.setPassengerState(id, PassengerState.AT_THE_LUGGAGE_COLLECTION_POINT);
         while (this.convoyBelt.retreive(id) == null && this.moreBagsAtPlaneHold) {
             try {

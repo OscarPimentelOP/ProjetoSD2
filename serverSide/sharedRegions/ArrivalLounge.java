@@ -15,6 +15,7 @@ import clientSide.Entities.Porter;
 import clientSide.Entities.PorterState;
 import clientSide.Stubs.BaggageCollectionPointStub;
 import clientSide.Stubs.RepoStub;
+import serverSide.Proxys.ArrivalLoungeProxy;
 import AuxTools.SimulatorParam;
 
 /**
@@ -113,7 +114,7 @@ public class ArrivalLounge {
      * @return 'W' work
      */
     public synchronized char takeARest() {
-        Porter p = (Porter) Thread.currentThread();
+        ArrivalLoungeProxy p = (ArrivalLoungeProxy) Thread.currentThread();
         while (cntPassengers != SimulatorParam.NUM_PASSANGERS && !this.endOfOperations) {
             try {
                 wait();
@@ -123,7 +124,6 @@ public class ArrivalLounge {
         if (this.endOfOperations) {
             return 'E';
         } else {
-            p.setPorterState(PorterState.AT_THE_PLANES_HOLD);
             repo.setPorterState(PorterState.AT_THE_PLANES_HOLD);
             return 'W';
         }
@@ -154,8 +154,6 @@ public class ArrivalLounge {
     public synchronized void noMoreBagsToCollect() {
         cntPassengers = 0;
         bcp.setMoreBags(false);
-        Porter p = (Porter) Thread.currentThread();
-        p.setPorterState(PorterState.WAITING_FOR_A_PLANE_TO_LAND);
         repo.setPorterState(PorterState.WAITING_FOR_A_PLANE_TO_LAND);
     }
 
@@ -169,7 +167,7 @@ public class ArrivalLounge {
      * @return 'B' if the passenger is going to collect a bag
      * @throws SharedException if flight exceeds the parameter, or if the passengers count is negative or exceeds the total
      */
-    public synchronized char whatShouldIDo(int flight) throws SharedException {
+    public synchronized char whatShouldIDo(int flight, int id, char tripState, int numBags) throws SharedException {
         try {
             if (flight + 1 > SimulatorParam.NUM_FLIGHTS)                         /* check for proper parameter range */
                 throw new SharedException("Flight cannot exceed the defined parameter for number of flights: " + flight + ".");
@@ -194,20 +192,16 @@ public class ArrivalLounge {
             repo.setFlightNumber(flight);
             repo.setNumOfBagsAtPlaneHold(flight, this.numOfBagsPerFlight[flight]);
         }
-        Passenger p = (Passenger) Thread.currentThread();
-        p.setPassengerState(PassengerState.AT_THE_DISEMBARKING_ZONE);
-        int id = p.getIdentifier();
         cntPassengers++;
         if (cntPassengers == SimulatorParam.NUM_PASSANGERS) {
             notifyAll();
         }
-        char tripState = p.getTripState(flight);
         //Passenger in transit
         if (tripState == 'T') {
             this.passengersTransit++;
             repo.setPassengersTransit(this.passengersTransit);
             repo.setPassengerDestination(id, "TRT");
-            repo.setNumOfBagsAtTheBegining(id, p.getNumBags(flight));
+            repo.setNumOfBagsAtTheBegining(id, numBags);
             repo.setPassengerState(id, PassengerState.AT_THE_DISEMBARKING_ZONE);
             //Take a bus
             return 'T';
@@ -217,7 +211,7 @@ public class ArrivalLounge {
             this.passengersFinalDest++;
             repo.setPassengersFinalDest(this.passengersFinalDest);
             repo.setPassengerDestination(id, "FDT");
-            int nBags = p.getNumBags(flight);
+            int nBags = numBags;
             repo.setNumOfBagsAtTheBegining(id, nBags);
             repo.setPassengerState(id, PassengerState.AT_THE_DISEMBARKING_ZONE);
             //Has bags to collect

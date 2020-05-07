@@ -30,19 +30,24 @@ public class DepartureTerminalTransferQuayStub {
     }
 
 
-    public void leaveTheBus(){
+    public void leaveTheBus(int id){
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         
         Passenger p = (Passenger) Thread.currentThread();
 
         Message inmsg, outmsg; 
         
+        while (!cc.open ())                                    
+		{ try
+	        { p.sleep ((long) (10));
+	        }
+	        catch (InterruptedException e) {}
+	    }
         
-        outmsg = new Message(MessageType.LEAVETHEBUS);
+        
+        outmsg = new Message(MessageType.LEAVETHEBUS, id);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
-        cc.open(); 
-        
 
         if ((inmsg.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
@@ -62,11 +67,17 @@ public class DepartureTerminalTransferQuayStub {
 
         Message inmsg, outmsg; 
         
+        while (!cc.open ())                                    
+		{ try
+	        { b.sleep ((long) (10));
+	        }
+	        catch (InterruptedException e) {}
+	    }
+        
         
         outmsg = new Message(MessageType.PARKATDEPARTURE);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
-        cc.open(); 
         
 
         if ((inmsg.getType () != MessageType.ACK))

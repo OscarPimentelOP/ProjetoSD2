@@ -24,7 +24,7 @@ public class DepartureTerminalEntranceStub {
         this.serverPort = SimulatorParam.departureTerminalEntrancePort;
     }
 	
-	public void prepareNextLeg(int flight) {
+	public void prepareNextLeg(int flight, int id) {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -37,7 +37,7 @@ public class DepartureTerminalEntranceStub {
 	    }
 		
 		//Preparing next leg message, with the flight number
-		outMessage = new Message (MessageType.PREPARINGNEXTLEG, flight);
+		outMessage = new Message (MessageType.PREPARINGNEXTLEG, flight, id);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
@@ -52,7 +52,7 @@ public class DepartureTerminalEntranceStub {
 	public void wakeUpAll() {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try
@@ -77,7 +77,7 @@ public class DepartureTerminalEntranceStub {
 	public void setTimeToWakeUpToFalse() {
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
-		Passenger p = (Passenger) Thread.currentThread();
+		Thread p = (Thread) Thread.currentThread();
 		//Waits for connection
 		while (!con.open ())                                    
 		{ try

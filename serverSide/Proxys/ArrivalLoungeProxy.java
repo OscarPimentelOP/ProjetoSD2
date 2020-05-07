@@ -2,6 +2,7 @@ package serverSide.Proxys;
 
 import AuxTools.Message;
 import AuxTools.MessageException;
+import clientSide.Entities.PorterState;
 import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.ArrivalLoungeInterface;
 
@@ -31,6 +32,9 @@ public class ArrivalLoungeProxy extends Thread {
 	   */
 
 	   private ArrivalLoungeInterface alInter;
+
+
+	private PorterState porterState;
 
 	  /**
 	   *  Instanciação do interface à barbearia.
@@ -97,6 +101,10 @@ public class ArrivalLoungeProxy extends Thread {
 	      }
 
 	      return proxyId;
+	   }
+	   
+	   public void setPorterState(PorterState ps) {
+		   this.porterState = ps;
 	   }
 	   
 }
