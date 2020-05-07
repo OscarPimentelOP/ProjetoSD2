@@ -6,7 +6,6 @@
 package clientSide.Entities;
 
 import AuxTools.Bag;
-import AuxTools.SharedException;
 import clientSide.Stubs.ArrivalLoungeStub;
 import clientSide.Stubs.BaggageCollectionPointStub;
 import clientSide.Stubs.TemporaryStorageAreaStub;

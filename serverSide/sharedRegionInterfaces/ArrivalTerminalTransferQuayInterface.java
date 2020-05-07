@@ -4,6 +4,8 @@ import AuxTools.Message;
 import AuxTools.MessageException;
 import AuxTools.MessageType;
 import AuxTools.SharedException;
+import serverSide.Proxys.ArrivalTerminalTransferQuayProxy;
+import serverSide.main.mainArrivalTerminalTransferQuay;
 import serverSide.sharedRegions.ArrivalTerminalTransferQuay;
 
 public class ArrivalTerminalTransferQuayInterface {
@@ -61,6 +63,8 @@ public class ArrivalTerminalTransferQuayInterface {
 						      break;
 		 case SETENDOFWORKBUSDRIVER: attq.setEndOfWord();
 									 outMessage = new Message(MessageType.ACK);
+									 mainArrivalTerminalTransferQuay.opened = false;
+									 (((ArrivalTerminalTransferQuayProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
 									 break;
 		 case READFROMBUS : attq.readFromBus();
 							outMessage = new Message(MessageType.ACK);

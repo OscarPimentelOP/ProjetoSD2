@@ -8,10 +8,8 @@ package serverSide.sharedRegions;
 import AuxTools.CAM;
 import AuxTools.SharedException;
 import AuxTools.Bag;
-import clientSide.Entities.Porter;
 import clientSide.Entities.PorterState;
 import clientSide.Stubs.RepoStub;
-import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
 
 /**

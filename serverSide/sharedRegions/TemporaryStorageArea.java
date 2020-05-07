@@ -12,7 +12,6 @@ import AuxTools.MemException;
 import clientSide.Entities.PorterState;
 import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;
-import clientSide.Entities.Porter;
 
 /**
  * This class implements the Temporary Storage Area shared region.

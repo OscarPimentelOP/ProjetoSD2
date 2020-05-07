@@ -97,4 +97,9 @@ public class ArrivalTerminalTransferQuayProxy extends Thread {
 
 	      return proxyId;
 	   }
+	   
+	   public ServerCom getScon ()
+	   {
+	      return sconi;
+	   }
 }

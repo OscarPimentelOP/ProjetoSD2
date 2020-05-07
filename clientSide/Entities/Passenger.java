@@ -5,11 +5,7 @@
 
 package clientSide.Entities;
 
-import AuxTools.Message;
-import AuxTools.MessageType;
-import AuxTools.SharedException;
 import AuxTools.SimulatorParam;
-import clientSide.ClientCom;
 import clientSide.Stubs.ArrivalLoungeStub;
 import clientSide.Stubs.ArrivalTerminalExitStub;
 import clientSide.Stubs.ArrivalTerminalTransferQuayStub;

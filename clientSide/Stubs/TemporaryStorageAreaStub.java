@@ -29,6 +29,7 @@ public class TemporaryStorageAreaStub {
 
 
     public void carryItToAppropriateStore(Bag bag){
+    	//Open connection
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         Porter p = (Porter) Thread.currentThread();
         Message inmsg, outmsg; 
@@ -40,16 +41,18 @@ public class TemporaryStorageAreaStub {
 	        catch (InterruptedException e) {}
 	    }
         
+        //Carrying bag to temporary storage area message
         outmsg = new Message(MessageType.CARRYBAGTOTEMPSTORE, bag);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
 
+        //Message OK
         if ((inmsg.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inmsg.toString ());
           System.exit (1);
         }
-        
+        //Close connection
         cc.close();
     }
 

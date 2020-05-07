@@ -6,7 +6,6 @@
 package serverSide.sharedRegions;
 
 import AuxTools.SharedException;
-import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;

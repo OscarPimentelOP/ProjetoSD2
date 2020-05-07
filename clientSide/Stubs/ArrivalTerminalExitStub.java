@@ -25,6 +25,7 @@ public class ArrivalTerminalExitStub {
     }
     
     public void goHome(int flight, int id) {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -41,15 +42,18 @@ public class ArrivalTerminalExitStub {
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public void incCntPassengersEnd() {
+    	//Open connection
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -61,20 +65,23 @@ public class ArrivalTerminalExitStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Preparing next leg message, with the flight number
+		//Increment passengers at the end of the journey message
 		outMessage = new Message (MessageType.INCCNTPASSENGERSEND);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public int getCntPassengersEnd() {
+    	//Open connection
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -86,7 +93,7 @@ public class ArrivalTerminalExitStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Preparing next leg message, with the flight number
+		//Get passengers at the end of the journey message
 		outMessage = new Message (MessageType.GETCNTPASSENGERSEND);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
@@ -96,12 +103,16 @@ public class ArrivalTerminalExitStub {
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		
+		//Message with the passenger count
 		int cnt = inMessage.getCntPassengersEnd();
+		//Close connection
 		con.close();
 		return cnt;
     }
     
     public void decCntPassengersEnd() {
+    	//Open connection
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -113,20 +124,23 @@ public class ArrivalTerminalExitStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Preparing next leg message, with the flight number
+		//Decrement passengers at the end of the journey message
 		outMessage = new Message (MessageType.DECCNTPASSENGERSEND);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public void wakeUpAll() {
+    	//Open connection
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -138,20 +152,23 @@ public class ArrivalTerminalExitStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Preparing next leg message, with the flight number
+		//Wake up all passengers at this terminal message
 		outMessage = new Message (MessageType.WAKEUPALLA);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
 	
 	public void setTimeToWakeUpToFalse() {
+		//Open connection
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -163,16 +180,18 @@ public class ArrivalTerminalExitStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Preparing next leg message, with the flight number
+		//End of a flight message
 		outMessage = new Message (MessageType.SETTIMETOWAKEUPTOFALSEA);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
 	}
 }

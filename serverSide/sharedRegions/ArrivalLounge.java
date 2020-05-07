@@ -9,13 +9,10 @@ import AuxTools.MemStack;
 import AuxTools.SharedException;
 import AuxTools.Bag;
 import AuxTools.MemException;
-import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
-import clientSide.Entities.Porter;
 import clientSide.Entities.PorterState;
 import clientSide.Stubs.BaggageCollectionPointStub;
 import clientSide.Stubs.RepoStub;
-import serverSide.Proxys.ArrivalLoungeProxy;
 import AuxTools.SimulatorParam;
 
 /**
@@ -114,7 +111,6 @@ public class ArrivalLounge {
      * @return 'W' work
      */
     public synchronized char takeARest() {
-        ArrivalLoungeProxy p = (ArrivalLoungeProxy) Thread.currentThread();
         while (cntPassengers != SimulatorParam.NUM_PASSANGERS && !this.endOfOperations) {
             try {
                 wait();

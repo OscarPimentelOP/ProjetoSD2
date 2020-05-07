@@ -6,7 +6,6 @@
 package serverSide.sharedRegions;
 
 import AuxTools.SharedException;
-import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.ArrivalLoungeStub;
 import clientSide.Stubs.ArrivalTerminalTransferQuayStub;

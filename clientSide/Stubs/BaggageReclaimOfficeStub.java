@@ -24,6 +24,7 @@ public class BaggageReclaimOfficeStub {
         this.serverPort = SimulatorParam.baggageReclaimOfficePort;
     }
 	public void reportMissingBags(int numMissingBags, int id) {
+		//Open connection
 		ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -40,11 +41,13 @@ public class BaggageReclaimOfficeStub {
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
 	}
 }

@@ -80,6 +80,7 @@ public class ServerCom
    {
       try
       { listeningSocket = new ServerSocket (serverPortNumb);
+        setTimeout (10000);
       }
       catch (BindException e)                         // erro fatal --- port já em uso
       { System.out.println(Thread.currentThread ().getName () +
@@ -124,13 +125,16 @@ public class ServerCom
    *    @return canal de comunicação
    */
 
-   public ServerCom accept ()
+   public ServerCom accept () throws SocketTimeoutException
    {
       ServerCom scon;                                      // canal de comunicação
 
       scon = new ServerCom(serverPortNumb, listeningSocket);
       try
       { scon.commSocket = listeningSocket.accept();
+      }
+      catch (SocketTimeoutException e)
+      { throw new SocketTimeoutException ("Timeout!");
       }
       catch (SocketException e)
       { System.out.println(Thread.currentThread ().getName () +
@@ -202,6 +206,23 @@ public class ServerCom
       catch (IOException e)
       { System.out.println(Thread.currentThread ().getName () +
                                  " - não foi possível fechar o socket de comunicação!");
+        e.printStackTrace ();
+        System.exit (1);
+      }
+   }
+
+  /**
+   *  Definição de um time out de escuta.
+   */
+
+   public void setTimeout (int time)
+   {
+      try
+      { listeningSocket.setSoTimeout (time);
+      }
+      catch (SocketException e)
+      { System.out.println(Thread.currentThread ().getName () +
+                                 " - ocorreu um erro na fixação de um timeout de escuta!");
         e.printStackTrace ();
         System.exit (1);
       }

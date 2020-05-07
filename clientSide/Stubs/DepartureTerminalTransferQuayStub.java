@@ -31,6 +31,7 @@ public class DepartureTerminalTransferQuayStub {
 
 
     public void leaveTheBus(int id){
+    	//Open connection
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         
         Passenger p = (Passenger) Thread.currentThread();
@@ -44,23 +45,25 @@ public class DepartureTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
         
-        
+        //Leave the bus message
         outmsg = new Message(MessageType.LEAVETHEBUS, id);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
 
+        //Message OK
         if ((inmsg.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inmsg.toString ());
           System.exit (1);
         }
-
+        //Close connection
         cc.close();
 
 
     }
 
     public void parkTheBusAndLetPassOff(){
+    	//Open connection
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         
         BusDriver b = (BusDriver) Thread.currentThread();
@@ -74,18 +77,18 @@ public class DepartureTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
         
-        
+        //Park the bus and let the passengers off message
         outmsg = new Message(MessageType.PARKATDEPARTURE);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
         
-
+        //Message OK
         if ((inmsg.getType () != MessageType.ACK))
         { System.out.println ("Thread " + b.getName () + ": Invalid type!");
           System.out.println (inmsg.toString ());
           System.exit (1);
         }
-
+        //Close connection
         cc.close();
 
 

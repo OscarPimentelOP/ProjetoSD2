@@ -5,11 +5,9 @@
 
 package serverSide.sharedRegions;
 
-import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.RepoStub;
 import AuxTools.SimulatorParam;
-import clientSide.Entities.BusDriver;
 import clientSide.Entities.BusDriverState;
 import AuxTools.MemFIFO;
 import AuxTools.SharedException;

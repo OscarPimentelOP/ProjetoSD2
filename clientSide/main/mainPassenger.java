@@ -110,9 +110,11 @@ public class mainPassenger {
             }
         }	
     	
+        //client passenger Name and Port
     	String serverHostName = SimulatorParam.mainPassengerName;
         int serverPortNumb = SimulatorParam.mainPassengerPort;  
     	
+        //Instantiate Stubs
         ArrivalLoungeStub al = new ArrivalLoungeStub();
         ArrivalTerminalExitStub ate = new ArrivalTerminalExitStub();
         ArrivalTerminalTransferQuayStub attq = new ArrivalTerminalTransferQuayStub();
@@ -123,9 +125,13 @@ public class mainPassenger {
         
         Passenger passengers[] = new Passenger[SimulatorParam.NUM_PASSANGERS];
 
+        //Create a connection to send the plane hold bags,
+        //the total number of bags and the passengers states of the trip to the arrival lounge
         ClientCom con;
         Message inMessage, outMessage;
+        
         con = new ClientCom (serverHostName, serverPortNumb);
+        //Waits for connection
         while (!con.open ())
         { try
           { Thread.sleep ((long) (1000));
@@ -144,16 +150,19 @@ public class mainPassenger {
         }
         con.close ();
         
+        //Instantiate passengers
         for(int i = 0; i < SimulatorParam.NUM_PASSANGERS; i++){
             passengers[i] = new Passenger(PassengerState.AT_THE_DISEMBARKING_ZONE, i, numBags[i],
             		tripState[i], al, ate, attq, dttq, dte, bro, bcp);
 
         }
-
+        
+        //Start threads
         for (Passenger p : passengers) {
             p.start();
         }
 
+        //Join threads
         for (Passenger p : passengers) {
             try {
                 p.join();

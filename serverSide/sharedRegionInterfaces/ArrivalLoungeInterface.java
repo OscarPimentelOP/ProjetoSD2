@@ -6,6 +6,7 @@ import AuxTools.MessageException;
 import AuxTools.MessageType;
 import AuxTools.SharedException;
 import AuxTools.SimulatorParam;
+import serverSide.Proxys.ArrivalLoungeProxy;
 import serverSide.sharedRegions.ArrivalLounge;
 
 public class ArrivalLoungeInterface {
@@ -75,6 +76,7 @@ public class ArrivalLoungeInterface {
 		 							break;
 		 case SETENDOFWORKPORTER: al.setEndOfWork();
 								  outMessage = new Message(MessageType.ACK);
+								  (((ArrivalLoungeProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
 								  break;
 		 }
 		 

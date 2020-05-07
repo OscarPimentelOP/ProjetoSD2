@@ -27,6 +27,7 @@ public class BaggageCollectionPointStub {
     }
 
     public void carryItToAppropriateStore(Bag bag){
+    	//Open connection
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         Porter p = (Porter) Thread.currentThread();
         Message inmsg, outmsg; 
@@ -38,24 +39,25 @@ public class BaggageCollectionPointStub {
 	        catch (InterruptedException e) {}
 	    }
 
+        //Carrying bag to baggage collection point message
         outmsg = new Message(MessageType.CARRYBAGTOBAGPOINT, bag);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
 
-
+        //Message OK
         if ((inmsg.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inmsg.toString ());
           System.exit (1);
         }
-
-
+        //Close connection
         cc.close();
         
     }
 
 
     public boolean goCollectABag(int id){
+    	//Open connection
         ClientCom cc = new ClientCom(serverHostName,serverPort);
         Passenger p = (Passenger) Thread.currentThread();
         Message inmsg, outmsg; 
@@ -68,6 +70,7 @@ public class BaggageCollectionPointStub {
 	        catch (InterruptedException e) {}
 	    }
 
+        //Passenger collecting a bag message
         outmsg = new Message(MessageType.GOINGCOLLECTABAG, id);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
@@ -78,14 +81,17 @@ public class BaggageCollectionPointStub {
           System.out.println (inmsg.toString ());
           System.exit (1);
         }
-
+        
+        //Bag at the convoy belt or missing
         hasBag = (inmsg.getType () == MessageType.BAGOK) ? true : false;
+        //Close connection
         cc.close();
 
         return hasBag;
     }
     
     public void setMoreBags(boolean moreBags) {
+    	//Open connection
     	ClientCom cc = new ClientCom(serverHostName,serverPort);
         Thread t = Thread.currentThread();
         Message inmsg, outmsg; 
@@ -98,17 +104,18 @@ public class BaggageCollectionPointStub {
 	        catch (InterruptedException e) {}
 	    }
 
+        //Porter warns passengers that the plane hold is empty message
         outmsg = new Message(MessageType.SETMOREBAGS, moreBags);
         cc.writeObject(outmsg);
         inmsg = (Message) cc.readObject ();
 
-
+        //Message OK
         if ((inmsg.getType () != MessageType.ACK)) 
         { System.out.println ("Thread " + t.getName () + ": Invalid type!");
           System.out.println (inmsg.toString ());
           System.exit (1);
         }
-
+        //Close connection
         cc.close();
     }
 

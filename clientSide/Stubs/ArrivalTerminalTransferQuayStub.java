@@ -1,6 +1,5 @@
 package clientSide.Stubs;
 
-import AuxTools.MemException;
 import AuxTools.Message;
 import AuxTools.MessageType;
 import AuxTools.SimulatorParam;
@@ -27,6 +26,7 @@ public class ArrivalTerminalTransferQuayStub {
     }
     
     public void takeABus(int id) {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -43,16 +43,19 @@ public class ArrivalTerminalTransferQuayStub {
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     
     public void enterTheBus(int id) {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Passenger p = (Passenger) Thread.currentThread();
@@ -64,20 +67,23 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Entering the bus
+		//Entering the bus message
 		outMessage = new Message (MessageType.ENTERINGTHEBUS, id);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public char hasDaysWorkEnded() {
+    	//Open connection
     	char hasdaysworkended = ' ';
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
@@ -101,17 +107,21 @@ public class ArrivalTerminalTransferQuayStub {
           System.exit (1);
         }
 		
+		//Bus driver end of operations
 		if(inMessage.getType () == MessageType.ENDBUSDRIVER) {
 			hasdaysworkended = 'E';
 		}
+		//Bus driver keeps working
 		else {
 			hasdaysworkended = 'W';
 		}
+		//Close connection
 		con.close();
 		return hasdaysworkended;
     }
     
     public void announcingBusBoarding() {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		BusDriver b = (BusDriver) Thread.currentThread();
@@ -128,15 +138,18 @@ public class ArrivalTerminalTransferQuayStub {
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + b.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public void parkTheBus() {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		BusDriver b = (BusDriver) Thread.currentThread();
@@ -153,15 +166,18 @@ public class ArrivalTerminalTransferQuayStub {
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + b.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public void setEndOfWork() {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -173,20 +189,23 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Parking the bus on the arrival terminal message
+		//Set the end of work bus driver message
 		outMessage = new Message (MessageType.SETENDOFWORKBUSDRIVER);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public void readFromBus() {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -198,20 +217,23 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Parking the bus on the arrival terminal message
+		//Read passenger from the bus message
 		outMessage = new Message (MessageType.READFROMBUS);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public void decCntPassengersInBus() {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -223,20 +245,23 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Parking the bus on the arrival terminal message
+		//Decrement the passenger count in the bus message
 		outMessage = new Message (MessageType.DECCNTPASSENGERSINBUS);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
 		
+		//Message OK
 		if ((inMessage.getType () != MessageType.ACK))
         { System.out.println ("Thread " + p.getName () + ": Invalid type!");
           System.out.println (inMessage.toString ());
           System.exit (1);
         }
+		//Close connection
 		con.close();
     }
     
     public int getCntPassengersInBus() {
+    	//Open connection
     	ClientCom con = new ClientCom (serverHostName, serverPort);
 		Message inMessage, outMessage;
 		Thread p = (Thread) Thread.currentThread();
@@ -248,7 +273,7 @@ public class ArrivalTerminalTransferQuayStub {
 	        catch (InterruptedException e) {}
 	    }
 		
-		//Parking the bus on the arrival terminal message
+		//Get the passenger count in the bus message
 		outMessage = new Message (MessageType.GETCNTPASSENGERSINBUS);
 		con.writeObject (outMessage);
 		inMessage = (Message) con.readObject ();
@@ -259,8 +284,9 @@ public class ArrivalTerminalTransferQuayStub {
           System.exit (1);
         }
 		
+		//Message with the passenger count
 		int cnt = inMessage.getCntPassengersInBus();
-		
+		//Close connection
 		con.close();
 		
 		return cnt;

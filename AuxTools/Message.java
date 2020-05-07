@@ -297,6 +297,6 @@ public class Message implements Serializable{
 	@Override
    public String toString ()
    {
-      return ("aa");
+      return (msgType.toString());
    }
 }

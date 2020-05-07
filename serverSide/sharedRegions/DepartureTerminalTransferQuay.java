@@ -5,9 +5,7 @@
 
 package serverSide.sharedRegions;
 
-import clientSide.Entities.BusDriver;
 import clientSide.Entities.BusDriverState;
-import clientSide.Entities.Passenger;
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
 import clientSide.Stubs.RepoStub;
