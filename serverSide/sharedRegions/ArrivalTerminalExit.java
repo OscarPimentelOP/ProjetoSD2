@@ -133,7 +133,6 @@ public class ArrivalTerminalExit {
      */
     public synchronized void wakeUpAll() {
         this.timeToWakeUp = true;
-        System.out.println("olaaaaaaaaaaa");
         try {
             wait(rand.nextInt(100)+20);
         } catch (InterruptedException e) {

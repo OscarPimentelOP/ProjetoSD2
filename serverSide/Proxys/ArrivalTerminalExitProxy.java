@@ -53,20 +53,27 @@ public class ArrivalTerminalExitProxy extends Thread{
 	   @Override
 	   public void run ()
 	   {
-	      Message inMessage = null,                                      // mensagem de entrada
-	              outMessage = null;                      // mensagem de saída
+		  //Input message
+	      Message inMessage = null,
+	    		  //Output message
+	              outMessage = null;                      
 
-	      inMessage = (Message) sconi.readObject ();                     // ler pedido do cliente
+	      //Read client message
+	      inMessage = (Message) sconi.readObject ();                 
 	      try
-	      { outMessage = ateInter.processAndReply (inMessage);         // processá-lo
+	      { 
+	    	  //Process message
+	    	  outMessage = ateInter.processAndReply (inMessage);        
 	      }
 	      catch (MessageException e)
 	      { System.out.println ("Thread " + getName () + ": " + e.getMessage () + "!");
 	      System.out.println (e.getMessageVal ().toString ());
 	        System.exit (1);
 	      }
-	      sconi.writeObject (outMessage);                                // enviar resposta ao cliente
-	      sconi.close ();                                                // fechar canal de comunicação
+	      //Send message to client
+	      sconi.writeObject (outMessage);    
+	      //Close communication channel
+	      sconi.close ();                                               
 	   }
 
 	  /**
@@ -77,9 +84,9 @@ public class ArrivalTerminalExitProxy extends Thread{
 	   
 	   private static int getProxyId ()
 	   {
-	      Class<serverSide.Proxys.ArrivalTerminalExitProxy> cl = null;             // representação do tipo de dados ClientProxy na máquina
-	                                                           //   virtual de Java
-	      int proxyId;                                         // identificador da instanciação
+	      Class<serverSide.Proxys.ArrivalTerminalExitProxy> cl = null;             
+	                                                          
+	      int proxyId;                         
 
 	      try
 	      { cl = (Class<serverSide.Proxys.ArrivalTerminalExitProxy>) Class.forName ("serverSide.Proxys.ArrivalTerminalExitProxy");

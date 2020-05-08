@@ -53,20 +53,27 @@ public class DepartureTerminalEntranceProxy extends Thread{
 	   @Override
 	   public void run ()
 	   {
-	      Message inMessage = null,                                      // mensagem de entrada
-	              outMessage = null;                      // mensagem de saída
+		 //Input message
+	      Message inMessage = null,    
+	    		//Output message
+	              outMessage = null;   
 
-	      inMessage = (Message) sconi.readObject ();                     // ler pedido do cliente
+	      //Read client message
+	      inMessage = (Message) sconi.readObject ();     
 	      try
-	      { outMessage = dteInter.processAndReply (inMessage);         // processá-lo
+	      { 
+	    	  //Process message
+	    	  outMessage = dteInter.processAndReply (inMessage);  
 	      }
 	      catch (MessageException e)
 	      { System.out.println ("Thread " + getName () + ": " + e.getMessage () + "!");
 	      System.out.println (e.getMessageVal ().toString ());
 	        System.exit (1);
 	      }
-	      sconi.writeObject (outMessage);                                // enviar resposta ao cliente
-	      sconi.close ();                                                // fechar canal de comunicação
+	      //Send message to client
+	      sconi.writeObject (outMessage);
+	      //Close communication channel
+	      sconi.close (); 
 	   }
 
 	  /**
@@ -77,9 +84,9 @@ public class DepartureTerminalEntranceProxy extends Thread{
 	   
 	   private static int getProxyId ()
 	   {
-	      Class<serverSide.Proxys.DepartureTerminalEntranceProxy> cl = null;             // representação do tipo de dados ClientProxy na máquina
-	                                                           //   virtual de Java
-	      int proxyId;                                         // identificador da instanciação
+	      Class<serverSide.Proxys.DepartureTerminalEntranceProxy> cl = null;  
+	                                      
+	      int proxyId;           
 
 	      try
 	      { cl = (Class<serverSide.Proxys.DepartureTerminalEntranceProxy>) Class.forName ("serverSide.Proxys.DepartureTerminalEntranceProxy");

@@ -125,7 +125,6 @@ public class DepartureTerminalEntrance {
      * Wakes up all the passengers of the terminal
      */
     public synchronized void wakeUpAll() {
-    	System.out.println("ole");
         this.timeToWakeUp = true;
         try {
             wait(rand.nextInt(100)+20);

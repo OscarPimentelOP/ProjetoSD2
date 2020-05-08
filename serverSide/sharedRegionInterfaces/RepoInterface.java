@@ -31,17 +31,43 @@ public class RepoInterface {
 											if ((inMessage.getFlight() < 0) || (inMessage.getFlight() > SimulatorParam.NUM_FLIGHTS))
 												throw new MessageException ("Number of flights invalid!", inMessage);
 										    break;
-		 //TERMINAR DAQUI PARA A FRENTE
-		 case SETTINGPASSANGERSONTRANSIT : break;
-		 case SETTINGPASSANGERDEST : break;
-		 case SETNUMOFBAGSATTHEBEGINNING : break;
-		 case SETTINGPASSENGERSTATE : break;
-		 case SETTINGPASSANGERFINALDESTINATION : break;
-		 case SETTINGPASSANGERSONTHEQUEUE : break;
-		 case SETTINGPASSANGERSONTHEBUS : break;
+		 case SETTINGPASSANGERSONTRANSIT : if((inMessage.getPassengersInTransit() < 0) || (inMessage.getPassengersInTransit() > SimulatorParam.NUM_PASSANGERS*SimulatorParam.NUM_FLIGHTS))
+			 									throw new MessageException ("Number of passengers in transit invalid!", inMessage);
+			 								break;
+		 case SETTINGPASSANGERDEST : if((inMessage.getPassengerID() < 0) || (inMessage.getPassengerID() >= SimulatorParam.NUM_PASSANGERS))
+										throw new MessageException ("Passenger id invalid!", inMessage);
+									 if((!inMessage.getDestType().equals("TRT")) && (!inMessage.getDestType().equals("FDT")))
+											throw new MessageException ("Passenger destination invalid!", inMessage);
+			 						break;
+		 case SETNUMOFBAGSATTHEBEGINNING : if((inMessage.getPassengerID() < 0) || (inMessage.getPassengerID() >= SimulatorParam.NUM_PASSANGERS))
+												throw new MessageException ("Passenger id invalid!", inMessage);
+											if ((inMessage.getNumBagsAtBeggining() < 0) || (inMessage.getNumBagsAtBeggining() > (SimulatorParam.MAX_NUM_OF_BAGS*SimulatorParam.NUM_PASSANGERS)))
+										   		throw new MessageException ("Number of bags at the beggining invalid!", inMessage);
+											break;
+		 case SETTINGPASSENGERSTATE : if((inMessage.getPassengerID() < 0) || (inMessage.getPassengerID() >= SimulatorParam.NUM_PASSANGERS))
+										throw new MessageException ("Passenger id invalid!", inMessage);
+									 break;
+		 case SETTINGPASSANGERFINALDESTINATION : if((inMessage.getPassengersFinalDest() < 0) || (inMessage.getPassengersFinalDest() > SimulatorParam.NUM_PASSANGERS*SimulatorParam.NUM_FLIGHTS))
+													throw new MessageException ("Number of passengers in final destination invalid!", inMessage);
+												 break;
+		 case SETTINGPASSANGERSONTHEQUEUE :  System.out.println(inMessage.getPassengerID()); 		
+			 								if((inMessage.getPassengerID() < -1) || (inMessage.getPassengerID() >= SimulatorParam.NUM_PASSANGERS))
+												throw new MessageException ("Passenger id invalid!", inMessage);						
+			 								if((inMessage.getPassengersOnTheQueue() < 0) || (inMessage.getPassengersOnTheQueue() >= SimulatorParam.NUM_PASSANGERS))
+										  		throw new MessageException ("Number of passengers on the queue invalid!", inMessage);
+			 							  break;
+		 case SETTINGPASSANGERSONTHEBUS : if((inMessage.getPassengerID() < -1) || (inMessage.getPassengerID() >= SimulatorParam.NUM_PASSANGERS))
+										  		throw new MessageException ("Passenger id invalid!", inMessage);
+										  if((inMessage.getPassangersOnTheBus() < 0) || (inMessage.getPassangersOnTheBus() >= SimulatorParam.BUS_CAPACITY))
+										  		throw new MessageException ("Number of passengers on the queue invalid!", inMessage);
+			 							  break;
 		 case SETTINGNUMOFBAGSINTHECB : break;
-		 case SETTINGNUMOFBAGSCOLLECTED : break;
-		 case SETTINGLOSTBAGS : break;
+		 case SETTINGNUMOFBAGSCOLLECTED : if((inMessage.getPassengerID() < 0) || (inMessage.getPassengerID() >= SimulatorParam.NUM_PASSANGERS))
+									  		 throw new MessageException ("Passenger id invalid!", inMessage);
+										  break;
+		 case SETTINGLOSTBAGS : if ((inMessage.getMissingBagsTotal() < 0) || (inMessage.getMissingBagsTotal() > (SimulatorParam.MAX_NUM_OF_BAGS*SimulatorParam.NUM_PASSANGERS)))
+		   							throw new MessageException ("Number of lost bags invalid!", inMessage);
+			 					break;
 		 case SETTINGNUMBAGSTEMPAREA : break;
 		 case SHUTDOWN : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
