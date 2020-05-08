@@ -5,6 +5,7 @@ import AuxTools.MessageException;
 import AuxTools.MessageType;
 import AuxTools.SharedException;
 import AuxTools.SimulatorParam;
+import serverSide.Proxys.DepartureTerminalEntranceProxy;
 import serverSide.sharedRegions.DepartureTerminalEntrance;
 
 public class DepartureTerminalEntranceInterface {
@@ -25,6 +26,7 @@ public class DepartureTerminalEntranceInterface {
 						  		 break;
 		 case WAKEUPALLD : break;
 		 case SETTIMETOWAKEUPTOFALSED : break;
+		 case SHUTDOWN : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
@@ -45,6 +47,10 @@ public class DepartureTerminalEntranceInterface {
 		 case SETTIMETOWAKEUPTOFALSED : dte.setTimeToWakeUpToFalse();
 										outMessage = new Message(MessageType.ACK);
 									    break;
+		 case SHUTDOWN : dte.shutServer();
+						 outMessage = new Message(MessageType.ACK);
+						 (((DepartureTerminalEntranceProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+						 break;
 		 }
 		 return (outMessage);
 	}

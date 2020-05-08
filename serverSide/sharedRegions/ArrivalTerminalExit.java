@@ -5,12 +5,15 @@
 
 package serverSide.sharedRegions;
 
+import java.util.Random;
+
 import AuxTools.SharedException;
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.ArrivalLoungeStub;
 import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
 import clientSide.Stubs.DepartureTerminalEntranceStub;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainArrivalTerminalExit;
 import AuxTools.SimulatorParam;
 
 /**
@@ -18,6 +21,8 @@ import AuxTools.SimulatorParam;
  */
 
 public class ArrivalTerminalExit {
+
+	Random rand = new Random();
 
     /**
      * The repository, to store the program status
@@ -97,18 +102,19 @@ public class ArrivalTerminalExit {
         }
         decCntPassengersEnd();
         if (getCntPassengersEnd() == 0) {
+        	//Waiting for porter and bus driver to fall asleep before changing the passenger state to NO_STATE
+            while(ArrivalLounge.b)
+        	try {
+                wait(20);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
             this.timeToWakeUp = false;
             dte.setTimeToWakeUpToFalse();
             if (flight + 1 == SimulatorParam.NUM_FLIGHTS) {
                 al.setEndOfWork();
                 attq.setEndOfWork();
             }
-        }
-        //Waiting for porter and bus driver to fall asleep before changing the passenger state to NO_STATE
-        try {
-            wait(10);
-        } catch (InterruptedException e) {
-            System.out.println(e);
         }
         repo.setPassengerState(id, PassengerState.NO_STATE);
     }
@@ -127,8 +133,9 @@ public class ArrivalTerminalExit {
      */
     public synchronized void wakeUpAll() {
         this.timeToWakeUp = true;
+        System.out.println("olaaaaaaaaaaa");
         try {
-            wait(10);
+            wait(rand.nextInt(100)+20);
         } catch (InterruptedException e) {
             System.out.println(e);
         }
@@ -161,5 +168,9 @@ public class ArrivalTerminalExit {
      */
     public synchronized void decCntPassengersEnd() {
         this.cntPassengersEnd = this.cntPassengersEnd - 1;
+    }
+    
+    public synchronized void shutServer() {
+    	mainArrivalTerminalExit.terminated = mainArrivalTerminalExit.terminated + 1;
     }
 }

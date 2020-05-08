@@ -30,6 +30,7 @@ public class ArrivalTerminalTransferQuayInterface {
 		 case READFROMBUS : break;
 	 	 case DECCNTPASSENGERSINBUS: break;
 		 case GETCNTPASSENGERSINBUS: break;
+		 case SHUTDOWN : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
@@ -63,8 +64,6 @@ public class ArrivalTerminalTransferQuayInterface {
 						      break;
 		 case SETENDOFWORKBUSDRIVER: attq.setEndOfWord();
 									 outMessage = new Message(MessageType.ACK);
-									 mainArrivalTerminalTransferQuay.opened = false;
-									 (((ArrivalTerminalTransferQuayProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
 									 break;
 		 case READFROMBUS : attq.readFromBus();
 							outMessage = new Message(MessageType.ACK);
@@ -75,6 +74,10 @@ public class ArrivalTerminalTransferQuayInterface {
 		 case GETCNTPASSENGERSINBUS: int cnt = attq.getCntPassengersInBus();
 									 outMessage = new Message(MessageType.SENDCNTPASSENGERSINBUS, cnt);
 									 break;
+		 case SHUTDOWN : attq.shutServer();
+						 outMessage = new Message(MessageType.ACK);
+						 (((ArrivalTerminalTransferQuayProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+						 break;
 		 }
 		 return (outMessage);
 	}

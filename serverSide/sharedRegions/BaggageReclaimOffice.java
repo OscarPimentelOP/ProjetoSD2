@@ -8,6 +8,7 @@ package serverSide.sharedRegions;
 import AuxTools.SharedException;
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainBaggageReclaimOffice;
 import AuxTools.SimulatorParam;
 
 /**
@@ -58,5 +59,9 @@ public class BaggageReclaimOffice {
         repo.setPassengerState(id, PassengerState.AT_THE_BAGGAGE_RECLAIM_OFFICE);
         totalNumOfMissingBags += numMissingBags;
         this.repo.setLostBags(totalNumOfMissingBags);
+    }
+    
+    public synchronized void shutServer() {
+    	mainBaggageReclaimOffice.terminated = mainBaggageReclaimOffice.terminated + 1;
     }
 }

@@ -22,6 +22,10 @@ public class mainPorter {
 		try{
 			porter.join();
 		} catch(InterruptedException e){}
+		//Shutdown servers
+		al.shutServer();
+		tsa.shutServer();
+		bcp.shutServer();
 	}
 
 }

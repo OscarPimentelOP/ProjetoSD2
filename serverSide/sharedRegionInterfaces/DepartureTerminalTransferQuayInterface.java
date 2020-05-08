@@ -1,6 +1,7 @@
 package serverSide.sharedRegionInterfaces;
 
 import AuxTools.*;
+import serverSide.Proxys.DepartureTerminalTransferQuayProxy;
 import serverSide.sharedRegions.*;
 
 public class DepartureTerminalTransferQuayInterface {
@@ -18,6 +19,7 @@ public class DepartureTerminalTransferQuayInterface {
 		switch (inMessage.getType ()) {
 		case LEAVETHEBUS : break;
 		case PARKATDEPARTURE : break;
+		case SHUTDOWN : break;
 		default : throw new MessageException ("Message type invalid : ", inMessage);
 		}
         
@@ -40,7 +42,10 @@ public class DepartureTerminalTransferQuayInterface {
                 //TODO: handle exception
             }
             break; 
-
+            case SHUTDOWN : dttq.shutServer();
+							 outMessage = new Message(MessageType.ACK);
+							 (((DepartureTerminalTransferQuayProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+							 break;
         }
      
         return outMessage;  

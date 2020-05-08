@@ -11,6 +11,7 @@ import AuxTools.Bag;
 import AuxTools.MemException;
 import clientSide.Entities.PorterState;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainTemporaryStorageArea;
 import AuxTools.SimulatorParam;
 
 /**
@@ -76,5 +77,9 @@ public class TemporaryStorageArea {
         } catch (MemException e) {
         }
         repo.setNumOfBagsInTheTempArea(numOfBagsAtStoreroom);
+    }
+    
+    public synchronized void shutServer() {
+    	mainTemporaryStorageArea.terminated = mainTemporaryStorageArea.terminated + 1;
     }
 }

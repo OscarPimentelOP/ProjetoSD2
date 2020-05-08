@@ -11,12 +11,12 @@ import serverSide.sharedRegions.Repo;
 
 public class mainRepo {
 	
-	public static boolean opened;
+	public static int terminated;
 	
     public static void main(String[] args) {
     	
     	//Repository port
-        final int portNumb = SimulatorParam.mainRepoPort;
+        final int portNumb = SimulatorParam.repoPort;
 
         ServerCom scon, sconi;
         RepoProxy repoProxy;
@@ -38,8 +38,8 @@ public class mainRepo {
 	    RepoInterface repoInter = new RepoInterface(repo);
 	    
 	    //Process Requests while clients not finished
-	    opened = true;
-	    while (opened)
+	    terminated = 0;
+	    while (terminated != 2)
 	    { 	try {
 	    		//listening
 				sconi = scon.accept ();

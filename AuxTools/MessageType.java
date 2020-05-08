@@ -178,4 +178,6 @@ public enum MessageType {
 	SETTINGLOSTBAGS, 
 	
 	SETTINGNUMBAGSTEMPAREA,
+	
+	SHUTDOWN,
 }

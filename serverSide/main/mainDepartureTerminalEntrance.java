@@ -14,12 +14,12 @@ import serverSide.sharedRegions.DepartureTerminalEntrance;
 
 public class mainDepartureTerminalEntrance {
 	
-	public static boolean opened;
+	public static int terminated;
 	
 	public static void main (String [] args){
 		
 		//Departure terminal entrance port
-		final int portNumb = SimulatorParam.mainDepartureTerminalEntrancePort;
+		final int portNumb = SimulatorParam.departureTerminalEntrancePort;
 		
 		ServerCom scon, sconi;                              
 		DepartureTerminalEntranceProxy dteProxy;
@@ -42,8 +42,8 @@ public class mainDepartureTerminalEntrance {
 	    DepartureTerminalEntranceInterface dteInter = new DepartureTerminalEntranceInterface(dte);
 	    
 	    //Process Requests while clients not finished
-	    opened = true;
-	    while (opened)
+	    terminated = 0;
+	    while (terminated != 1)
 	    { 	try {
 	    		//listening
 				sconi = scon.accept ();

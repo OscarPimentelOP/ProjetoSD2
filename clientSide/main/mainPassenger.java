@@ -110,10 +110,6 @@ public class mainPassenger {
             }
         }	
     	
-        //client passenger Name and Port
-    	String serverHostName = SimulatorParam.mainPassengerName;
-        int serverPortNumb = SimulatorParam.mainPassengerPort;  
-    	
         //Instantiate Stubs
         ArrivalLoungeStub al = new ArrivalLoungeStub();
         ArrivalTerminalExitStub ate = new ArrivalTerminalExitStub();
@@ -122,11 +118,15 @@ public class mainPassenger {
         DepartureTerminalEntranceStub dte = new DepartureTerminalEntranceStub();
         BaggageReclaimOfficeStub bro = new BaggageReclaimOfficeStub();
         BaggageCollectionPointStub bcp = new BaggageCollectionPointStub();
+        RepoStub repo = new RepoStub();
         
         Passenger passengers[] = new Passenger[SimulatorParam.NUM_PASSANGERS];
 
         //Create a connection to send the plane hold bags,
         //the total number of bags and the passengers states of the trip to the arrival lounge
+    	String serverHostName = SimulatorParam.arrivalLoungeHostName;
+        int serverPortNumb = SimulatorParam.arrivalLoungePort;  
+        
         ClientCom con;
         Message inMessage, outMessage;
         
@@ -169,6 +169,14 @@ public class mainPassenger {
             } catch (InterruptedException e) {
             }
         }
-    
+        //Shutdown servers
+        al.shutServer();
+        ate.shutServer();
+        attq.shutServer();
+        dttq.shutServer();
+        dte.shutServer();
+        bro.shutServer();
+        bcp.shutServer();
+        repo.shutServer();
     }
 }

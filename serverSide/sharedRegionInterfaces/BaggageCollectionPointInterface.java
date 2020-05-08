@@ -1,5 +1,6 @@
 package serverSide.sharedRegionInterfaces;
 import AuxTools.*;
+import serverSide.Proxys.BaggageCollectionPointProxy;
 import serverSide.sharedRegions.*;
 
 public class BaggageCollectionPointInterface {
@@ -22,6 +23,7 @@ public class BaggageCollectionPointInterface {
 									   break;
 			case GOINGCOLLECTABAG : break;
 			case SETMOREBAGS: break;
+			case SHUTDOWN : break;
 			default : throw new MessageException ("Message type invalid : ", inMessage);
 		}
         
@@ -48,6 +50,10 @@ public class BaggageCollectionPointInterface {
             case SETMOREBAGS: bcp.setMoreBags(inMessage.getMoreBags());
             				  outMessage = new Message(MessageType.ACK); 
             				  break;
+            case SHUTDOWN : bcp.shutServer();
+							 outMessage = new Message(MessageType.ACK);
+							 (((BaggageCollectionPointProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+							 break;
         }
         return outMessage;
     }        

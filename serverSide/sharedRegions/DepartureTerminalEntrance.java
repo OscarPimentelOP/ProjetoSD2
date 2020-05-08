@@ -11,15 +11,17 @@ import clientSide.Stubs.ArrivalLoungeStub;
 import clientSide.Stubs.ArrivalTerminalExitStub;
 import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainDepartureTerminalEntrance;
 import AuxTools.SimulatorParam;
-
+import java.util.Random;
 /**
  * This class implements the Departure Terminal Entrance shared region.
  * The passengers can go prepare their next leg if they are in transit.
  */
 
 public class DepartureTerminalEntrance {
-
+	Random rand = new Random();
+	
     /**
      * The repository, to store the program status
      */
@@ -93,19 +95,19 @@ public class DepartureTerminalEntrance {
         }
         ate.decCntPassengersEnd();
         if (ate.getCntPassengersEnd() == 0) {
+        	//Waiting for porter and bus driver to fall asleep before changing the passenger state to NO_STATE
+        	while(ArrivalLounge.b)
+        	try {
+                wait(20);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
             this.timeToWakeUp = false;
             ate.setTimeToWakeUpToFalse();
             if (flight + 1 == SimulatorParam.NUM_FLIGHTS) {
                 al.setEndOfWork();
                 attq.setEndOfWork();
             }
-        }
-        //Waiting for porter and bus driver to fall asleep before changing the passenger state to NO_STATE
-        try {
-            wait(10);
-        } catch (InterruptedException e) {
-
-            System.out.print(e);
         }
         repo.setPassengerState(id, PassengerState.NO_STATE);
     }
@@ -123,9 +125,10 @@ public class DepartureTerminalEntrance {
      * Wakes up all the passengers of the terminal
      */
     public synchronized void wakeUpAll() {
+    	System.out.println("ole");
         this.timeToWakeUp = true;
         try {
-            wait(10);
+            wait(rand.nextInt(100)+20);
         } catch (InterruptedException e) {
             System.out.println(e);
         }
@@ -137,5 +140,9 @@ public class DepartureTerminalEntrance {
      */
     public synchronized void setTimeToWakeUpToFalse() {
         this.timeToWakeUp = false;
+    }
+    
+    public synchronized void shutServer() {
+    	mainDepartureTerminalEntrance.terminated = mainDepartureTerminalEntrance.terminated + 1;
     }
 }

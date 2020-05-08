@@ -10,6 +10,7 @@ import AuxTools.SharedException;
 import AuxTools.Bag;
 import clientSide.Entities.PorterState;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainBaggageCollectionPoint;
 import clientSide.Entities.PassengerState;
 
 /**
@@ -162,6 +163,10 @@ public class BaggageCollectionPoint {
      */
     public synchronized int getNumOfBagsInConveyBelt() {
         return numOfBagsInConveyBelt;
+    }
+    
+    public synchronized void shutServer() {
+    	mainBaggageCollectionPoint.terminated = mainBaggageCollectionPoint.terminated + 1;
     }
 
 }

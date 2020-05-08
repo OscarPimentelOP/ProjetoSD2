@@ -13,6 +13,7 @@ import clientSide.Entities.PassengerState;
 import clientSide.Entities.PorterState;
 import clientSide.Stubs.BaggageCollectionPointStub;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainArrivalLounge;
 import AuxTools.SimulatorParam;
 
 /**
@@ -23,7 +24,7 @@ import AuxTools.SimulatorParam;
 
 public class ArrivalLounge {
 
-
+	public static boolean b;
     /**
      * Variable the warns the porter than he can go rest.
      * The last passenger of the last flight accuses in goHome function or in prepareNextLeg function.
@@ -111,6 +112,7 @@ public class ArrivalLounge {
      * @return 'W' work
      */
     public synchronized char takeARest() {
+    	b = false;
         while (cntPassengers != SimulatorParam.NUM_PASSANGERS && !this.endOfOperations) {
             try {
                 wait();
@@ -121,6 +123,7 @@ public class ArrivalLounge {
             return 'E';
         } else {
             repo.setPorterState(PorterState.AT_THE_PLANES_HOLD);
+            b = true;
             return 'W';
         }
     }
@@ -229,5 +232,10 @@ public class ArrivalLounge {
     public synchronized void setEndOfWork() {
         this.endOfOperations = true;
         notifyAll();
+    }
+    
+    
+    public synchronized void shutServer() {
+    	mainArrivalLounge.terminated = mainArrivalLounge.terminated + 1;
     }
 }

@@ -107,4 +107,32 @@ public class DepartureTerminalEntranceStub {
 		//Close connection
 		con.close();
 	}
+	
+	public void shutServer() {
+    	//Open connection
+    	ClientCom con = new ClientCom (serverHostName, serverPort);
+		Message inMessage, outMessage;
+		Thread p = (Thread) Thread.currentThread();
+		//Waits for connection
+		while (!con.open ())                                    
+		{ try
+	        { p.sleep ((long) (10));
+	        }
+	        catch (InterruptedException e) {}
+	    }
+		
+		//Shut down server message
+		outMessage = new Message (MessageType.SHUTDOWN);
+		con.writeObject (outMessage);
+		inMessage = (Message) con.readObject ();
+		
+		//Message OK
+		if ((inMessage.getType () != MessageType.ACK))
+        { System.out.println ("Thread " + p.getName () + ": Invalid type!");
+          System.out.println (inMessage.toString ());
+          System.exit (1);
+        }
+		//Close connection
+		con.close();
+    }
 }

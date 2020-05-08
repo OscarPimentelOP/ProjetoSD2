@@ -4,6 +4,7 @@ import AuxTools.Message;
 import AuxTools.MessageException;
 import AuxTools.MessageType;
 import AuxTools.SimulatorParam;
+import serverSide.Proxys.RepoProxy;
 import serverSide.sharedRegions.Repo;
 
 public class RepoInterface {
@@ -42,6 +43,7 @@ public class RepoInterface {
 		 case SETTINGNUMOFBAGSCOLLECTED : break;
 		 case SETTINGLOSTBAGS : break;
 		 case SETTINGNUMBAGSTEMPAREA : break;
+		 case SHUTDOWN : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
@@ -111,7 +113,10 @@ public class RepoInterface {
 		case SETTINGNUMBAGSTEMPAREA : repo.setNumOfBagsInTheTempArea(inMessage.getNumOfBagsInTheTempArea());
 		outMessage = new Message(MessageType.ACK);
 		break;
-
+		case SHUTDOWN : repo.shutServer();
+						 outMessage = new Message(MessageType.ACK);
+						 (((RepoProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+						 break;
 		 }
 		 return (outMessage);
 	}

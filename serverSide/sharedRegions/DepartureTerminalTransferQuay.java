@@ -9,6 +9,7 @@ import clientSide.Entities.BusDriverState;
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.ArrivalTerminalTransferQuayStub;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainDepartureTerminalTransferQuay;
 
 /**
  * This class implements the Departure Terminal Transfer Quay shared region.
@@ -135,5 +136,9 @@ public class DepartureTerminalTransferQuay {
      */
     public synchronized boolean getParked() {
         return this.parked;
+    }
+    
+    public synchronized void shutServer() {
+    	mainDepartureTerminalTransferQuay.terminated = mainDepartureTerminalTransferQuay.terminated + 1;
     }
 }

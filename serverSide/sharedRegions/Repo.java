@@ -8,6 +8,7 @@ package serverSide.sharedRegions;
 import java.io.File;
 
 import clientSide.Entities.PorterState;
+import serverSide.main.mainRepo;
 import clientSide.Entities.PassengerState;
 import clientSide.Entities.BusDriverState;
 
@@ -445,6 +446,10 @@ public class Repo {
      */
     public synchronized void setLostBags(int lostBags) {
         this.lostBags = lostBags;
+    }
+    
+    public synchronized void shutServer() {
+    	mainRepo.terminated = mainRepo.terminated + 1;
     }
 
 }

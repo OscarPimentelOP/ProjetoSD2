@@ -11,12 +11,12 @@ import serverSide.sharedRegions.BaggageCollectionPoint;
 
 public class mainBaggageCollectionPoint {
 	
-	public static boolean opened;
+	public static int terminated;
 	
 	public static void main (String [] args){
 		
 		//Baggage collection point port
-		final int portNumb = SimulatorParam.mainBaggageCollectionPointPort;
+		final int portNumb = SimulatorParam.baggageCollectionPointPort;
 		
 		ServerCom scon, sconi;                              
 		BaggageCollectionPointProxy bcpProxy;
@@ -35,8 +35,8 @@ public class mainBaggageCollectionPoint {
 	    BaggageCollectionPointInterface bcpInter = new BaggageCollectionPointInterface(bcp);
 	    
 	    //Process Requests while clients not finished
-	    opened = true;
-	    while (opened)
+	    terminated = 0;
+	    while (terminated != 2)
 	    { 	try {
 	    		//listening
 				sconi = scon.accept ();

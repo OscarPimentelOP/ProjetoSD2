@@ -7,6 +7,7 @@ package serverSide.sharedRegions;
 
 import clientSide.Entities.PassengerState;
 import clientSide.Stubs.RepoStub;
+import serverSide.main.mainArrivalTerminalTransferQuay;
 import AuxTools.SimulatorParam;
 import clientSide.Entities.BusDriverState;
 import AuxTools.MemFIFO;
@@ -266,5 +267,9 @@ public class ArrivalTerminalTransferQuay {
         } catch (MemException e) {
             System.out.println(e);
         }
+    }
+    
+    public synchronized void shutServer() {
+    	mainArrivalTerminalTransferQuay.terminated = mainArrivalTerminalTransferQuay.terminated + 1;
     }
 }

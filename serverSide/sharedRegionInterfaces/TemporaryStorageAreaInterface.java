@@ -1,6 +1,7 @@
 package serverSide.sharedRegionInterfaces;
 
 import AuxTools.*;
+import serverSide.Proxys.TemporaryStorageAreaProxy;
 import serverSide.sharedRegions.*;
 
 
@@ -20,6 +21,7 @@ public class TemporaryStorageAreaInterface {
       	case CARRYBAGTOTEMPSTORE : if (inMessage.bags()==null)
       									throw new MessageException ("Bag cannot be null!", inMessage);
       							   break;
+      	case SHUTDOWN : break;
       	default : 
       				throw new MessageException ("Message type invalid OLA : ", inMessage);
       	}
@@ -34,8 +36,10 @@ public class TemporaryStorageAreaInterface {
                 //TODO: handle exception
             }
             break;
-
-            
+            case SHUTDOWN : tsa.shutServer();
+			 outMessage = new Message(MessageType.ACK);
+			 (((TemporaryStorageAreaProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+			 break;
         }
         return outMessage;
 

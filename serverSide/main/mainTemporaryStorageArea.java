@@ -11,12 +11,12 @@ import serverSide.sharedRegions.TemporaryStorageArea;
 
 public class mainTemporaryStorageArea {
 	
-	public static boolean opened;
+	public static int terminated;
 	
     public static void main (String [] args){
     	
     	//Temporary storage area port
-		final int portNumb = SimulatorParam.mainTemporaryStorageAreaPort;
+		final int portNumb = SimulatorParam.temporaryStorageAreaPort;
 		
 		ServerCom scon, sconi;                              
 	    TemporaryStorageAreaProxy tsaProxy;
@@ -35,8 +35,8 @@ public class mainTemporaryStorageArea {
 	    TemporaryStorageAreaInterface tsaInter = new TemporaryStorageAreaInterface(tsa);
 	    
 	    //Process Requests while clients not finished
-	    opened = true;
-	    while (opened)
+	    terminated = 0;
+	    while (terminated != 1)
 	    { 	try {
 	    		//listening
 				sconi = scon.accept ();

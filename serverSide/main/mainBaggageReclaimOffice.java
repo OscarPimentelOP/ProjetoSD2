@@ -11,12 +11,12 @@ import serverSide.sharedRegions.BaggageReclaimOffice;
 
 public class mainBaggageReclaimOffice {
 	
-	public static boolean opened;
+	public static int terminated;
 	
 	public static void main (String [] args){
 		
 		//Baggage reclaim office port
-		final int portNumb = SimulatorParam.mainBaggageReclaimOfficePort;
+		final int portNumb = SimulatorParam.baggageReclaimOfficePort;
 		
 		ServerCom scon, sconi;                              
 		BaggageReclaimOfficeProxy broProxy;
@@ -35,8 +35,8 @@ public class mainBaggageReclaimOffice {
 	    BaggageReclaimOfficeInterface broInter = new BaggageReclaimOfficeInterface(bro);
 	    
 	    //Process Requests while clients not finished
-	    opened = true;
-	    while (opened)
+	    terminated = 0;
+	    while (terminated != 1)
 	    { 	try {
 	    		//listening
 				sconi = scon.accept ();

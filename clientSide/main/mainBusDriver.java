@@ -24,5 +24,9 @@ public class mainBusDriver {
 		try{
 			busdriver.join();
 		} catch(InterruptedException e){}
+		//Shutdown servers
+		attq.shutServer();
+		dttq.shutServer();
+		repo.shutServer();
 	}
 }

@@ -14,12 +14,12 @@ import serverSide.sharedRegions.ArrivalTerminalExit;
 
 public class mainArrivalTerminalExit {
 	
-	public static boolean opened;
+	public static int terminated;
 	
 	public static void main (String [] args){
 		
 		//Arrival terminal exit port
-		final int portNumb = SimulatorParam.mainArrivalTerminalExitPort;
+		final int portNumb = SimulatorParam.arrivalTerminalExitPort;
 		
 		ServerCom scon, sconi;                              
 		ArrivalTerminalExitProxy ateProxy;
@@ -42,8 +42,8 @@ public class mainArrivalTerminalExit {
 	    ArrivalTerminalExitInterface ateInter = new ArrivalTerminalExitInterface(ate);
 	    
 	    //Process Requests while clients not finished
-	    opened = true;
-	    while (opened)
+	    terminated = 0;
+	    while (terminated != 1)
 	    { 	try {
 	    		//listening
 				sconi = scon.accept ();

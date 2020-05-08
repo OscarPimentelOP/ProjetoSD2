@@ -5,6 +5,7 @@ import AuxTools.MessageException;
 import AuxTools.MessageType;
 import AuxTools.SharedException;
 import AuxTools.SimulatorParam;
+import serverSide.Proxys.ArrivalTerminalExitProxy;
 import serverSide.sharedRegions.ArrivalTerminalExit;
 
 public class ArrivalTerminalExitInterface {
@@ -28,6 +29,7 @@ public class ArrivalTerminalExitInterface {
 		 case DECCNTPASSENGERSEND : break;
 		 case WAKEUPALLA : break;
 		 case SETTIMETOWAKEUPTOFALSEA : break;
+		 case SHUTDOWN : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
@@ -57,6 +59,10 @@ public class ArrivalTerminalExitInterface {
 		case SETTIMETOWAKEUPTOFALSEA : ate.setTimeToWakeUpToFalse();
 									   outMessage = new Message(MessageType.ACK);
 									   break;
+		case SHUTDOWN : ate.shutServer();
+						 outMessage = new Message(MessageType.ACK);
+						 (((ArrivalTerminalExitProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+						 break;
 		 }
 		 return (outMessage);
 	}

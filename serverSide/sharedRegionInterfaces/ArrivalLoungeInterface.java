@@ -32,6 +32,7 @@ public class ArrivalLoungeInterface {
 		 case NOMOREBAGSTOCOLLECT : break;
 		 case SENDPARAMS : break;
 		 case SETENDOFWORKPORTER : break;
+		 case SHUTDOWN : break;
 		 default : throw new MessageException ("Message type invalid : ", inMessage);
 		 }
 		 
@@ -76,8 +77,11 @@ public class ArrivalLoungeInterface {
 		 							break;
 		 case SETENDOFWORKPORTER: al.setEndOfWork();
 								  outMessage = new Message(MessageType.ACK);
-								  (((ArrivalLoungeProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
 								  break;
+		 case SHUTDOWN : al.shutServer();
+						 outMessage = new Message(MessageType.ACK);
+						 (((ArrivalLoungeProxy) (Thread.currentThread ())).getScon ()).setTimeout (10);
+						 break;
 		 }
 		 
 		 

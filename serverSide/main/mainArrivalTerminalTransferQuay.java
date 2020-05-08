@@ -11,12 +11,12 @@ import serverSide.sharedRegions.ArrivalTerminalTransferQuay;
 
 public class mainArrivalTerminalTransferQuay {
 	
-	public static boolean opened;
+	public static int terminated;
 	
 	public static void main (String [] args){
 		
 		//Arrival terminal transfer quay port
-		final int portNumb = SimulatorParam.mainArrivalTerminalTransferQuayPort;
+		final int portNumb = SimulatorParam.arrivalTerminalTransferQuayPort;
 		
 		ServerCom scon, sconi;                              
 		ArrivalTerminalTransferQuayProxy attqProxy;
@@ -35,8 +35,8 @@ public class mainArrivalTerminalTransferQuay {
 	    ArrivalTerminalTransferQuayInterface attqInter = new ArrivalTerminalTransferQuayInterface(attq);
 	    
 	    //Process Requests while clients not finished
-	    opened = true;
-	    while (opened)
+	    terminated = 0;
+	    while (terminated != 2)
 		{	try {
 				//listening
 				sconi = scon.accept ();
