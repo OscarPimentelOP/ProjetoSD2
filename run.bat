@@ -1,0 +1,12 @@
+start cmd /k java serverSide.main.mainRepo
+start cmd /k java serverSide.main.mainArrivalLounge
+start cmd /k java serverSide.main.mainArrivalTerminalExit
+start cmd /k java serverSide.main.mainArrivalTerminalTransferQuay
+start cmd /k java serverSide.main.mainBaggageCollectionPoint
+start cmd /k java serverSide.main.mainBaggageReclaimOffice
+start cmd /k java serverSide.main.mainDepartureTerminalEntrance
+start cmd /k java serverSide.main.mainDepartureTerminalTransferQuay
+start cmd /k java serverSide.main.mainTemporaryStorageArea
+start cmd /k java clientSide.main.mainPorter
+start cmd /k java clientSide.main.mainBusDriver
+start cmd /k java clientSide.main.mainPassenger
