@@ -1,25 +1,36 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.Stubs;
 
 import AuxTools.*;
 import clientSide.Entities.*;
 import clientSide.*;
 
-
+/**
+ * This class implements the Baggage Collection Point Stub. This file consists on the implementation of the
+ * Baggage Collection Point's shared region functions, but in a message approach version. In each function, a connection is established and a message is sent to the
+ * Baggage Collection Point Interface that will execute the proper function from the original shared region itself.
+ */
 public class BaggageCollectionPointStub {
 
      /**
-	 * BaggageCollectionPoint server hostname
+	 * Baggage Collection Point server hostname
 	 * @serialField serverHostName
 	 */
 	private String serverHostName;
 
 	/**
-	 * BaggageCollectionPoint server port
+	 * Baggage Collection Point server port
 	 * @serialField serverPort
 	 */
     private int serverPort;
 
-
+    /**
+	 * Baggage Collection Point Stub instantiation
+	 */
     public BaggageCollectionPointStub(){
         this.serverHostName = SimulatorParam.baggageCollectionPointHostName;
         this.serverPort = SimulatorParam.baggageCollectionPointPort;

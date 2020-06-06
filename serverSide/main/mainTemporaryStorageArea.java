@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.net.SocketTimeoutException;
@@ -9,6 +14,12 @@ import serverSide.Proxys.TemporaryStorageAreaProxy;
 import serverSide.sharedRegionInterfaces.TemporaryStorageAreaInterface;
 import serverSide.sharedRegions.TemporaryStorageArea;
 
+
+/**
+ * This class implements the Temporary Storage Area Main that instantiates the shared region Stubs
+ * that are part of Temporary Storage Area arguments, instantiates the Temporary Storage Area Interface 
+ * and launches the Temporary Storage Area Proxy.
+ */
 public class mainTemporaryStorageArea {
 	
 	public static int terminated;

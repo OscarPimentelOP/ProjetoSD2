@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.net.SocketTimeoutException;
@@ -10,6 +15,10 @@ import serverSide.Proxys.ArrivalLoungeProxy;
 import serverSide.sharedRegionInterfaces.ArrivalLoungeInterface;
 import serverSide.sharedRegions.ArrivalLounge;
 
+/**
+ * This class implements the Arrival Lounge Main that instantiates the shared region Stubs
+ * that are part of Arrival Lounge arguments, instantiates the Arrival Lounge Interface and launches the Arrival Lounge Proxy.
+ */
 public class mainArrivalLounge {
 	
 	public static int terminated;

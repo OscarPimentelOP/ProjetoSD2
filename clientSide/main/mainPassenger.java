@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.main;
 
 import clientSide.Stubs.*;
@@ -8,6 +13,13 @@ import java.util.Random;
 import AuxTools.*;
 import clientSide.Entities.*;
 
+
+/**
+ * This class implements the Passenger Main. It instantiates the shared region Stubs which the Passenger interacts with
+ * and most importantly it instantiates the Passenger entity, starts its thread and finally joins it and shutdowns the servers related
+ * to the Stubs previously instantiated. This class is also responsible for initialize the number of bags per passenger and flight with probabilities,
+ * the lost bags per flight and probabilities, generating the number of found bags and the storage per flight.
+ */
 public class mainPassenger {
     //Shared region stubs
     public static void main(String args[]) {

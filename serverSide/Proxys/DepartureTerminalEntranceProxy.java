@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.Proxys;
 
 import AuxTools.Message;
@@ -5,37 +10,38 @@ import AuxTools.MessageException;
 import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.DepartureTerminalEntranceInterface;
 
+/**
+ * This class implements the Departure Terminal Entrance Proxy that 
+ * 
+ */
 public class DepartureTerminalEntranceProxy extends Thread{
 	/**
-	   *  Contador de threads lançados
-	   *
-	   *    @serialField nProxy
+	   *  Launched threads counter
+	   *  @serialField nProxy
 	   */
 
 	   private static int nProxy;
 	   
 	   
 	/**
-	   *  Canal de comunicação
-	   *
+	   *  Communication channel
 	   *    @serialField sconi
 	   */
 
 	   private ServerCom sconi;
 
 	  /**
-	   *  Interface à barbearia
-	   *
-	   *    @serialField bShopInter
+	   *  Departure Terminal Entrance Interface
+	   *    @serialField dteInter
 	   */
 
 	   private DepartureTerminalEntranceInterface dteInter;
 
+	 
 	  /**
-	   *  Instanciação do interface à barbearia.
-	   *
-	   *    @param sconi canal de comunicação
-	   *    @param bShopInter interface à barbearia
+	   *   Departure Terminal Entrance Proxy Instantiation
+	   *    @param sconi Communication channel
+	   *    @param dteInter  Departure Terminal Entrance Interface
 	   */
 
 	   public DepartureTerminalEntranceProxy (ServerCom sconi, DepartureTerminalEntranceInterface dteInter)
@@ -47,7 +53,7 @@ public class DepartureTerminalEntranceProxy extends Thread{
 	   }
 
 	  /**
-	   *  Ciclo de vida do thread agente prestador de serviço.
+	   *  Service provider agent thread life cycle. 
 	   */
 
 	   @Override
@@ -77,9 +83,8 @@ public class DepartureTerminalEntranceProxy extends Thread{
 	   }
 
 	  /**
-	   *  Geração do identificador da instanciação.
-	   *
-	   *    @return identificador da instanciação
+	   * Instantiation ID generation
+	   *    @return Instantiation ID
 	   */
 	   
 	   private static int getProxyId ()

@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.net.SocketTimeoutException;
@@ -10,6 +15,12 @@ import serverSide.Proxys.DepartureTerminalTransferQuayProxy;
 import serverSide.sharedRegionInterfaces.DepartureTerminalTransferQuayInterface;
 import serverSide.sharedRegions.DepartureTerminalTransferQuay;
 
+
+/**
+ * This class implements the Departure Terminal Transfer Quay Main that instantiates the shared region Stubs
+ * that are part of Departure Terminal Transfer Quay arguments, instantiates the Departure Terminal Transfer Quay Interface 
+ * and launches the Departure Terminal Transfer Quay Proxy.
+ */
 public class mainDepartureTerminalTransferQuay {
 	
 	public static int terminated;

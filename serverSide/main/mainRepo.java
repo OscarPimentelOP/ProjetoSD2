@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.io.FileNotFoundException;
@@ -9,6 +14,12 @@ import serverSide.Proxys.RepoProxy;
 import serverSide.sharedRegionInterfaces.RepoInterface;
 import serverSide.sharedRegions.Repo;
 
+
+/**
+ * This class implements the Repository Main that instantiates the shared region Stubs
+ * that are part of Repository arguments, instantiates the Repository Interface 
+ * and launches the Repository Proxy.
+ */
 public class mainRepo {
 	
 	public static int terminated;

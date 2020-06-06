@@ -1,16 +1,40 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.sharedRegionInterfaces;
 import AuxTools.*;
 import serverSide.Proxys.BaggageCollectionPointProxy;
 import serverSide.sharedRegions.*;
 
+
+/**
+ * This class implements the Baggage Collection Point Interface that processes the
+ * received messages and based on that received message executes the respective function from the actual
+ *  Baggage Collection Point. Furthermore, this Interface creates the reply message.
+ */
 public class BaggageCollectionPointInterface {
+
+    /**
+	 *  Baggage Collection Point shared region
+     * @serialField bcp
+     */
     private BaggageCollectionPoint bcp;
 
+    /**
+	 *  Baggage Collection Point Interface instantiation
+     * @param bcp Baggage Collection Point shared region
+     */
     public BaggageCollectionPointInterface(BaggageCollectionPoint bcp){
         this.bcp = bcp;
     }
 
-
+    /**
+	 * This function receives the incoming message and executes the correct function from the Baggage Collection Point shared region and then
+	 * generates the reply message.
+     * @param inMessage incoming message from the main
+     */
     public Message processAndReply (Message inMessage) throws MessageException{
         
         Message outMessage = null; 

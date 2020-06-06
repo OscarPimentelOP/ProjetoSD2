@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.Stubs;
 
 import AuxTools.Bag;
@@ -8,19 +13,29 @@ import clientSide.ClientCom;
 import clientSide.Entities.Passenger;
 import clientSide.Entities.Porter;
 
+
+
+/**
+ * This class implements the Arrival Lounge Stub. This file consists on the implementation of the
+ * Arrival Lounge's shared region functions, but in a message approach version. In each function, a connection is established and a message is sent to the
+ * Arrival Lounge Interface that will execute the proper function from the original shared region itself.
+ */
 public class ArrivalLoungeStub {
     /**
-	 * Temporary Storage Area server hostname
+	 * Arrival Lounge server hostname
 	 * @serialField serverHostName
 	 */
 	private String serverHostName;
 
 	/**
-	 * Temporary Storage Area server port
+	 * Arrival Lounge server port
 	 * @serialField serverPort
 	 */
     private int serverPort;
-    
+	
+	/**
+	 * Arrival Lounge Stub instantiation
+	 */
     public ArrivalLoungeStub(){
         this.serverHostName = SimulatorParam.arrivalLoungeHostName;
         this.serverPort = SimulatorParam.arrivalLoungePort;

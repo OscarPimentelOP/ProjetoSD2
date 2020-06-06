@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.Proxys;
 
 import AuxTools.Message;
@@ -5,37 +10,37 @@ import AuxTools.MessageException;
 import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.ArrivalTerminalTransferQuayInterface;
 
+/**
+ * This class implements the Arrival Terminal Transfer Quay Proxy that 
+ * 
+ */
 public class ArrivalTerminalTransferQuayProxy extends Thread {
 	/**
-	   *  Contador de threads lançados
-	   *
-	   *    @serialField nProxy
+	   *  Launched threads counter
+	   *  @serialField nProxy
 	   */
 
 	   private static int nProxy;
 	   
 	   
 	/**
-	   *  Canal de comunicação
-	   *
+	   *  Communication channel
 	   *    @serialField sconi
 	   */
 
 	   private ServerCom sconi;
 
 	  /**
-	   *  Interface à barbearia
-	   *
-	   *    @serialField bShopInter
+	   *  Arrival Terminal Transfer Quay Proxy Interface
+	   *    @serialField attqInter
 	   */
 
 	   private ArrivalTerminalTransferQuayInterface attqInter;
 
 	  /**
-	   *  Instanciação do interface à barbearia.
-	   *
-	   *    @param sconi canal de comunicação
-	   *    @param bShopInter interface à barbearia
+	   *   Arrival Terminal Transfer Quay Proxy Instantiation
+	   *    @param sconi Communication channel
+	   *    @param attqInter  Arrival Terminal Transfer Quay Interface
 	   */
 
 	   public ArrivalTerminalTransferQuayProxy (ServerCom sconi, ArrivalTerminalTransferQuayInterface attqInter)
@@ -47,7 +52,7 @@ public class ArrivalTerminalTransferQuayProxy extends Thread {
 	   }
 
 	  /**
-	   *  Ciclo de vida do thread agente prestador de serviço.
+	   *  Service provider agent thread life cycle. 
 	   */
 
 	   @Override
@@ -76,10 +81,9 @@ public class ArrivalTerminalTransferQuayProxy extends Thread {
 	      sconi.close ();                                
 	   }
 
-	  /**
-	   *  Geração do identificador da instanciação.
-	   *
-	   *    @return identificador da instanciação
+	 /**
+	   * Instantiation ID generation
+	   *    @return Instantiation ID
 	   */
 	   
 	   private static int getProxyId ()

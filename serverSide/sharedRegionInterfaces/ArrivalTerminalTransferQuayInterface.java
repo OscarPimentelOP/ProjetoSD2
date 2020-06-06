@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.sharedRegionInterfaces;
 
 import AuxTools.Message;
@@ -8,14 +13,36 @@ import serverSide.Proxys.ArrivalTerminalTransferQuayProxy;
 import serverSide.main.mainArrivalTerminalTransferQuay;
 import serverSide.sharedRegions.ArrivalTerminalTransferQuay;
 
+/**
+ * This class implements the Arrival Terminal Transfer Quay Interface that processes the
+ * received messages and based on that received message executes the respective function from the actual
+ * Arrival Terminal Transfer Quay. Furthermore, this Interface creates the reply message.
+ */
+
 public class ArrivalTerminalTransferQuayInterface {
+
+	/**
+	 * Arrival Terminal Transfer Quay shared region
+     * @serialField attq
+     */
 	private ArrivalTerminalTransferQuay attq;
 	
+
+	/**
+	 * Arrival Terminal Transfer Quay Interface instantiation
+     * @param attq Arrival Terminal Trasfer Quay shared region
+     */
 	public ArrivalTerminalTransferQuayInterface (ArrivalTerminalTransferQuay attq)
 	{
 		this.attq = attq;
 	}
 	
+
+	/**
+	 * This function receives the incoming message and executes the correct function from the Arrival Terminal Transfer Quay shared region and then
+	 * generates the reply message.
+     * @param inMessage incoming message from the main
+     */
 	public Message processAndReply (Message inMessage) throws MessageException{
 		 Message outMessage = null;                           // response message
 		 

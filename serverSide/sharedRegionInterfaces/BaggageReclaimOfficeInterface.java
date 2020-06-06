@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.sharedRegionInterfaces;
 
 import AuxTools.Message;
@@ -8,14 +13,34 @@ import AuxTools.SimulatorParam;
 import serverSide.Proxys.BaggageReclaimOfficeProxy;
 import serverSide.sharedRegions.BaggageReclaimOffice;
 
+/**
+ * This class implements the Baggage Reclaim Office Interface that processes the
+ * received messages and based on that received message executes the respective function from the actual
+ *  Baggage Reclaim Office. Furthermore, this Interface creates the reply message.
+ */
 public class BaggageReclaimOfficeInterface {
+
+	 /**
+	 *  Baggage Reclaim Office shared region
+     * @serialField bro
+     */
 	private BaggageReclaimOffice bro;
 	
+
+	/**
+	 *  Baggage Reclaim Office Interface instantiation
+     * @param bro Baggage Reclaim Office shared region
+     */
 	public BaggageReclaimOfficeInterface (BaggageReclaimOffice bro)
 	{
 		this.bro = bro;
 	}
 	
+	/**
+	 * This function receives the incoming message and executes the correct function from the Baggage Reclaim Office shared region and then
+	 * generates the reply message.
+     * @param inMessage incoming message from the main
+     */
 	public Message processAndReply (Message inMessage) throws MessageException{
 		 Message outMessage = null;                           // response message
 		 

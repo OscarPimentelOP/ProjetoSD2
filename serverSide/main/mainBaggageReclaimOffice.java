@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.net.SocketTimeoutException;
@@ -9,6 +14,11 @@ import serverSide.Proxys.BaggageReclaimOfficeProxy;
 import serverSide.sharedRegionInterfaces.BaggageReclaimOfficeInterface;
 import serverSide.sharedRegions.BaggageReclaimOffice;
 
+/**
+ * This class implements the Baggage Reclaim Office Main that instantiates the shared region Stubs
+ * that are part of Baggage Reclaim Office arguments, instantiates the Baggage Reclaim Office Interface 
+ * and launches the Baggage Reclaim Office Proxy.
+ */
 public class mainBaggageReclaimOffice {
 	
 	public static int terminated;

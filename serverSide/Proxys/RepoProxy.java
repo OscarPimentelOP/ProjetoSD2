@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.Proxys;
 
 import AuxTools.Message;
@@ -5,37 +10,38 @@ import AuxTools.MessageException;
 import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.RepoInterface;
 
+/**
+ * This class implements the Repository Proxy that 
+ * 
+ */
 public class RepoProxy extends Thread {
 	/**
-	   *  Contador de threads lançados
-	   *
-	   *    @serialField nProxy
+	   *  Launched threads counter
+	   *  @serialField nProxy
 	   */
 
 	   private static int nProxy;
 	   
 	   
 	/**
-	   *  Canal de comunicação
-	   *
+	   *  Communication channel
 	   *    @serialField sconi
 	   */
 
 	   private ServerCom sconi;
 
 	  /**
-	   *  Interface à barbearia
-	   *
-	   *    @serialField bShopInter
+	   *  Repository Interface
+	   *    @serialField repoInter
 	   */
 
 	   private RepoInterface repoInter;
 
+	 
 	  /**
-	   *  Instanciação do interface à barbearia.
-	   *
-	   *    @param sconi canal de comunicação
-	   *    @param bShopInter interface à barbearia
+	   *    Repository Proxy Instantiation
+	   *    @param sconi Communication channel
+	   *    @param repoInter  Repository Interface
 	   */
 
 	   public RepoProxy (ServerCom sconi, RepoInterface repoInter)
@@ -47,7 +53,7 @@ public class RepoProxy extends Thread {
 	   }
 
 	  /**
-	   *  Ciclo de vida do thread agente prestador de serviço.
+	   *  Service provider agent thread life cycle. 
 	   */
 
 	   @Override
@@ -77,9 +83,8 @@ public class RepoProxy extends Thread {
 	   }
 
 	  /**
-	   *  Geração do identificador da instanciação.
-	   *
-	   *    @return identificador da instanciação
+	   * Instantiation ID generation
+	   *    @return Instantiation ID
 	   */
 	   
 	   private static int getProxyId ()

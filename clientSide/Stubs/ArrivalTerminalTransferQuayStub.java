@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.Stubs;
 
 import AuxTools.Message;
@@ -7,19 +12,27 @@ import clientSide.ClientCom;
 import clientSide.Entities.Passenger;
 import clientSide.Entities.BusDriver;
 
+/**
+ * This class implements the Arrival Terminal Transfer Quay Stub. This file consists on the implementation of the
+ * Arrival Terminal Transfer Quay's shared region functions, but in a message approach version. In each function, a connection is established and a message is sent to the
+ * Arrival Terminal Transfer Quay Interface that will execute the proper function from the original shared region itself.
+ */
 public class ArrivalTerminalTransferQuayStub {
 	/**
-	 * Temporary Storage Area server hostname
+	 * Arrival Terminal Transfer Quay server hostname
 	 * @serialField serverHostName
 	 */
 	private String serverHostName;
 
 	/**
-	 * Temporary Storage Area server port
+	 * Arrival Terminal Transfer Quay server port
 	 * @serialField serverPort
 	 */
     private int serverPort;
-    
+	
+	/**
+	 * Arrival Terminal Transfer Quay Stub instantiation
+	 */
     public ArrivalTerminalTransferQuayStub(){
         this.serverHostName = SimulatorParam.arrivalTerminalTransferQuayHostName;
         this.serverPort = SimulatorParam.arrivalTerminalTransferQuayPort;

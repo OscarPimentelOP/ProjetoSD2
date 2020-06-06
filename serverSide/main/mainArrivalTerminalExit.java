@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.net.SocketTimeoutException;
@@ -12,6 +17,10 @@ import serverSide.Proxys.ArrivalTerminalExitProxy;
 import serverSide.sharedRegionInterfaces.ArrivalTerminalExitInterface;
 import serverSide.sharedRegions.ArrivalTerminalExit;
 
+/**
+ * This class implements the Arrival Terminal Exit Main that instantiates the shared region Stubs
+ * that are part of Arrival Terminal Exit arguments, instantiates the Arrival Terminal Exit Interface and launches the Arrival Terminal Exit Proxy.
+ */
 public class mainArrivalTerminalExit {
 	
 	public static int terminated;

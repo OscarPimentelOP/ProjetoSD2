@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.Stubs;
 
 import AuxTools.*;
@@ -5,8 +10,9 @@ import clientSide.*;
 import clientSide.Entities.*;
 
 /**
- * This stub class represents the Temporary Storage Area, needed in the client side,
- *  converts a method's call into a message and communicates with the server side.
+ * This class implements the Temporary Storage Area Stub. This file consists on the implementation of the
+ * Temporary Storage Area's shared region functions, but in a message approach version. In each function, a connection is established and a message is sent to the
+ * Temporary Storage Area Interface that will execute the proper function from the original shared region itself.
  */
 public class TemporaryStorageAreaStub {
     /**
@@ -20,7 +26,10 @@ public class TemporaryStorageAreaStub {
 	 * @serialField serverPort
 	 */
     private int serverPort;
-    
+	
+	/**
+	 * Temporary Storage Area Stub instantiation
+	 */
     public TemporaryStorageAreaStub(){
         this.serverHostName = SimulatorParam.temporaryStorageAreaHostName;
         this.serverPort = SimulatorParam.temporaryStorageAreaPort;

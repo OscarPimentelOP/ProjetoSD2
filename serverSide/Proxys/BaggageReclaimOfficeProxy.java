@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.Proxys;
 
 import AuxTools.Message;
@@ -5,37 +10,37 @@ import AuxTools.MessageException;
 import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.BaggageReclaimOfficeInterface;
 
+/**
+ * This class implements the Baggage Reclaim Office that 
+ * 
+ */
 public class BaggageReclaimOfficeProxy extends Thread {
 	/**
-	   *  Contador de threads lançados
-	   *
-	   *    @serialField nProxy
+	   *  Launched threads counter
+	   *  @serialField nProxy
 	   */
 
 	   private static int nProxy;
 	   
 	   
 	/**
-	   *  Canal de comunicação
-	   *
+	   *  Communication channel
 	   *    @serialField sconi
 	   */
 
 	   private ServerCom sconi;
 
 	  /**
-	   *  Interface à barbearia
-	   *
-	   *    @serialField bShopInter
+	   *  Baggage Reclaim Office Interface
+	   *    @serialField broInter
 	   */
 
 	   private BaggageReclaimOfficeInterface broInter;
 
 	  /**
-	   *  Instanciação do interface à barbearia.
-	   *
-	   *    @param sconi canal de comunicação
-	   *    @param bShopInter interface à barbearia
+	   *   Baggage Reclaim Office Proxy Instantiation
+	   *    @param sconi Communication channel
+	   *    @param broInter  Baggage Reclaim Office Interface
 	   */
 
 	   public BaggageReclaimOfficeProxy (ServerCom sconi, BaggageReclaimOfficeInterface broInter)
@@ -47,7 +52,7 @@ public class BaggageReclaimOfficeProxy extends Thread {
 	   }
 
 	  /**
-	   *  Ciclo de vida do thread agente prestador de serviço.
+	   *  Service provider agent thread life cycle. 
 	   */
 
 	   @Override
@@ -77,9 +82,8 @@ public class BaggageReclaimOfficeProxy extends Thread {
 	   }
 
 	  /**
-	   *  Geração do identificador da instanciação.
-	   *
-	   *    @return identificador da instanciação
+	   * Instantiation ID generation
+	   *    @return Instantiation ID
 	   */
 	   
 	   private static int getProxyId ()

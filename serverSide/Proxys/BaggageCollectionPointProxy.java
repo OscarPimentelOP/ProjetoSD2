@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.Proxys;
 
 import AuxTools.Message;
@@ -5,37 +10,37 @@ import AuxTools.MessageException;
 import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.BaggageCollectionPointInterface;
 
+/**
+ * This class implements the Baggage Collection Point Proxy that 
+ * 
+ */
 public class BaggageCollectionPointProxy extends Thread {
 	/**
-	   *  Contador de threads lançados
-	   *
-	   *    @serialField nProxy
+	   *  Launched threads counter
+	   *  @serialField nProxy
 	   */
 
 	   private static int nProxy;
 	   
 	   
 	/**
-	   *  Canal de comunicação
-	   *
+	   *  Communication channel
 	   *    @serialField sconi
 	   */
 
 	   private ServerCom sconi;
 
 	  /**
-	   *  Interface à barbearia
-	   *
-	   *    @serialField bShopInter
+	   *  Baggage Collection Point Interface
+	   *    @serialField bcpInter
 	   */
 
 	   private BaggageCollectionPointInterface bcpInter;
 
 	  /**
-	   *  Instanciação do interface à barbearia.
-	   *
-	   *    @param sconi canal de comunicação
-	   *    @param bShopInter interface à barbearia
+	   *   Baggage Collection Point Proxy Instantiation
+	   *    @param sconi Communication channel
+	   *    @param bcpInter  Baggage Collection Point Interface
 	   */
 
 	   public BaggageCollectionPointProxy (ServerCom sconi, BaggageCollectionPointInterface bcpInter)
@@ -47,7 +52,7 @@ public class BaggageCollectionPointProxy extends Thread {
 	   }
 
 	  /**
-	   *  Ciclo de vida do thread agente prestador de serviço.
+	   *  Service provider agent thread life cycle. 
 	   */
 
 	   @Override
@@ -77,9 +82,8 @@ public class BaggageCollectionPointProxy extends Thread {
 	   }
 
 	  /**
-	   *  Geração do identificador da instanciação.
-	   *
-	   *    @return identificador da instanciação
+	   * Instantiation ID generation
+	   *    @return Instantiation ID
 	   */
 	   
 	   private static int getProxyId ()

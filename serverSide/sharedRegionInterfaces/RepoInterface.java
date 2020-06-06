@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.sharedRegionInterfaces;
 
 import AuxTools.Message;
@@ -7,14 +12,34 @@ import AuxTools.SimulatorParam;
 import serverSide.Proxys.RepoProxy;
 import serverSide.sharedRegions.Repo;
 
+/**
+ * This class implements the Repository Interface that processes the
+ * received messages and based on that received message executes the respective function from the actual
+ *  Repository. Furthermore, this Interface creates the reply message.
+ */
 public class RepoInterface {
+
+	/**
+	 *  Repository shared region
+     * @serialField repo
+     */
 	private Repo repo;
 	
+
+	/**
+	 *  Repository Interface instantiation
+     * @param repo Repository shared region
+     */
 	public RepoInterface (Repo repo)
 	{
 		this.repo = repo;
 	}
 	
+	/**
+	 * This function receives the incoming message and executes the correct function from the Repository shared region and then
+	 * generates the reply message.
+     * @param inMessage incoming message from the main
+     */
 	public Message processAndReply (Message inMessage) throws MessageException{
 		 Message outMessage = null;                           // response message
 		 

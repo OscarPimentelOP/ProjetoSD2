@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.net.SocketTimeoutException;
@@ -12,6 +17,12 @@ import serverSide.Proxys.DepartureTerminalEntranceProxy;
 import serverSide.sharedRegionInterfaces.DepartureTerminalEntranceInterface;
 import serverSide.sharedRegions.DepartureTerminalEntrance;
 
+
+/**
+ * This class implements the Departure Terminal Entrance Main that instantiates the shared region Stubs
+ * that are part of Departure Terminal Entrance arguments, instantiates the Departure Terminal Entrance Interface 
+ * and launches the Departure Terminal Entrance Proxy.
+ */
 public class mainDepartureTerminalEntrance {
 	
 	public static int terminated;

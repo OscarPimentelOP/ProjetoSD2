@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.Stubs;
 
 import AuxTools.*;
@@ -6,23 +11,27 @@ import clientSide.*;
 
 
 /**
- * This stub class represents the Departue terminal transfer quay, needed in the client side,
- *  converts a method's call into a message and communicates with the server side.
+ * This class implements the Departure Terminal Transfer Quay Stub. This file consists on the implementation of the
+ * Departure Terminal Transfer Quay's shared region functions, but in a message approach version. In each function, a connection is established and a message is sent to the
+ * Departure Terminal Transfer Quay Interface that will execute the proper function from the original shared region itself.
  */
 public class DepartureTerminalTransferQuayStub {
 
     /**
-	 * Departue terminal transfer quay server hostname
+	 * Departure Terminal Transfer Quay server hostname
 	 * @serialField serverHostName
 	 */
 	private String serverHostName;
 
 	/**
-	 * Departue terminal transfer quaya server port
+	 * Departure Terminal Transfer Quay server port
 	 * @serialField serverPort
 	 */
     private int serverPort;
 
+    /**
+	 * Departure Terminal Transfer Quay Stub instantiation
+	 */
     public DepartureTerminalTransferQuayStub(){
 
         this.serverHostName = SimulatorParam.departureTerminalTransferQuayHostName;

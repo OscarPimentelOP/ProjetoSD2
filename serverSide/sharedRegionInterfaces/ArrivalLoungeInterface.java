@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.sharedRegionInterfaces;
 
 import AuxTools.Bag;
@@ -9,16 +14,34 @@ import AuxTools.SimulatorParam;
 import serverSide.Proxys.ArrivalLoungeProxy;
 import serverSide.sharedRegions.ArrivalLounge;
 
+/**
+ * This class implements the Arrival Lounge Interface that processes the
+ * received messages and based on that received message executes the respective function from the actual
+ * Arrival Lounge. Furthermore, this Interface creates the reply message.
+ */
+
 public class ArrivalLoungeInterface {
 	
+	/**
+	 * Arrival Lounge shared region
+     * @serialField al
+     */
 	private ArrivalLounge al;
-	
+
+	/**
+	 * Arrival Lounge Interface instantiation
+     * @param al Arrival Lounge shared region
+     */
 	public ArrivalLoungeInterface (ArrivalLounge al)
 	{
 		this.al = al;
 	}
 
-	
+	/**
+	 * This function receives the incoming message and executes the correct function from the Arrival Lounge shared region and then
+	 * generates the reply message.
+     * @param inMessage incoming message from the main
+     */
 	 public Message processAndReply (Message inMessage) throws MessageException{
 		 Message outMessage = null;                           // response message
 		 

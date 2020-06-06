@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package serverSide.main;
 
 import java.net.SocketTimeoutException;
@@ -9,6 +14,11 @@ import serverSide.Proxys.BaggageCollectionPointProxy;
 import serverSide.sharedRegionInterfaces.BaggageCollectionPointInterface;
 import serverSide.sharedRegions.BaggageCollectionPoint;
 
+/**
+ * This class implements the Baggage Collection Point Main that instantiates the shared region Stubs
+ * that are part of Baggage Collection Point arguments, instantiates the Baggage Collection Point Interface 
+ * and launches the Baggage Collection Point Proxy.
+ */
 public class mainBaggageCollectionPoint {
 	
 	public static int terminated;

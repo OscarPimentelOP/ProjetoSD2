@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.Stubs;
 
 import AuxTools.Message;
@@ -8,19 +13,28 @@ import clientSide.Entities.BusDriverState;
 import clientSide.Entities.PassengerState;
 import clientSide.Entities.PorterState;
 
+
+/**
+ * This class implements the Repository Stub. This file consists on the implementation of the
+ * Repository's shared region functions, but in a message approach version. In each function, a connection is established and a message is sent to the
+ * Repository Interface that will execute the proper function from the original shared region itself.
+ */
 public class RepoStub {
 	/**
-	 * Temporary Storage Area server hostname
+	 * Repository server hostname
 	 * @serialField serverHostName
 	 */
 	private String serverHostName;
 
 	/**
-	 * Temporary Storage Area server port
+	 * Repository server port
 	 * @serialField serverPort
 	 */
     private int serverPort;
-    
+	
+	/**
+	 * Repository Stub instantiation
+	 */
     public RepoStub(){
         this.serverHostName = SimulatorParam.repoHostName;
         this.serverPort = SimulatorParam.repoPort;

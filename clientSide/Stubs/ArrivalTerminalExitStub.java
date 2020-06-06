@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package clientSide.Stubs;
 
 import AuxTools.Message;
@@ -6,19 +11,28 @@ import AuxTools.SimulatorParam;
 import clientSide.ClientCom;
 import clientSide.Entities.Passenger;
 
+/**
+ * This class implements the Arrival Terminal Exit Stub. This file consists on the implementation of the
+ * Arrival Terminal Exit's shared region functions, but in a message approach version. In each function, a connection is established and a message is sent to the
+ * Arrival Terminal Exit Interface that will execute the proper function from the original shared region itself.
+ */
 public class ArrivalTerminalExitStub {
 	/**
-	 * Temporary Storage Area server hostname
+	 * Arrival Terminal Exit server hostname
 	 * @serialField serverHostName
 	 */
 	private String serverHostName;
 
 	/**
-	 * Temporary Storage Area server port
+	 * Arrival Terminal Exit server port
 	 * @serialField serverPort
 	 */
     private int serverPort;
-    
+	
+	
+	/**
+	 * Arrival Terminal Exit Stub instantiation
+	 */
     public ArrivalTerminalExitStub(){
         this.serverHostName = SimulatorParam.arrivalTerminalExitHostName;
         this.serverPort = SimulatorParam.arrivalTerminalExitPort;
