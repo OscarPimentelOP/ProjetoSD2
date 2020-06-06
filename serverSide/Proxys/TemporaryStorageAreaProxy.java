@@ -11,8 +11,9 @@ import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.TemporaryStorageAreaInterface;
 
 /**
- * This class implements the Temporary Storage Area Proxy that 
- * 
+ * This class implements the Temporary Storage Area Proxy that is a service proxy agent thread
+ *  that deals with the client request and executes the operations on the Temporary Storage Area
+ *  shared region on its behalf.
  */
 public class TemporaryStorageAreaProxy extends Thread {
 	/**

@@ -11,8 +11,9 @@ import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.BaggageCollectionPointInterface;
 
 /**
- * This class implements the Baggage Collection Point Proxy that 
- * 
+ * This class implements the Baggage Collection Point Proxy that is a service proxy agent thread
+ *  that deals with the client request and executes the operations on the Baggage Collecion Point
+ *  shared region on its behalf.
  */
 public class BaggageCollectionPointProxy extends Thread {
 	/**

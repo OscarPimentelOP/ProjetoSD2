@@ -11,8 +11,9 @@ import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.ArrivalLoungeInterface;
 
 /**
- * This class implements the Arrival Lounge Proxy that 
- * 
+ * This class implements the Arrival Lounge Proxy that is a service proxy agent thread
+ *  that deals with the client request and executes the operations on the Arrival Lounge 
+ *  shared region on its behalf.
  */
 public class ArrivalLoungeProxy extends Thread {
 	

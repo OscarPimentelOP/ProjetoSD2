@@ -11,8 +11,9 @@ import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.ArrivalTerminalExitInterface;
 
 /**
- * This class implements the Arrival Terminal Exit Proxy that 
- * 
+ * This class implements the Arrival Terminal Exit Proxy that is a service proxy agent thread
+ *  that deals with the client request and executes the operations on the Arrival Terminal Exit 
+ *  shared region on its behalf.
  */
 public class ArrivalTerminalExitProxy extends Thread{
 		/**

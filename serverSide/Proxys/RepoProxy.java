@@ -11,8 +11,9 @@ import serverSide.ServerCom;
 import serverSide.sharedRegionInterfaces.RepoInterface;
 
 /**
- * This class implements the Repository Proxy that 
- * 
+ * This class implements the Repository Proxy that is a service proxy agent thread
+ *  that deals with the client request and executes the operations on the Repository
+ *  shared region on its behalf.
  */
 public class RepoProxy extends Thread {
 	/**
