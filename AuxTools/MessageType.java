@@ -18,182 +18,341 @@ public enum MessageType {
 
 	NO_MESSAGE,
 	
-	//O passageiro quer saber o que fazer(solicita��o)
+
 	/**
-	  * The Passenger starts his actions upon arriving at the Arrival Lounge (solicitation)
+	  * The Passenger starts his actions upon arriving at the Arrival Lounge (client solicitation)
 	  */
 	WHATSHOULDIDO,
 	
-	//O passageiro vai para casa (reposta)
+
 	/**
-	  * The Passenger goes home (response)
+	  * The Passenger goes home (response).
 	  */
 	GOHOME,
 	
-	//O passageiro vai buscar uma mala(respota)
+	/**
+	  * The Passenger goes to collect a bag (response).
+	  */
 	GOCOLLECTABAG,
 	
-	//O passageiro tem que ir apanhar o autocarro(resposta)
+	
+	/**
+	  * The Passenger takes the bus (response).
+	  */
 	TAKEABUS,
 	
-	//Porter quer saber se chegou ao final do dia (solicita��o do cliente)
+
+	/**
+	  * The Porter wants to know if his day of work has ended (client solicitation).
+	  */
 	TAKEAREST, 
 
-	//Porter chegou ao final do dia (Resposta do servidor)
+	/**
+	  * The end of the day has come for the Porter (server response).
+	  */
 	ENDPORTER,
 	
-	//Porter continua a trabalhar (resposta)
+	
+	/**
+	  * The Porter must keep working, as the day has not ended yet (server response).
+	  */
 	KEEPWORKINGPORTER,
 	
-	//Porter vai tentar buscar uma mala (solicita��o)
+	
+	/**
+	  * The porter tries to get a bag (solicitation).
+	  */
 	TRYTOCOLLECTABAG,
 	
-	//N�o h� mais malas no por�o (resposta)
+	/**
+	  * There are no more bags at the plane's hold (response).
+	  */
 	NOMOREBAGSATPLANEHOLD,
 	
-	//A mala existe (resposta)
+
+	/**
+	  * The Porter still has bags to collect  (response).
+	  */
 	BAGTOCOLLECT,
 	
-	//O porter avisa que ja n�o h� mais a recolher(solicita��o)
+	
+	/**
+	  * The porter notifies that there are no more bags to collect (solicitation).
+	  */
 	NOMOREBAGSTOCOLLECT,
 	
-	//A mensagem foi recebida com sucesso
+	
+	/**
+	  * A message has been successly received and an acknowledge is sent (response).
+	  */
 	ACK,
 	
-	//O passageiro quer ir para casa(solicita��o)
+
+	/**
+	  * The Passenger wants to go home (solicitation).
+	  */
 	GOINGHOME,
 	
-	//O passageiro quer apanhar um autocarro(solicita��o)
+	
+	/**
+	  * The Passenger wants to take a bus (solicitation).
+	  */
 	TAKINGABUS,
 	
-	//O passageiro quer entrar no autocarro(solicita��o)
+	
+	/**
+	  * The Passenger wants to enter the bus (solicitation).
+	  */
 	ENTERINGTHEBUS,
 	
-	//O bus driver quer se continua a trabalhar (solicita��o)
+	
+	/**
+	  * The bus driver checks if he has more work to do (solicitation).
+	  */
 	HASDAYSWORKENDED,
 	
-	//O bus driver chegou ao final do dia (resposta)
+
+	/**
+	  * The Bus Driver work has ended (response).
+	  */
 	ENDBUSDRIVER,
 	
-	//O bus driver continua a trabalhar (resposta)
+	
+	/**
+	  * The Bus Driver needs to keep working (response).
+	  */
 	KEEPWORKINGBUSDRIVER,
 	
-	//O bus driver anuncia que podem entrar (solicita��o)
+	
+	/**
+	  * The Bus Driver tells the passengers they can enter, announcing the bus (solicitation).
+	  */
 	ANNOUNCEBUS,
 	
-	//O bus driver avisa que chegou ao terminal (solicita��o)
+
+	/**
+	  * The Bus Driver tells that he has arrived at the arrival terminal (solicitation).
+	  */
 	PARKATARRIVAL,
 	
-	//O porter carrega a mala para o baggage collection point(solicita��o)
+
+	/**
+	  * The Porter carries the bag for the baggage collection point (solicitation).
+	  */
 	CARRYBAGTOBAGPOINT,
 	
-	//O passageiro vai buscar uma mala ao convoy belt (solicita��o)
+	
+	/**
+	  * The Passenger goes to collect a bag at the convoy belt (solicitation).
+	  */
 	GOINGCOLLECTABAG,
 	
-	//O passageiro tira a mala do convoy belt(resposta)
+	
+	/**
+	  * The Passenger has his bag at the convoy belt and takes it (response).
+	  */
 	BAGOK,
 	
-	//O passageiro n�o encontra a mala no convoy belt (resposta)
+	
+	/**
+	  * The Passenger doesn't find his bag at the convoy belt (response).
+	  */
 	BAGNOTOK,
 	
-	//O passageiro vai reportar uma mala (solicita��o)
+	
+	/**
+	  * The Passenger wants to report a missing bag (solicitation).
+	  */
 	REPORTBAG,
 	
-	//O passageiro vai preparar a proxima viagem (Solicita��o)
+	
+	/**
+	  * The Passenger wants to prepare his next leg (solicitation).
+	  */
 	PREPARINGNEXTLEG,
 	
-	//O passageiro quer sair do autocarro(solicita��o)
+	/**
+	  * The Passenger wants to leave the bus (solicitation).
+	  */
 	LEAVETHEBUS,
 	
-	//O bus driver estaciona no departure terminal transfer quay (Solicita��o)
+	/**
+	  * The Bus driver parks the bus at the departure terminal transfer quay (solicitation).
+	  */
 	PARKATDEPARTURE,
 	
-	//O bus driver muda de estado (solicita��o)
+	/**
+	  * The Bus Driver changes his state (solicitation).
+	  */
 	SETBUSDRIVERSTATE,
 	
-	//O porter carrega a mala para a temporary storage area (solicita��o)
+	/**
+	  * The carries the bag to the Temporary storage area (solicitation).
+	  */
 	CARRYBAGTOTEMPSTORE,
 	
-	//Envio de parametros para a main do passenger com as malas e tripstates (solicita��o)
+	/**
+	  * Bags and Trip States info sent to the mainPassenger (solicitation).
+	  */
 	SENDPARAMS,
 	
-	//Parametros recebidos (resposta)
+	/**
+	  * The Bags and Trip States info has been correctly received  (response).
+	  */
 	SENDPARAMSACK,
 	
-	//Mensagem do al para o bcp para informar que n�o h� mais malas (solicita��o)
+	/**
+	  * Message from Arrival Lounge to the Baggage Collection Point to inform that there are no more bags (solicitation).
+	  */
 	SETMOREBAGS,
 	
-	//Passageiro acorda os passageiros do departure (solicita��o)
+	/**
+	  * Passenger wakes up the passengers from the departure (solicitation).
+	  */
 	WAKEUPALLD,
 	 
-	//Passageiro d� set do time to wake up no departure (solicita��o)
+	/**
+	  * Passenger sets it's time to wake up at the departure (solicitation).
+	  */
 	SETTIMETOWAKEUPTOFALSED,
 	
-	//Passageiro d� set no fim do dia do porter (solicita��o)
+	/**
+	  * Passenger informs the Porter that his day has ended (solicitation).
+	  */
 	SETENDOFWORKPORTER,
 	
-	//Passageiro d� set no fim do dia do bus driver (solicita��o)
+	/**
+	  * The Passenger informs the Bus Driver his day of work has ended (solicitation).
+	  */
 	SETENDOFWORKBUSDRIVER,
 	
-	//Incrementar o numero de passageiros que chegaram ao final (solicita��o)
+	/**
+	  * Increase the number of passengers at the end when one reaches (solicitation).
+	  */
 	INCCNTPASSENGERSEND,
 	
-	//Pedido para receber o numero de passageiros que chegaram ao final (solicita��o)
+	/**
+	  * Solitication to receive the number of passengers that have made it to the very end (solicitation).
+	  */
 	GETCNTPASSENGERSEND,
 	
-	//Envio do numero de passageiros que chegaram ao final (resposta)
+	/**
+	  * Send the number of passengers that made it to the very end (response).
+	  */
 	SENDCNTPASSENGERSEND,
 	
-	//decrementar o numero de passageiros que chegaram ao final (solicita��o)
+	/**
+	  * Decrease the number of passengers at the very end (solicitation).
+	  */
 	DECCNTPASSENGERSEND,
 	
-	//Passageiro acorda os passageiros do arrival (solicita��o)
+	/**
+	  * The Passenger wakes up the other passengers at the arrival (solicitation).
+	  */
 	WAKEUPALLA,
 	 
-	//Passageiro d� set do time to wake up no arrival (solicita��o)
+	/**
+	  * The Passenger sets it's time to wake up at the arrival (solicitation).
+	  */
 	SETTIMETOWAKEUPTOFALSEA,
 	
-	//Passageiro sai do autocarro (solicita��o)
+	/**
+	  * The Passenger wants to leave the bus (solicitation).
+	  */
 	READFROMBUS,
 	
-	//decrementar o numero de passageiros no autocarro (solicita��o)
+	/**
+	  * Decrease the number of passengers in the bus when one leaves (solicitation).
+	  */
 	DECCNTPASSENGERSINBUS,
 	
-	//Pedido para receber o numero de passageiros no autocarro (solicita��o)
+	/**
+	  * Solicitation to get the number of passengers currently inside the bus (solicitation).
+	  */
 	GETCNTPASSENGERSINBUS,
 	
-	//Envio do numero de passageiros que chegaram no autocarro (resposta)
+	/**
+	  * Send the number of passengers that arrived inside the bus (response).
+	  */
 	SENDCNTPASSENGERSINBUS, 
-	
+
+	/**
+	  * Sets the Porter state.
+	  */
 	SETPORTERSTATE, 
 	
+	/**
+	  * Decrease the number of bags currently at the plane's hold when one is collected.
+	  */
 	DECNUMBAGSATPLANEHOLD, 
 	
+	/**
+	  * Sets the flight number.
+	  */
 	SETTINGFLIGHTNUMBER, 
 	
+	/**
+	  * Sets the number of bags currently at the plane's hold.
+	  */
 	SETTINGNUMOFBAGSATPLANEHOLD, 
 	
+	/**
+	  * ????????????????
+	  */
 	SETTINGPASSANGERSONTRANSIT, 
 	
+	/**
+	  * Sets the passengers destiny (?)
+	  */
 	SETTINGPASSANGERDEST, 
 	
+	/**
+	  * Sets the number of bags at the beggining at the operations.
+	  */
 	SETNUMOFBAGSATTHEBEGINNING, 
 	
+	/**
+	  * Sets a state for a passenger. (?)
+	  */
 	SETTINGPASSENGERSTATE, 
 	
+	/**
+	  * Sets the passenger to have that airport at final destination.
+	  */
 	SETTINGPASSANGERFINALDESTINATION, 
 	
+	/**
+	  * Sets the number of passengers on the queue waiting for a bus.
+	  */
 	SETTINGPASSANGERSONTHEQUEUE, 
 	
+	/**
+	  * Sets the number of passengers on the bus.
+	  */
 	SETTINGPASSANGERSONTHEBUS, 
 	
+	/**
+	  * Sets the number of bags on the convoy belt.
+	  */
 	SETTINGNUMOFBAGSINTHECB, 
 	
+	/**
+	  * Sets the number of bags that have been collected.
+	  */
 	SETTINGNUMOFBAGSCOLLECTED, 
 	
+	/**
+	  * Sets the number of bags that have been lost.
+	  */
 	SETTINGLOSTBAGS, 
 	
+	/**
+	  * Sets the number of bags currently at the temporary storage area. 
+	  */
 	SETTINGNUMBAGSTEMPAREA,
 	
+	/**
+	  * Shuts down the server.
+	  */
 	SHUTDOWN,
 }
