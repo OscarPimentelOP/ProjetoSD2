@@ -45,7 +45,7 @@ public class BaggageCollectionPointProxy extends Thread {
 
 	   public BaggageCollectionPointProxy (ServerCom sconi, BaggageCollectionPointInterface bcpInter)
 	   {
-	      super ("Proxy_" + getProxyId ());
+	      super ("Proxy_" + getProxyId ());	
 
 	      this.sconi = sconi;
 	      this.bcpInter = bcpInter;

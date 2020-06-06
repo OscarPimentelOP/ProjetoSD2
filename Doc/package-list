@@ -1,0 +1,10 @@
+AuxTools
+clientSide
+clientSide.Entities
+clientSide.Stubs
+clientSide.main
+serverSide
+serverSide.Proxys
+serverSide.main
+serverSide.sharedRegionInterfaces
+serverSide.sharedRegions

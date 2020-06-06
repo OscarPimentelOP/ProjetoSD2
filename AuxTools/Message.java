@@ -1,3 +1,8 @@
+/**
+ * @author Óscar Pimentel, nºmec 80247
+ * @author Rafael Maio, nºmec 84909
+ */
+
 package AuxTools;
 
 import java.io.Serializable;
@@ -5,6 +10,11 @@ import java.io.Serializable;
 import clientSide.Entities.BusDriverState;
 import clientSide.Entities.PassengerState;
 import clientSide.Entities.PorterState;
+
+/**
+ * This class defines the constructors of the various messages that the clients and servers exchange between them in a Distributed solution
+ * for the Airport Problem . The communication is based in message exchanges of type Message in a TCP channel.
+ */
 
 public class Message implements Serializable{
 	/**

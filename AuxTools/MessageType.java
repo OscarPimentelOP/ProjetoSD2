@@ -1,5 +1,15 @@
+/**
+ * @author Ã“scar Pimentel, nÂºmec 80247
+ * @author Rafael Maio, nÂºmec 84909
+ */
+
 package AuxTools;
 
+
+/**
+ * This enumerate data type specifies the various messages that the clients and servers exchange between them in a Distributed solution
+ * for the Airport Problem . Each message is tied to a function or an action crucial for the implementation.
+ */
 public enum MessageType {
 	/**
 	  * Initialization parameter
@@ -8,10 +18,16 @@ public enum MessageType {
 
 	NO_MESSAGE,
 	
-	//O passageiro quer saber o que fazer(solicitação)
+	//O passageiro quer saber o que fazer(solicitaï¿½ï¿½o)
+	/**
+	  * The Passenger starts his actions upon arriving at the Arrival Lounge (solicitation)
+	  */
 	WHATSHOULDIDO,
 	
 	//O passageiro vai para casa (reposta)
+	/**
+	  * The Passenger goes home (response)
+	  */
 	GOHOME,
 	
 	//O passageiro vai buscar uma mala(respota)
@@ -20,7 +36,7 @@ public enum MessageType {
 	//O passageiro tem que ir apanhar o autocarro(resposta)
 	TAKEABUS,
 	
-	//Porter quer saber se chegou ao final do dia (solicitação do cliente)
+	//Porter quer saber se chegou ao final do dia (solicitaï¿½ï¿½o do cliente)
 	TAKEAREST, 
 
 	//Porter chegou ao final do dia (Resposta do servidor)
@@ -29,31 +45,31 @@ public enum MessageType {
 	//Porter continua a trabalhar (resposta)
 	KEEPWORKINGPORTER,
 	
-	//Porter vai tentar buscar uma mala (solicitação)
+	//Porter vai tentar buscar uma mala (solicitaï¿½ï¿½o)
 	TRYTOCOLLECTABAG,
 	
-	//Não há mais malas no porão (resposta)
+	//Nï¿½o hï¿½ mais malas no porï¿½o (resposta)
 	NOMOREBAGSATPLANEHOLD,
 	
 	//A mala existe (resposta)
 	BAGTOCOLLECT,
 	
-	//O porter avisa que ja não há mais a recolher(solicitação)
+	//O porter avisa que ja nï¿½o hï¿½ mais a recolher(solicitaï¿½ï¿½o)
 	NOMOREBAGSTOCOLLECT,
 	
 	//A mensagem foi recebida com sucesso
 	ACK,
 	
-	//O passageiro quer ir para casa(solicitação)
+	//O passageiro quer ir para casa(solicitaï¿½ï¿½o)
 	GOINGHOME,
 	
-	//O passageiro quer apanhar um autocarro(solicitação)
+	//O passageiro quer apanhar um autocarro(solicitaï¿½ï¿½o)
 	TAKINGABUS,
 	
-	//O passageiro quer entrar no autocarro(solicitação)
+	//O passageiro quer entrar no autocarro(solicitaï¿½ï¿½o)
 	ENTERINGTHEBUS,
 	
-	//O bus driver quer se continua a trabalhar (solicitação)
+	//O bus driver quer se continua a trabalhar (solicitaï¿½ï¿½o)
 	HASDAYSWORKENDED,
 	
 	//O bus driver chegou ao final do dia (resposta)
@@ -62,88 +78,88 @@ public enum MessageType {
 	//O bus driver continua a trabalhar (resposta)
 	KEEPWORKINGBUSDRIVER,
 	
-	//O bus driver anuncia que podem entrar (solicitação)
+	//O bus driver anuncia que podem entrar (solicitaï¿½ï¿½o)
 	ANNOUNCEBUS,
 	
-	//O bus driver avisa que chegou ao terminal (solicitação)
+	//O bus driver avisa que chegou ao terminal (solicitaï¿½ï¿½o)
 	PARKATARRIVAL,
 	
-	//O porter carrega a mala para o baggage collection point(solicitação)
+	//O porter carrega a mala para o baggage collection point(solicitaï¿½ï¿½o)
 	CARRYBAGTOBAGPOINT,
 	
-	//O passageiro vai buscar uma mala ao convoy belt (solicitação)
+	//O passageiro vai buscar uma mala ao convoy belt (solicitaï¿½ï¿½o)
 	GOINGCOLLECTABAG,
 	
 	//O passageiro tira a mala do convoy belt(resposta)
 	BAGOK,
 	
-	//O passageiro não encontra a mala no convoy belt (resposta)
+	//O passageiro nï¿½o encontra a mala no convoy belt (resposta)
 	BAGNOTOK,
 	
-	//O passageiro vai reportar uma mala (solicitação)
+	//O passageiro vai reportar uma mala (solicitaï¿½ï¿½o)
 	REPORTBAG,
 	
-	//O passageiro vai preparar a proxima viagem (Solicitação)
+	//O passageiro vai preparar a proxima viagem (Solicitaï¿½ï¿½o)
 	PREPARINGNEXTLEG,
 	
-	//O passageiro quer sair do autocarro(solicitação)
+	//O passageiro quer sair do autocarro(solicitaï¿½ï¿½o)
 	LEAVETHEBUS,
 	
-	//O bus driver estaciona no departure terminal transfer quay (Solicitação)
+	//O bus driver estaciona no departure terminal transfer quay (Solicitaï¿½ï¿½o)
 	PARKATDEPARTURE,
 	
-	//O bus driver muda de estado (solicitação)
+	//O bus driver muda de estado (solicitaï¿½ï¿½o)
 	SETBUSDRIVERSTATE,
 	
-	//O porter carrega a mala para a temporary storage area (solicitação)
+	//O porter carrega a mala para a temporary storage area (solicitaï¿½ï¿½o)
 	CARRYBAGTOTEMPSTORE,
 	
-	//Envio de parametros para a main do passenger com as malas e tripstates (solicitação)
+	//Envio de parametros para a main do passenger com as malas e tripstates (solicitaï¿½ï¿½o)
 	SENDPARAMS,
 	
 	//Parametros recebidos (resposta)
 	SENDPARAMSACK,
 	
-	//Mensagem do al para o bcp para informar que não há mais malas (solicitação)
+	//Mensagem do al para o bcp para informar que nï¿½o hï¿½ mais malas (solicitaï¿½ï¿½o)
 	SETMOREBAGS,
 	
-	//Passageiro acorda os passageiros do departure (solicitação)
+	//Passageiro acorda os passageiros do departure (solicitaï¿½ï¿½o)
 	WAKEUPALLD,
 	 
-	//Passageiro dá set do time to wake up no departure (solicitação)
+	//Passageiro dï¿½ set do time to wake up no departure (solicitaï¿½ï¿½o)
 	SETTIMETOWAKEUPTOFALSED,
 	
-	//Passageiro dá set no fim do dia do porter (solicitação)
+	//Passageiro dï¿½ set no fim do dia do porter (solicitaï¿½ï¿½o)
 	SETENDOFWORKPORTER,
 	
-	//Passageiro dá set no fim do dia do bus driver (solicitação)
+	//Passageiro dï¿½ set no fim do dia do bus driver (solicitaï¿½ï¿½o)
 	SETENDOFWORKBUSDRIVER,
 	
-	//Incrementar o numero de passageiros que chegaram ao final (solicitação)
+	//Incrementar o numero de passageiros que chegaram ao final (solicitaï¿½ï¿½o)
 	INCCNTPASSENGERSEND,
 	
-	//Pedido para receber o numero de passageiros que chegaram ao final (solicitação)
+	//Pedido para receber o numero de passageiros que chegaram ao final (solicitaï¿½ï¿½o)
 	GETCNTPASSENGERSEND,
 	
 	//Envio do numero de passageiros que chegaram ao final (resposta)
 	SENDCNTPASSENGERSEND,
 	
-	//decrementar o numero de passageiros que chegaram ao final (solicitação)
+	//decrementar o numero de passageiros que chegaram ao final (solicitaï¿½ï¿½o)
 	DECCNTPASSENGERSEND,
 	
-	//Passageiro acorda os passageiros do arrival (solicitação)
+	//Passageiro acorda os passageiros do arrival (solicitaï¿½ï¿½o)
 	WAKEUPALLA,
 	 
-	//Passageiro dá set do time to wake up no arrival (solicitação)
+	//Passageiro dï¿½ set do time to wake up no arrival (solicitaï¿½ï¿½o)
 	SETTIMETOWAKEUPTOFALSEA,
 	
-	//Passageiro sai do autocarro (solicitação)
+	//Passageiro sai do autocarro (solicitaï¿½ï¿½o)
 	READFROMBUS,
 	
-	//decrementar o numero de passageiros no autocarro (solicitação)
+	//decrementar o numero de passageiros no autocarro (solicitaï¿½ï¿½o)
 	DECCNTPASSENGERSINBUS,
 	
-	//Pedido para receber o numero de passageiros no autocarro (solicitação)
+	//Pedido para receber o numero de passageiros no autocarro (solicitaï¿½ï¿½o)
 	GETCNTPASSENGERSINBUS,
 	
 	//Envio do numero de passageiros que chegaram no autocarro (resposta)
