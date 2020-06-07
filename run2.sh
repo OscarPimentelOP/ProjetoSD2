@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Executing all the shared regions and entities..............."
+gnome-terminal -e "java serverSide/main/mainRepo" -t "mainRepo"
+gnome-terminal -e "java serverSide/main/mainArrivalLounge" -t "mainArrivalLounge"
+gnome-terminal -e "java serverSide/main/mainArrivalTerminalExit" -t "mainArrivalTerminalEntrance"
+gnome-terminal -e "java serverSide/main/mainArrivalTerminalTransferQuay" -t "mainArrivalTerminalTransferQuay"
+gnome-terminal -e "java serverSide/main.mainBaggageCollectionPoint" -t "mainBaggageCollectionPoint"
+gnome-terminal -e "java serverSide/main/mainBaggageReclaimOffice" -t "mainBaggageReclaimOffice"
+gnome-terminal -e "java serverSide/main/mainDepartureTerminalEntrance" -t "mainDepartureTerminalExit"
+gnome-terminal -e "java serverSide/main/mainDepartureTerminalTransferQuay" -t "mainDepartureTerminalTransferQuay"
+gnome-terminal -e "java serverSide/main/mainTemporaryStorageArea" -t "mainTemporaryStorageArea"
+gnome-terminal -e "java clientSide/main/mainPorter." -t "mainPorter"
+gnome-terminal -e "java clientSide/main/mainBusDriver" -t "mainBusDriver"
+gnome-terminal -e "java clientSide/main/mainPassenger" -t "mainPassenger"
