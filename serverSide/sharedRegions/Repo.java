@@ -448,6 +448,9 @@ public class Repo {
         this.lostBags = lostBags;
     }
     
+    /**
+     * Shuts the server increasing the number of terminated regions
+     */
     public synchronized void shutServer() {
     	mainRepo.terminated = mainRepo.terminated + 1;
     }

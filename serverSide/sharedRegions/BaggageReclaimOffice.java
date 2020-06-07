@@ -25,14 +25,14 @@ public class BaggageReclaimOffice {
     private int totalNumOfMissingBags;
 
     /**
-     * The repository, to store the program status
+     * The repository's stub, to store the program status
      */
     private RepoStub repo;
 
     /**
      * Baggage ReclaimOffice's instantiation
      *
-     * @param repo -> repository of information
+     * @param repo -> repository of information stub
      */
     public BaggageReclaimOffice(RepoStub repo) {
         this.repo = repo;
@@ -61,6 +61,9 @@ public class BaggageReclaimOffice {
         this.repo.setLostBags(totalNumOfMissingBags);
     }
     
+    /**
+     * Shuts the server increasing the number of terminated regions
+     */
     public synchronized void shutServer() {
     	mainBaggageReclaimOffice.terminated = mainBaggageReclaimOffice.terminated + 1;
     }

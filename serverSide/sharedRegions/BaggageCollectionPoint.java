@@ -32,7 +32,7 @@ public class BaggageCollectionPoint {
     private int numOfBagsInConveyBelt;
 
     /**
-     * The repository, to store the program status
+     * The repository's stub, to store the program status
      */
     private RepoStub repo;
 
@@ -44,7 +44,7 @@ public class BaggageCollectionPoint {
     /**
      * Baggage Collection Point's instantiation
      *
-     * @param repo -> repository of information
+     * @param repo -> repository of information stub
      */
     public BaggageCollectionPoint(RepoStub repo) {
         this.repo = repo;

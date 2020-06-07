@@ -28,7 +28,7 @@ public class TemporaryStorageArea {
     private MemStack<Bag> bagStorage;
 
     /**
-     * The repository, to store the program status
+     * The repository's stub, to store the program status
      */
     private RepoStub repo;
 
@@ -40,7 +40,7 @@ public class TemporaryStorageArea {
     /**
      * Temporary storage area's instantiation
      *
-     * @param repo -> repository of information
+     * @param repo -> repository of information stub
      */
     public TemporaryStorageArea(RepoStub repo) {
         this.repo = repo;
@@ -79,6 +79,9 @@ public class TemporaryStorageArea {
         repo.setNumOfBagsInTheTempArea(numOfBagsAtStoreroom);
     }
     
+    /**
+     * Shuts the server increasing the number of terminated regions
+     */
     public synchronized void shutServer() {
     	mainTemporaryStorageArea.terminated = mainTemporaryStorageArea.terminated + 1;
     }

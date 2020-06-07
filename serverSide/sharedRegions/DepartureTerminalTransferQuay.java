@@ -31,19 +31,19 @@ public class DepartureTerminalTransferQuay {
     private int cntPassengersOut;
 
     /**
-     * The repository, to store the program status
+     * The repository's stub, to store the program status
      */
     private RepoStub repo;
 
     /**
-     * Arrival terminal transfer quay shared region
+     * Arrival terminal transfer quay's shared region stub
      */
     private ArrivalTerminalTransferQuayStub attq;
 
     /**
      * Departure terminal transfer quay's instantiation
      *
-     * @param repo -> repository of information
+     * @param repo -> repository of information stub
      */
     public DepartureTerminalTransferQuay(RepoStub repo) {
         this.repo = repo;
@@ -126,6 +126,7 @@ public class DepartureTerminalTransferQuay {
 
     /**
      * Sets the arrival terminal transfer quay shared region
+     * @param attqStub arrival terminal transfer quay stub
      */
     public synchronized void setArrivalTerminalTransferQuay(ArrivalTerminalTransferQuayStub attqStub) {
         this.attq = attqStub;
@@ -138,6 +139,9 @@ public class DepartureTerminalTransferQuay {
         return this.parked;
     }
     
+    /**
+     * Shuts the server increasing the number of terminated regions
+     */
     public synchronized void shutServer() {
     	mainDepartureTerminalTransferQuay.terminated = mainDepartureTerminalTransferQuay.terminated + 1;
     }

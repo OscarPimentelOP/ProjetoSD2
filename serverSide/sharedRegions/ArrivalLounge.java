@@ -64,7 +64,7 @@ public class ArrivalLounge {
     private int passengersTransit;
 
     /**
-     * Baggage collection point shared region
+     * Baggage collection point's shared region stub
      */
     private BaggageCollectionPointStub bcp;
 
@@ -84,7 +84,7 @@ public class ArrivalLounge {
      * @param sBags              -> bags
      * @param numOfBagsPerFlight -> number of bags per flight
      * @param tripState          -> trip states for the passengers
-     * @param bcp                -> baggage collection point
+     * @param bcp                -> baggage collection point stub
      * @param repo               -> repository of information
      */
     public ArrivalLounge(BaggageCollectionPointStub bcp, RepoStub repo) {
@@ -234,7 +234,9 @@ public class ArrivalLounge {
         notifyAll();
     }
     
-    
+    /**
+     * Shuts the server increasing the number of terminated regions
+     */
     public synchronized void shutServer() {
     	mainArrivalLounge.terminated = mainArrivalLounge.terminated + 1;
     }

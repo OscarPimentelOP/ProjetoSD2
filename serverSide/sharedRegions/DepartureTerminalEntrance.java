@@ -23,36 +23,34 @@ public class DepartureTerminalEntrance {
 	Random rand = new Random();
 	
     /**
-     * The repository, to store the program status
+     * The repository's stub, to store the program status
      */
     private RepoStub repo;
 
     /**
-     * Arrival terminal transfer quay shared region
+     * Arrival terminal transfer quay's shared region stub
      */
     private ArrivalTerminalTransferQuayStub attq;
 
     /**
-     * Arrival terminal exit shared region
+     * Arrival terminal exit's shared region stub
      */
     private ArrivalTerminalExitStub ate;
 
     /**
-     * Arrival lounge shared region
+     * Arrival lounge's shared region stub
      */
     private ArrivalLoungeStub al;
 
-    /**
-     * ???
-     */
+    
     private boolean timeToWakeUp;
 
     /**
      * Departure Terminal Exit's instantiation
      *
-     * @param al   -> arrival lounge
-     * @param attq -> arrival terminal transfer quay
-     * @param repo -> repository of information
+     * @param al   -> arrival lounge stub
+     * @param attq -> arrival terminal transfer quay stub
+     * @param repo -> repository of information stub
      */
     public DepartureTerminalEntrance(ArrivalLoungeStub al, ArrivalTerminalTransferQuayStub attq, RepoStub repo) {
         this.repo = repo;
@@ -141,6 +139,9 @@ public class DepartureTerminalEntrance {
         this.timeToWakeUp = false;
     }
     
+    /**
+     * Shuts the server increasing the number of terminated regions
+     */
     public synchronized void shutServer() {
     	mainDepartureTerminalEntrance.terminated = mainDepartureTerminalEntrance.terminated + 1;
     }

@@ -59,7 +59,7 @@ public class ArrivalTerminalTransferQuay {
     protected MemFIFO<Thread> inTheBus;
 
     /**
-     * The repository, to store the program status
+     * The repository's stub, to store the program status
      */
     private RepoStub repo;
 
@@ -72,7 +72,7 @@ public class ArrivalTerminalTransferQuay {
     /**
      * Arrival Terminal Transfer Quay's instantiation
      *
-     * @param repo -> repository of information
+     * @param repo -> repository of information stub
      */
     public ArrivalTerminalTransferQuay(RepoStub repo) {
         this.repo = repo;
@@ -269,6 +269,9 @@ public class ArrivalTerminalTransferQuay {
         }
     }
     
+    /**
+     * Shuts the server increasing the number of terminated regions
+     */
     public synchronized void shutServer() {
     	mainArrivalTerminalTransferQuay.terminated = mainArrivalTerminalTransferQuay.terminated + 1;
     }
